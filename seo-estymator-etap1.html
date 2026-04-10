@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Estymator — Sempai</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script src="https://apis.google.com/js/api.js" async></script>
+<style>
+:root {
+  --bg:#0D1025; --bg2:#131830; --bg3:#1A2040;
+  --sf:#1E2547; --sf2:#252d55;
+  --bd:rgba(65,173,73,.2); --bd2:rgba(255,255,255,.06);
+  --tx:#EEF0FB; --tx2:#8B93C0; --tx3:#5C6490;
+  --ac:#41AD49; --ag:rgba(65,173,73,.13); --ac2:#F7614F;
+  --r:10px; --rlg:16px; --tr:.18s ease;
+}
+[data-theme=light] {
+  --bg:#F0F2FF; --bg2:#E8EBFA; --bg3:#DDE1F5;
+  --sf:#fff; --sf2:#F5F7FF;
+  --bd:rgba(65,173,73,.25); --bd2:rgba(21,27,58,.08);
+  --tx:#151B3A; --tx2:#3D4880; --tx3:#8B93C0;
+}
+* { box-sizing:border-box; margin:0; padding:0 }
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--tx); min-height:100vh }
+input,select,textarea { font-family:'DM Sans',sans-serif }
+
+/* SCREENS */
+.screen { display:none; min-height:100vh; flex-direction:column }
+.screen.on { display:flex }
+
+/* TOPBAR */
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:58px; background:var(--bg2); border-bottom:1px solid var(--bd); position:sticky; top:0; z-index:100; flex-shrink:0 }
+.tb-l { display:flex; align-items:center; gap:0; flex:1 }
+.logo { display:flex; align-items:center; gap:10px; padding-right:14px; flex-shrink:0; cursor:pointer; text-decoration:none }
+.logo-mark { width:32px; height:32px; background:var(--ac); border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:14px; color:#fff }
+.logo-text { font-family:'Syne',sans-serif; font-size:15px; font-weight:800; color:var(--tx) }
+.lsep { width:1px; height:22px; background:var(--bd); flex-shrink:0 }
+.app-lbl { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--tx3); padding-left:14px }
+.tb-r { display:flex; align-items:center; gap:8px }
+.ico-btn { background:var(--sf); border:1px solid var(--bd2); color:var(--tx2); width:34px; height:34px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:15px; transition:var(--tr) }
+.ico-btn:hover { border-color:var(--ac); color:var(--ac) }
+
+/* AUTH SCREEN */
+#screen-auth { align-items:center; justify-content:center }
+.auth-card { background:var(--sf); border:1px solid var(--bd); border-radius:24px; padding:48px 40px; width:100%; max-width:420px; text-align:center }
+.auth-logo { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:32px }
+.auth-logo-mark { width:52px; height:52px; background:var(--ac); border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:22px; color:#fff }
+.auth-logo-text { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:var(--tx) }
+.auth-h { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; margin-bottom:6px }
+.auth-sub { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:28px }
+.btn-google { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:13px 20px; background:#fff; color:#3c4043; border:1px solid #dadce0; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; transition:var(--tr); font-family:'DM Sans',sans-serif }
+.btn-google:hover { background:#f8f9fa; box-shadow:0 2px 12px rgba(0,0,0,.12) }
+[data-theme=dark] .btn-google { background:#303134; color:#e8eaed; border-color:#5f6368 }
+[data-theme=dark] .btn-google:hover { background:#3c4043 }
+.auth-note { margin-top:16px; font-size:11px; color:var(--tx3); line-height:1.6 }
+.auth-note strong { color:var(--ac) }
+.auth-status { margin-top:12px; font-size:12px; min-height:18px }
+.auth-status.err { color:var(--ac2) }
+.auth-status.ok { color:var(--ac) }
+
+/* USER PILL */
+.u-pill { display:flex; align-items:center; gap:7px; padding:3px 10px 3px 3px; background:var(--sf); border:1px solid var(--bd2); border-radius:20px; cursor:pointer; transition:var(--tr) }
+.u-pill:hover { border-color:var(--ac) }
+.u-init { width:26px; height:26px; border-radius:50%; background:var(--ac); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; flex-shrink:0 }
+.u-name { font-size:12px; font-weight:600; color:var(--tx2); max-width:110px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.u-dd { position:fixed; top:52px; right:16px; background:var(--bg2); border:1px solid var(--bd); border-radius:var(--rlg); z-index:300; min-width:220px; box-shadow:0 12px 32px rgba(0,0,0,.4); display:none; overflow:hidden }
+.u-dd.on { display:block }
+.udd-profile { padding:14px 16px; display:flex; align-items:center; gap:11px; border-bottom:1px solid var(--bd2) }
+.udd-init { width:36px; height:36px; border-radius:50%; background:var(--ac); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#fff }
+.udd-name { font-size:13px; font-weight:600; margin-bottom:2px }
+.udd-email { font-family:'DM Mono',monospace; font-size:10px; color:var(--tx3) }
+.udd-item { display:flex; align-items:center; gap:8px; padding:10px 14px; font-size:13px; color:var(--tx2); cursor:pointer; transition:background var(--tr) }
+.udd-item:hover { background:var(--sf); color:var(--tx) }
+.udd-item.red { color:var(--ac2) }
+.udd-item.red:hover { background:rgba(247,97,79,.08) }
+
+/* ONBOARDING SCREEN */
+#screen-ob { align-items:center; justify-content:center }
+.ob-wrap { width:100%; max-width:520px; padding:24px 16px }
+.ob-card { background:var(--sf); border:1px solid var(--bd); border-radius:20px; padding:36px }
+.ob-icon { font-size:44px; margin-bottom:16px }
+.ob-h { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; margin-bottom:6px }
+.ob-sub { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:24px }
+.folder-display { display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--bg2); border:1px solid var(--bd2); border-radius:var(--r); font-size:13px; margin-bottom:14px; min-height:46px }
+.folder-display .fd-icon { font-size:18px; flex-shrink:0 }
+.folder-display .fd-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.ob-btns { display:flex; gap:10px; margin-bottom:20px }
+.info-box { background:var(--ag); border:1px solid var(--bd); border-radius:var(--r); padding:12px 14px; font-size:12px; color:var(--tx2); line-height:1.6; margin-bottom:20px }
+.info-box strong { color:var(--ac) }
+
+/* HOME SCREEN (placeholder for next stage) */
+#screen-home { align-items:center; justify-content:center }
+.home-placeholder { text-align:center; padding:60px 20px }
+.home-placeholder h2 { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; margin-bottom:10px }
+.home-placeholder p { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:24px }
+.home-placeholder .folder-info { font-family:'DM Mono',monospace; font-size:12px; color:var(--ac); background:var(--ag); border:1px solid var(--bd); border-radius:var(--r); padding:10px 16px; display:inline-block; margin-bottom:16px }
+
+/* CHANGE FOLDER MODAL */
+.mbg { position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:200; display:none; align-items:center; justify-content:center; padding:16px }
+.mbg.on { display:flex }
+.modal { background:var(--bg2); border:1px solid var(--bd); border-radius:20px; width:100%; max-width:460px; overflow:hidden }
+.modal-h { padding:20px 24px; border-bottom:1px solid var(--bd2); display:flex; align-items:center; justify-content:space-between }
+.modal-h h3 { font-family:'Syne',sans-serif; font-size:16px; font-weight:800 }
+.modal-close { cursor:pointer; color:var(--tx3); font-size:20px; line-height:1; transition:color var(--tr) }
+.modal-close:hover { color:var(--tx) }
+.modal-body { padding:24px }
+.modal-foot { padding:16px 24px; border-top:1px solid var(--bd2); display:flex; justify-content:flex-end; gap:8px }
+.field { margin-bottom:18px }
+.field label { display:block; font-size:12px; font-weight:600; color:var(--tx2); margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em }
+.field input { width:100%; padding:10px 13px; background:var(--bg3); border:1px solid var(--bd2); border-radius:var(--r); color:var(--tx); font-size:14px; outline:none; transition:var(--tr) }
+.field input:focus { border-color:var(--ac); box-shadow:0 0 0 3px rgba(65,173,73,.1) }
+.migrate-check { display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-size:13px; color:var(--tx2); line-height:1.5 }
+.migrate-check input { margin-top:2px; accent-color:var(--ac); width:16px; height:16px; flex-shrink:0 }
+
+/* BUTTONS */
+.btn { padding:9px 20px; border-radius:var(--r); font-size:13px; font-weight:600; cursor:pointer; border:none; transition:var(--tr); font-family:'DM Sans',sans-serif; display:inline-flex; align-items:center; gap:7px }
+.btn-p { background:var(--ac); color:#fff }
+.btn-p:hover { background:#3B9E42; transform:translateY(-1px) }
+.btn-p:disabled { background:var(--tx3); cursor:not-allowed; transform:none }
+.btn-s { background:var(--sf); color:var(--tx2); border:1px solid var(--bd2) }
+.btn-s:hover { border-color:var(--ac); color:var(--tx) }
+.btn-ghost { background:transparent; color:var(--tx2); border:1px solid var(--bd2) }
+.btn-ghost:hover { border-color:var(--ac); color:var(--ac) }
+.btn-danger { background:rgba(247,97,79,.1); color:var(--ac2); border:1px solid rgba(247,97,79,.2) }
+.btn-danger:hover { background:rgba(247,97,79,.2) }
+.btn-lg { padding:12px 28px; font-size:14px; border-radius:12px }
+
+/* TOAST */
+.tc { position:fixed; bottom:20px; right:20px; z-index:999; display:flex; flex-direction:column; gap:8px; pointer-events:none }
+.toast { background:var(--sf); border:1px solid var(--bd); border-radius:10px; padding:10px 16px; font-size:13px; animation:fadeIn .2s ease; box-shadow:0 4px 20px rgba(0,0,0,.3) }
+.toast.ok { border-left:3px solid var(--ac) }
+.toast.err { border-left:3px solid var(--ac2) }
+.toast.warn { border-left:3px solid #F79F4F }
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
+
+/* LOADER */
+.loader { position:fixed; inset:0; background:rgba(13,16,37,.85); z-index:999; display:none; align-items:center; justify-content:center; flex-direction:column; gap:14px; backdrop-filter:blur(4px) }
+.loader.on { display:flex }
+.spinner { width:40px; height:40px; border:3px solid var(--bd2); border-top-color:var(--ac); border-radius:50%; animation:spin .7s linear infinite }
+.lmsg { font-size:13px; color:var(--tx2) }
+@keyframes spin { to { transform:rotate(360deg) } }
+</style>
+</head>
+<body>
+
+<!-- ═══ SCREEN: AUTH ═══ -->
+<div class="screen on" id="screen-auth">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="auth-logo-mark">S</div>
+      <div class="auth-logo-text">Sempai</div>
+    </div>
+    <h2 class="auth-h">SEO Estymator</h2>
+    <p class="auth-sub">Narzędzie do automatycznej estymacji SEO.<br>Zaloguj się kontem służbowym aby kontynuować.</p>
+    <button class="btn-google" onclick="initiateSignIn()">
+      <svg viewBox="0 0 18 18" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+        <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.185l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+        <path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/>
+        <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.962L3.964 6.294C4.672 4.167 6.656 3.58 9 3.58z"/>
+      </svg>
+      Zaloguj się przez Google
+    </button>
+    <div class="auth-status" id="auth-status"></div>
+    <p class="auth-note">Dostęp wyłącznie dla kont <strong>@sempai.pl</strong><br>Pliki przechowywane na Twoim Google Drive.</p>
+  </div>
+</div>
+
+<!-- ═══ SCREEN: ONBOARDING ═══ -->
+<div class="screen" id="screen-ob">
+  <div class="ob-wrap">
+    <div class="ob-card">
+      <div class="ob-icon">📁</div>
+      <h2 class="ob-h">Wybierz folder roboczy</h2>
+      <p class="ob-sub">Wskaż folder na Google Drive gdzie będą zapisywane Twoje estymacje i plik konfiguracyjny. Możesz wybrać istniejący folder lub stworzyć nowy.</p>
+
+      <div class="folder-display" id="ob-folder-display">
+        <span class="fd-icon">📂</span>
+        <span class="fd-name" id="ob-folder-name" style="color:var(--tx3)">Nie wybrano folderu</span>
+      </div>
+
+      <div class="ob-btns">
+        <button class="btn btn-s" style="flex:1" onclick="openFolderPicker('ob')">📂 Wybierz folder</button>
+        <button class="btn btn-ghost" onclick="openModal('newfolder')">➕ Nowy folder</button>
+      </div>
+
+      <div class="info-box">
+        <strong>Co zostanie zapisane na Twoim Drive:</strong><br>
+        Plik konfiguracyjny <code>sempai-seo-estymacje.json</code> oraz podfoldery dla każdego projektu z wygenerowanymi estymacjami .docx. Pliki widoczne tylko dla Ciebie.
+      </div>
+
+      <div style="display:flex; justify-content:flex-end">
+        <button class="btn btn-p btn-lg" id="ob-confirm" onclick="finishOnboarding()" disabled>
+          Rozpocznij →
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN: HOME (placeholder — Etap 2) ═══ -->
+<div class="screen" id="screen-home">
+  <div class="topbar">
+    <div class="tb-l">
+      <div class="logo" onclick="showHome()">
+        <div class="logo-mark">S</div>
+        <div class="logo-text">Sempai</div>
+      </div>
+      <div class="lsep"></div>
+      <span class="app-lbl">SEO Estymator</span>
+    </div>
+    <div class="tb-r">
+      <button class="ico-btn" onclick="toggleTheme()" id="theme-btn">🌙</button>
+      <div class="u-pill" onclick="toggleUDD()">
+        <div class="u-init" id="u-init">?</div>
+        <span class="u-name" id="u-name">—</span>
+      </div>
+      <div class="u-dd" id="u-dd">
+        <div class="udd-profile">
+          <div class="udd-init" id="udd-init">?</div>
+          <div>
+            <div class="udd-name" id="udd-name">—</div>
+            <div class="udd-email" id="udd-email">—</div>
+          </div>
+        </div>
+        <div class="udd-item" onclick="openChangeFolderModal()">📁 Zmień folder roboczy</div>
+        <div class="udd-item" onclick="toggleTheme()">🌓 Zmień motyw</div>
+        <div class="udd-item red" onclick="signOut()">⬆ Wyloguj</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-placeholder">
+    <div style="font-size:64px; margin-bottom:16px">✅</div>
+    <h2>Logowanie i konfiguracja gotowe!</h2>
+    <p>Etap 1 działa poprawnie. Tutaj pojawi się Dashboard w Etapie 2.</p>
+    <div class="folder-info" id="home-folder-info">📁 —</div>
+    <br>
+    <button class="btn btn-ghost" onclick="openChangeFolderModal()">📁 Zmień folder roboczy</button>
+    &nbsp;
+    <button class="btn btn-danger" onclick="signOut()">Wyloguj</button>
+  </div>
+</div>
+
+<!-- ═══ MODAL: NOWY FOLDER ═══ -->
+<div class="mbg" id="m-newfolder">
+  <div class="modal">
+    <div class="modal-h">
+      <h3>➕ Utwórz nowy folder</h3>
+      <span class="modal-close" onclick="closeModal('newfolder')">✕</span>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Nazwa folderu</label>
+        <input type="text" id="new-folder-name" value="Sempai — SEO Estymacje" placeholder="Nazwa folderu">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-s" onclick="closeModal('newfolder')">Anuluj</button>
+      <button class="btn btn-p" onclick="doCreateFolder()">Utwórz i wybierz</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL: ZMIEŃ FOLDER ═══ -->
+<div class="mbg" id="m-folder">
+  <div class="modal">
+    <div class="modal-h">
+      <h3>📁 Zmień folder roboczy</h3>
+      <span class="modal-close" onclick="closeModal('folder')">✕</span>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px; color:var(--tx2); margin-bottom:16px; line-height:1.6">
+        Wybierz nowy folder na Google Drive gdzie będą zapisywane estymacje.
+      </p>
+      <div class="folder-display" style="margin-bottom:12px">
+        <span class="fd-icon">📂</span>
+        <span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span>
+      </div>
+      <button class="btn btn-s" style="width:100%; margin-bottom:16px" onclick="openFolderPicker('change')">
+        📂 Wybierz nowy folder
+      </button>
+      <label class="migrate-check">
+        <input type="checkbox" id="migrate-files">
+        <span>Przenieś poprzednie estymacje (.docx) do nowego folderu<br>
+          <small style="color:var(--tx3)">Plik konfiguracyjny zostanie przeniesiony automatycznie.</small>
+        </span>
+      </label>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-s" onclick="closeModal('folder')">Anuluj</button>
+      <button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>
+        Potwierdź zmianę
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="tc" id="toasts"></div>
+<div class="loader" id="loader">
+  <div class="spinner"></div>
+  <div class="lmsg" id="lmsg">Ładowanie…</div>
+</div>
+
+<script>
+// ════════════════════════════════════════
+// STAŁE
+// ════════════════════════════════════════
+const CLIENT_ID  = '460409748582-9c1dn06biv4ojsfgn71lht4tljm2cke0.apps.googleusercontent.com';
+const PICKER_KEY = 'AIzaSyCvwRNUpQM_dseggHpj5r5DQBkIU8s3gdQ';
+const ALLOWED_DOMAIN = 'sempai.pl';
+const CFG_NAME   = 'sempai-seo-estymacje.json';
+const DRIVE      = 'https://www.googleapis.com/drive/v3';
+
+// ════════════════════════════════════════
+// STAN APLIKACJI
+// ════════════════════════════════════════
+let token       = null;
+let user        = null;
+let tokenClient = null;
+let pickerReady = false;
+
+// Folder state
+let folderId    = null;
+let folderName  = null;
+let configFileId = null;
+
+// Tymczasowy folder przy zmianie
+let pendingFolderId   = null;
+let pendingFolderName = null;
+
+// ════════════════════════════════════════
+// UI HELPERS
+// ════════════════════════════════════════
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
+  document.getElementById('screen-' + id).classList.add('on');
+}
+
+function loading(msg) {
+  document.getElementById('lmsg').textContent = msg || 'Ładowanie…';
+  document.getElementById('loader').classList.add('on');
+}
+
+function stopLoad() {
+  document.getElementById('loader').classList.remove('on');
+}
+
+function toast(msg, type) {
+  const el = document.createElement('div');
+  el.className = 'toast ' + (type || 'ok');
+  el.textContent = (type === 'err' ? '❌ ' : type === 'warn' ? '⚠️ ' : '✅ ') + msg;
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(() => el.remove(), 3600);
+}
+
+function openModal(id)  { document.getElementById('m-' + id).classList.add('on'); }
+function closeModal(id) { document.getElementById('m-' + id).classList.remove('on'); }
+
+function toggleTheme() {
+  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('smp_theme', t);
+  const btn = document.getElementById('theme-btn');
+  if (btn) btn.textContent = t === 'dark' ? '🌙' : '☀️';
+}
+
+function toggleUDD() {
+  document.getElementById('u-dd').classList.toggle('on');
+}
+
+// ════════════════════════════════════════
+// GOOGLE AUTH
+// ════════════════════════════════════════
+function waitGIS(cb) {
+  if (typeof google !== 'undefined' && google.accounts) { cb(); return; }
+  setTimeout(() => waitGIS(cb), 300);
+}
+
+function initiateSignIn() {
+  const statusEl = document.getElementById('auth-status');
+  statusEl.textContent = 'Inicjalizacja…';
+  statusEl.className = 'auth-status';
+
+  waitGIS(() => {
+    tokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: CLIENT_ID,
+      scope: 'https://www.googleapis.com/auth/drive openid email profile',
+      callback: onToken
+    });
+    statusEl.textContent = '';
+    tokenClient.requestAccessToken({ prompt: 'select_account' });
+  });
+}
+
+async function onToken(resp) {
+  const statusEl = document.getElementById('auth-status');
+
+  if (resp.error) {
+    statusEl.className = 'auth-status err';
+    statusEl.textContent = '❌ ' + resp.error;
+    return;
+  }
+
+  token = resp.access_token;
+
+  // Pobierz dane użytkownika
+  try {
+    const info = await apiFetch('https://www.googleapis.com/oauth2/v3/userinfo');
+    user = { name: info.name, email: info.email, picture: info.picture };
+  } catch(e) {
+    user = { name: 'Użytkownik', email: '', picture: null };
+  }
+
+  // Sprawdź domenę
+  if (user.email && !user.email.endsWith('@' + ALLOWED_DOMAIN)) {
+    statusEl.className = 'auth-status err';
+    statusEl.textContent = '❌ Brak dostępu — wymagane konto @' + ALLOWED_DOMAIN;
+    token = null;
+    user  = null;
+    return;
+  }
+
+  statusEl.className = 'auth-status ok';
+  statusEl.textContent = '✅ Zalogowano jako ' + user.email;
+
+  updateUserUI();
+  await afterLogin();
+}
+
+function signOut() {
+  if (token && typeof google !== 'undefined') {
+    google.accounts.oauth2.revoke(token, () => {});
+  }
+  token = null; user = null;
+  folderId = null; folderName = null; configFileId = null;
+  document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
+  document.getElementById('auth-status').textContent = '';
+  document.getElementById('auth-status').className = 'auth-status';
+  show('auth');
+}
+
+function updateUserUI() {
+  if (!user) return;
+  const init = user.name ? user.name[0].toUpperCase() : '?';
+  const short = user.name ? user.name.split(' ')[0] : user.email;
+
+  const els = {
+    'u-init':    el => el.textContent = init,
+    'u-name':    el => el.textContent = short,
+    'udd-init':  el => el.textContent = init,
+    'udd-name':  el => el.textContent = user.name || '',
+    'udd-email': el => el.textContent = user.email || '',
+  };
+  Object.entries(els).forEach(([id, fn]) => {
+    const el = document.getElementById(id);
+    if (el) fn(el);
+  });
+}
+
+// ════════════════════════════════════════
+// DRIVE API HELPERS
+// ════════════════════════════════════════
+async function apiFetch(url, opts = {}) {
+  opts.headers = opts.headers || {};
+  opts.headers['Authorization'] = 'Bearer ' + token;
+  const r = await fetch(url, opts);
+  if (r.status === 401) { signOut(); throw new Error('Sesja wygasła — zaloguj się ponownie'); }
+  if (!r.ok) {
+    let msg = 'HTTP ' + r.status;
+    try { const e = await r.json(); msg = (e.error && e.error.message) || msg; } catch(x) {}
+    throw new Error(msg);
+  }
+  if (r.status === 204) return null;
+  return r.json();
+}
+
+async function apiPost(url, body) {
+  return apiFetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+}
+
+async function readDriveJson(fileId) {
+  const r = await fetch(DRIVE + '/files/' + fileId + '?alt=media', {
+    headers: { 'Authorization': 'Bearer ' + token }
+  });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+
+async function writeDriveJson(fileId, content) {
+  await fetch(
+    'https://www.googleapis.com/upload/drive/v3/files/' + fileId + '?uploadType=media',
+    {
+      method: 'PATCH',
+      headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify(content)
+    }
+  );
+}
+
+async function createDriveFolder(name, parentId) {
+  return apiPost(DRIVE + '/files', {
+    name,
+    mimeType: 'application/vnd.google-apps.folder',
+    parents: [parentId || 'root']
+  });
+}
+
+// ════════════════════════════════════════
+// CONFIG (plik JSON na Drive)
+// ════════════════════════════════════════
+async function loadConfig() {
+  const q = encodeURIComponent(`name='${CFG_NAME}' and trashed=false and 'me' in owners`);
+  const r = await apiFetch(`${DRIVE}/files?q=${q}&fields=files(id,name)&pageSize=1`);
+
+  if (r.files && r.files.length > 0) {
+    configFileId = r.files[0].id;
+    try {
+      const cfg = await readDriveJson(configFileId);
+      folderId   = cfg.folderId   || null;
+      folderName = cfg.folderName || null;
+    } catch(e) {
+      // Plik uszkodzony — zaczynamy od nowa
+      configFileId = null;
+    }
+  }
+}
+
+async function saveConfig() {
+  const cfg = {
+    version:     1,
+    folderId,
+    folderName,
+    updatedAt:   new Date().toISOString()
+  };
+
+  if (configFileId) {
+    await writeDriveJson(configFileId, cfg);
+  } else {
+    // Utwórz nowy plik config w wybranym folderze
+    const meta = await apiPost(DRIVE + '/files', {
+      name:     CFG_NAME,
+      mimeType: 'application/json',
+      parents:  [folderId]
+    });
+    configFileId = meta.id;
+    await writeDriveJson(configFileId, cfg);
+  }
+}
+
+// ════════════════════════════════════════
+// AFTER LOGIN
+// ════════════════════════════════════════
+async function afterLogin() {
+  loading('Wczytywanie konfiguracji…');
+  try {
+    await loadConfig();
+    stopLoad();
+
+    if (!folderId) {
+      // Pierwsze uruchomienie — pokaż onboarding
+      show('ob');
+    } else {
+      showHome();
+    }
+  } catch(e) {
+    stopLoad();
+    toast('Błąd wczytywania konfiguracji: ' + e.message, 'err');
+  }
+}
+
+// ════════════════════════════════════════
+// GOOGLE PICKER
+// ════════════════════════════════════════
+function loadPickerApi(cb) {
+  if (pickerReady) { cb(); return; }
+  gapi.load('picker', () => { pickerReady = true; cb(); });
+}
+
+function openFolderPicker(context) {
+  if (typeof gapi === 'undefined') {
+    toast('API Google jeszcze się ładuje — spróbuj za chwilę', 'warn');
+    return;
+  }
+
+  loadPickerApi(() => {
+    const view = new google.picker.DocsView(google.picker.ViewId.FOLDERS)
+      .setSelectFolderEnabled(true)
+      .setIncludeFolders(true)
+      .setMimeTypes('application/vnd.google-apps.folder');
+
+    const picker = new google.picker.PickerBuilder()
+      .addView(view)
+      .setOAuthToken(token)
+      .setDeveloperKey(PICKER_KEY)
+      .setTitle('Wybierz folder')
+      .setCallback(data => {
+        if (data.action === google.picker.Action.PICKED) {
+          const f = data.docs[0];
+          if (context === 'ob') {
+            onFolderSelectedOB(f.id, f.name);
+          } else if (context === 'change') {
+            onFolderSelectedChange(f.id, f.name);
+          }
+        }
+      })
+      .build();
+
+    picker.setVisible(true);
+  });
+}
+
+// Folder wybrany na onboardingu
+function onFolderSelectedOB(id, name) {
+  folderId   = id;
+  folderName = name;
+  document.getElementById('ob-folder-name').textContent = name;
+  document.getElementById('ob-folder-name').style.color = 'var(--tx)';
+  document.getElementById('ob-confirm').disabled = false;
+  toast('Folder wybrany: ' + name);
+}
+
+// Folder wybrany przy zmianie
+function onFolderSelectedChange(id, name) {
+  pendingFolderId   = id;
+  pendingFolderName = name;
+  document.getElementById('change-folder-name').textContent = name;
+  document.getElementById('change-folder-name').style.color = 'var(--tx)';
+  document.getElementById('change-folder-confirm').disabled = false;
+  toast('Nowy folder wybrany: ' + name);
+}
+
+// ════════════════════════════════════════
+// NOWY FOLDER
+// ════════════════════════════════════════
+async function doCreateFolder() {
+  const name = (document.getElementById('new-folder-name').value || '').trim() || 'Sempai — SEO Estymacje';
+  loading('Tworzenie folderu…');
+  try {
+    const f = await createDriveFolder(name);
+    stopLoad();
+    closeModal('newfolder');
+    onFolderSelectedOB(f.id, name);
+    toast('Folder "' + name + '" utworzony');
+  } catch(e) {
+    stopLoad();
+    toast('Błąd tworzenia folderu: ' + e.message, 'err');
+  }
+}
+
+// ════════════════════════════════════════
+// ONBOARDING — ZAKOŃCZENIE
+// ════════════════════════════════════════
+async function finishOnboarding() {
+  if (!folderId) return;
+  loading('Zapisywanie konfiguracji…');
+  try {
+    await saveConfig();
+    stopLoad();
+    showHome();
+    toast('Konfiguracja zapisana!');
+  } catch(e) {
+    stopLoad();
+    toast('Błąd: ' + e.message, 'err');
+  }
+}
+
+// ════════════════════════════════════════
+// ZMIANA FOLDERU
+// ════════════════════════════════════════
+function openChangeFolderModal() {
+  document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
+  pendingFolderId   = null;
+  pendingFolderName = null;
+  document.getElementById('change-folder-name').textContent = 'Nie wybrano';
+  document.getElementById('change-folder-name').style.color = 'var(--tx3)';
+  document.getElementById('change-folder-confirm').disabled = true;
+  document.getElementById('migrate-files').checked = false;
+  openModal('folder');
+}
+
+async function confirmFolderChange() {
+  if (!pendingFolderId) return;
+
+  loading('Zmiana folderu…');
+  try {
+    // Przenieś config do nowego folderu jeśli istnieje
+    if (configFileId) {
+      const info = await apiFetch(DRIVE + '/files/' + configFileId + '?fields=parents');
+      const oldParents = (info.parents || ['root']).join(',');
+      await apiFetch(
+        DRIVE + '/files/' + configFileId + '?addParents=' + pendingFolderId + '&removeParents=' + oldParents + '&fields=id',
+        { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: '{}' }
+      );
+    }
+
+    folderId   = pendingFolderId;
+    folderName = pendingFolderName;
+
+    // Zapisz zaktualizowaną konfigurację
+    await saveConfig();
+
+    stopLoad();
+    closeModal('folder');
+    updateHomeFolderInfo();
+    toast('Folder zmieniony na: ' + folderName);
+  } catch(e) {
+    stopLoad();
+    toast('Błąd zmiany folderu: ' + e.message, 'err');
+  }
+}
+
+// ════════════════════════════════════════
+// HOME (PLACEHOLDER — Etap 2 = Dashboard)
+// ════════════════════════════════════════
+function showHome() {
+  updateHomeFolderInfo();
+  show('home');
+}
+
+function updateHomeFolderInfo() {
+  const el = document.getElementById('home-folder-info');
+  if (el) el.textContent = '📁 ' + (folderName || '—');
+}
+
+// ════════════════════════════════════════
+// CLICK OUTSIDE
+// ════════════════════════════════════════
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.u-pill') && !e.target.closest('.u-dd')) {
+    document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
+  }
+  document.querySelectorAll('.mbg').forEach(m => {
+    if (e.target === m) m.classList.remove('on');
+  });
+});
+
+// ════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════
+(function init() {
+  const theme = localStorage.getItem('smp_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  const btn = document.getElementById('theme-btn');
+  if (btn) btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+})();
+</script>
+</body>
+</html>
