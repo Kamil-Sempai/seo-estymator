@@ -25,47 +25,49 @@
 * { box-sizing:border-box; margin:0; padding:0 }
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--tx); min-height:100vh }
 input,select,textarea { font-family:'DM Sans',sans-serif }
-
-/* SCREENS */
 .screen { display:none; min-height:100vh; flex-direction:column }
 .screen.on { display:flex }
 
-/* TOPBAR */
-.topbar { display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:58px; background:var(--bg2); border-bottom:1px solid var(--bd); position:sticky; top:0; z-index:100; flex-shrink:0 }
-.tb-l { display:flex; align-items:center; gap:0; flex:1 }
-.logo { display:flex; align-items:center; gap:10px; padding-right:14px; flex-shrink:0; cursor:pointer; text-decoration:none }
-.logo-mark { width:32px; height:32px; background:var(--ac); border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:14px; color:#fff }
-.logo-text { font-family:'Syne',sans-serif; font-size:15px; font-weight:800; color:var(--tx) }
+/* ── TOPBAR ── */
+.topbar {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 24px; height:58px; background:var(--bg2);
+  border-bottom:1px solid var(--bd); position:sticky; top:0; z-index:100; flex-shrink:0
+}
+.tb-l { display:flex; align-items:center; gap:0; flex:1; min-width:0 }
+.logo { display:flex; align-items:center; padding-right:16px; flex-shrink:0; cursor:pointer; text-decoration:none }
+/* Logo SVG color: white in dark mode, dark navy in light mode */
+.logo svg .st0 { fill:#EEF0FB }
+[data-theme=light] .logo svg .st0 { fill:#151B3A }
+.logo svg { height:14px; width:auto }
 .lsep { width:1px; height:22px; background:var(--bd); flex-shrink:0 }
-.app-lbl { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--tx3); padding-left:14px }
+.app-lbl {
+  font-family:'Syne',sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--tx3); padding-left:16px
+}
 .tb-r { display:flex; align-items:center; gap:8px }
-.ico-btn { background:var(--sf); border:1px solid var(--bd2); color:var(--tx2); width:34px; height:34px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:15px; transition:var(--tr) }
+.ico-btn {
+  background:var(--sf); border:1px solid var(--bd2); color:var(--tx2);
+  width:34px; height:34px; border-radius:8px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:15px; transition:var(--tr)
+}
 .ico-btn:hover { border-color:var(--ac); color:var(--ac) }
 
-/* AUTH SCREEN */
-#screen-auth { align-items:center; justify-content:center }
-.auth-card { background:var(--sf); border:1px solid var(--bd); border-radius:24px; padding:48px 40px; width:100%; max-width:420px; text-align:center }
-.auth-logo { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:32px }
-.auth-logo-mark { width:52px; height:52px; background:var(--ac); border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:22px; color:#fff }
-.auth-logo-text { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:var(--tx) }
-.auth-h { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; margin-bottom:6px }
-.auth-sub { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:28px }
-.btn-google { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:13px 20px; background:#fff; color:#3c4043; border:1px solid #dadce0; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; transition:var(--tr); font-family:'DM Sans',sans-serif }
-.btn-google:hover { background:#f8f9fa; box-shadow:0 2px 12px rgba(0,0,0,.12) }
-[data-theme=dark] .btn-google { background:#303134; color:#e8eaed; border-color:#5f6368 }
-[data-theme=dark] .btn-google:hover { background:#3c4043 }
-.auth-note { margin-top:16px; font-size:11px; color:var(--tx3); line-height:1.6 }
-.auth-note strong { color:var(--ac) }
-.auth-status { margin-top:12px; font-size:12px; min-height:18px }
-.auth-status.err { color:var(--ac2) }
-.auth-status.ok { color:var(--ac) }
-
-/* USER PILL */
-.u-pill { display:flex; align-items:center; gap:7px; padding:3px 10px 3px 3px; background:var(--sf); border:1px solid var(--bd2); border-radius:20px; cursor:pointer; transition:var(--tr) }
+/* ── USER PILL ── */
+.u-pill {
+  display:flex; align-items:center; gap:7px; padding:3px 10px 3px 3px;
+  background:var(--sf); border:1px solid var(--bd2); border-radius:20px; cursor:pointer; transition:var(--tr)
+}
 .u-pill:hover { border-color:var(--ac) }
-.u-init { width:26px; height:26px; border-radius:50%; background:var(--ac); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; flex-shrink:0 }
+.u-init {
+  width:26px; height:26px; border-radius:50%; background:var(--ac);
+  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; flex-shrink:0
+}
 .u-name { font-size:12px; font-weight:600; color:var(--tx2); max-width:110px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
-.u-dd { position:fixed; top:52px; right:16px; background:var(--bg2); border:1px solid var(--bd); border-radius:var(--rlg); z-index:300; min-width:220px; box-shadow:0 12px 32px rgba(0,0,0,.4); display:none; overflow:hidden }
+.u-dd {
+  position:fixed; top:52px; right:16px; background:var(--bg2); border:1px solid var(--bd);
+  border-radius:var(--rlg); z-index:300; min-width:220px; box-shadow:0 12px 32px rgba(0,0,0,.4); display:none; overflow:hidden
+}
 .u-dd.on { display:block }
 .udd-profile { padding:14px 16px; display:flex; align-items:center; gap:11px; border-bottom:1px solid var(--bd2) }
 .udd-init { width:36px; height:36px; border-radius:50%; background:var(--ac); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#fff }
@@ -76,28 +78,115 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
 .udd-item.red { color:var(--ac2) }
 .udd-item.red:hover { background:rgba(247,97,79,.08) }
 
-/* ONBOARDING SCREEN */
+/* ── AUTH ── */
+#screen-auth { align-items:center; justify-content:center }
+.auth-card { background:var(--sf); border:1px solid var(--bd); border-radius:24px; padding:48px 40px; width:100%; max-width:420px; text-align:center }
+.auth-logo { display:flex; align-items:center; justify-content:center; margin-bottom:32px }
+.auth-logo svg .st0 { fill:#EEF0FB }
+[data-theme=light] .auth-logo svg .st0 { fill:#151B3A }
+.auth-logo svg { height:22px; width:auto }
+.auth-h { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; margin-bottom:6px }
+.auth-sub { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:28px }
+.btn-google {
+  display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+  padding:13px 20px; background:#fff; color:#3c4043; border:1px solid #dadce0;
+  border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; transition:var(--tr); font-family:'DM Sans',sans-serif
+}
+.btn-google:hover { background:#f8f9fa; box-shadow:0 2px 12px rgba(0,0,0,.12) }
+[data-theme=dark] .btn-google { background:#303134; color:#e8eaed; border-color:#5f6368 }
+[data-theme=dark] .btn-google:hover { background:#3c4043 }
+.auth-note { margin-top:16px; font-size:11px; color:var(--tx3); line-height:1.6 }
+.auth-note strong { color:var(--ac) }
+.auth-status { margin-top:12px; font-size:12px; min-height:18px }
+.auth-status.err { color:var(--ac2) }
+.auth-status.ok { color:var(--ac) }
+
+/* ── ONBOARDING ── */
 #screen-ob { align-items:center; justify-content:center }
 .ob-wrap { width:100%; max-width:520px; padding:24px 16px }
 .ob-card { background:var(--sf); border:1px solid var(--bd); border-radius:20px; padding:36px }
 .ob-icon { font-size:44px; margin-bottom:16px }
 .ob-h { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; margin-bottom:6px }
 .ob-sub { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:24px }
-.folder-display { display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--bg2); border:1px solid var(--bd2); border-radius:var(--r); font-size:13px; margin-bottom:14px; min-height:46px }
-.folder-display .fd-icon { font-size:18px; flex-shrink:0 }
-.folder-display .fd-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
-.ob-btns { display:flex; gap:10px; margin-bottom:20px }
-.info-box { background:var(--ag); border:1px solid var(--bd); border-radius:var(--r); padding:12px 14px; font-size:12px; color:var(--tx2); line-height:1.6; margin-bottom:20px }
+.folder-display {
+  display:flex; align-items:center; gap:10px; padding:12px 14px;
+  background:var(--bg2); border:1px solid var(--bd2); border-radius:var(--r);
+  font-size:13px; margin-bottom:14px; min-height:46px
+}
+.fd-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.info-box {
+  background:var(--ag); border:1px solid var(--bd); border-radius:var(--r);
+  padding:12px 14px; font-size:12px; color:var(--tx2); line-height:1.6; margin-bottom:20px
+}
 .info-box strong { color:var(--ac) }
 
-/* HOME SCREEN (placeholder for next stage) */
-#screen-home { align-items:center; justify-content:center }
-.home-placeholder { text-align:center; padding:60px 20px }
-.home-placeholder h2 { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; margin-bottom:10px }
-.home-placeholder p { font-size:13px; color:var(--tx3); line-height:1.6; margin-bottom:24px }
-.home-placeholder .folder-info { font-family:'DM Mono',monospace; font-size:12px; color:var(--ac); background:var(--ag); border:1px solid var(--bd); border-radius:var(--r); padding:10px 16px; display:inline-block; margin-bottom:16px }
+/* ── DASHBOARD ── */
+.body-wrap { flex:1; padding:32px 28px; max-width:1100px; width:100%; margin:0 auto }
+.dash-hero { margin-bottom:32px }
+.dash-hero h1 { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; margin-bottom:4px }
+.dash-hero p { font-size:13px; color:var(--tx3); font-family:'DM Mono',monospace }
+.dash-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:36px }
+.dash-card {
+  background:var(--sf); border:1px solid var(--bd2); border-radius:var(--rlg);
+  padding:28px; cursor:pointer; transition:var(--tr); position:relative; overflow:hidden
+}
+.dash-card:hover { border-color:var(--ac); transform:translateY(-2px); box-shadow:0 8px 32px rgba(65,173,73,.12) }
+.dash-card.primary { border-color:rgba(65,173,73,.4) }
+.dash-card.primary:hover { box-shadow:0 8px 32px rgba(65,173,73,.2) }
+.dash-card-icon { font-size:36px; margin-bottom:16px; display:block }
+.dash-card h2 { font-family:'Syne',sans-serif; font-size:16px; font-weight:800; margin-bottom:8px }
+.dash-card p { font-size:12px; color:var(--tx3); line-height:1.6 }
+.card-badge {
+  position:absolute; top:16px; right:16px; background:var(--ag); border:1px solid var(--bd);
+  border-radius:20px; padding:3px 10px; font-size:11px; font-weight:600; color:var(--ac); font-family:'DM Mono',monospace
+}
+/* Recent projects */
+.section-h { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; margin-bottom:14px; color:var(--tx2) }
+.proj-list { display:grid; gap:10px }
+.proj-card {
+  background:var(--sf); border:1px solid var(--bd2); border-radius:var(--r);
+  padding:14px 16px; display:flex; align-items:center; gap:14px; cursor:pointer; transition:var(--tr)
+}
+.proj-card:hover { border-color:var(--ac); background:var(--sf2) }
+.proj-fav {
+  width:38px; height:38px; border-radius:9px; background:var(--bg3);
+  display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; overflow:hidden; border:1px solid var(--bd2)
+}
+.proj-fav img { width:24px; height:24px; object-fit:contain }
+.proj-info { flex:1; min-width:0 }
+.proj-name { font-weight:600; font-size:14px; margin-bottom:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.proj-domain { font-size:11px; color:var(--tx3); font-family:'DM Mono',monospace }
+.proj-meta { display:flex; align-items:center; gap:8px; flex-shrink:0 }
+.status-badge { padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600 }
+.status-badge.draft { background:rgba(91,100,192,.15); color:#8B93C0 }
+.status-badge.ready { background:rgba(65,173,73,.15); color:var(--ac) }
+.status-badge.sent  { background:rgba(79,110,247,.15); color:#4F6EF7 }
+.proj-date { font-size:11px; color:var(--tx3); font-family:'DM Mono',monospace }
+.proj-arrow { color:var(--tx3); font-size:14px; flex-shrink:0; transition:color var(--tr) }
+.proj-card:hover .proj-arrow { color:var(--ac) }
 
-/* CHANGE FOLDER MODAL */
+/* ── PROJECTS LIST ── */
+.search-input {
+  padding:9px 14px; background:var(--sf); border:1px solid var(--bd2);
+  border-radius:var(--r); color:var(--tx); font-size:13px; width:240px; outline:none; transition:var(--tr)
+}
+.search-input:focus { border-color:var(--ac) }
+.proj-list-header {
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; gap:12px; flex-wrap:wrap
+}
+.proj-list-header h2 { font-family:'Syne',sans-serif; font-size:20px; font-weight:800 }
+.proj-list-header p { font-size:12px; color:var(--tx3); margin-top:3px }
+.empty-state { text-align:center; padding:80px 20px; color:var(--tx3) }
+.empty-state .ei { font-size:56px; margin-bottom:14px }
+.empty-state h3 { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; margin-bottom:6px; color:var(--tx2) }
+.empty-state p { font-size:13px; line-height:1.6 }
+/* Industry tag */
+.ind-tag {
+  display:inline-flex; align-items:center; gap:4px; padding:2px 8px; border-radius:8px;
+  font-size:10px; font-weight:600; background:var(--bg3); color:var(--tx3); margin-left:8px; text-transform:uppercase; letter-spacing:.04em
+}
+
+/* ── MODALS ── */
 .mbg { position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:200; display:none; align-items:center; justify-content:center; padding:16px }
 .mbg.on { display:flex }
 .modal { background:var(--bg2); border:1px solid var(--bd); border-radius:20px; width:100%; max-width:460px; overflow:hidden }
@@ -109,48 +198,81 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
 .modal-foot { padding:16px 24px; border-top:1px solid var(--bd2); display:flex; justify-content:flex-end; gap:8px }
 .field { margin-bottom:18px }
 .field label { display:block; font-size:12px; font-weight:600; color:var(--tx2); margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em }
-.field input { width:100%; padding:10px 13px; background:var(--bg3); border:1px solid var(--bd2); border-radius:var(--r); color:var(--tx); font-size:14px; outline:none; transition:var(--tr) }
+.field input {
+  width:100%; padding:10px 13px; background:var(--bg3); border:1px solid var(--bd2);
+  border-radius:var(--r); color:var(--tx); font-size:14px; outline:none; transition:var(--tr)
+}
 .field input:focus { border-color:var(--ac); box-shadow:0 0 0 3px rgba(65,173,73,.1) }
 .migrate-check { display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-size:13px; color:var(--tx2); line-height:1.5 }
 .migrate-check input { margin-top:2px; accent-color:var(--ac); width:16px; height:16px; flex-shrink:0 }
 
-/* BUTTONS */
+/* ── BUTTONS ── */
 .btn { padding:9px 20px; border-radius:var(--r); font-size:13px; font-weight:600; cursor:pointer; border:none; transition:var(--tr); font-family:'DM Sans',sans-serif; display:inline-flex; align-items:center; gap:7px }
 .btn-p { background:var(--ac); color:#fff }
 .btn-p:hover { background:#3B9E42; transform:translateY(-1px) }
-.btn-p:disabled { background:var(--tx3); cursor:not-allowed; transform:none }
+.btn-p:disabled { background:var(--tx3); cursor:not-allowed; transform:none; opacity:.6 }
 .btn-s { background:var(--sf); color:var(--tx2); border:1px solid var(--bd2) }
 .btn-s:hover { border-color:var(--ac); color:var(--tx) }
 .btn-ghost { background:transparent; color:var(--tx2); border:1px solid var(--bd2) }
 .btn-ghost:hover { border-color:var(--ac); color:var(--ac) }
 .btn-danger { background:rgba(247,97,79,.1); color:var(--ac2); border:1px solid rgba(247,97,79,.2) }
 .btn-danger:hover { background:rgba(247,97,79,.2) }
+.btn-sm { padding:5px 12px; font-size:12px }
 .btn-lg { padding:12px 28px; font-size:14px; border-radius:12px }
 
-/* TOAST */
+/* ── TOAST + LOADER ── */
 .tc { position:fixed; bottom:20px; right:20px; z-index:999; display:flex; flex-direction:column; gap:8px; pointer-events:none }
 .toast { background:var(--sf); border:1px solid var(--bd); border-radius:10px; padding:10px 16px; font-size:13px; animation:fadeIn .2s ease; box-shadow:0 4px 20px rgba(0,0,0,.3) }
-.toast.ok { border-left:3px solid var(--ac) }
+.toast.ok  { border-left:3px solid var(--ac) }
 .toast.err { border-left:3px solid var(--ac2) }
-.toast.warn { border-left:3px solid #F79F4F }
+.toast.warn{ border-left:3px solid #F79F4F }
 @keyframes fadeIn { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
-
-/* LOADER */
 .loader { position:fixed; inset:0; background:rgba(13,16,37,.85); z-index:999; display:none; align-items:center; justify-content:center; flex-direction:column; gap:14px; backdrop-filter:blur(4px) }
 .loader.on { display:flex }
 .spinner { width:40px; height:40px; border:3px solid var(--bd2); border-top-color:var(--ac); border-radius:50%; animation:spin .7s linear infinite }
 .lmsg { font-size:13px; color:var(--tx2) }
 @keyframes spin { to { transform:rotate(360deg) } }
+
+/* ── RESPONSIVE ── */
+@media(max-width:720px) {
+  .dash-grid { grid-template-columns:1fr }
+  .body-wrap { padding:20px 16px }
+  .proj-date { display:none }
+}
 </style>
 </head>
 <body>
 
-<!-- ═══ SCREEN: AUTH ═══ -->
+<!-- ══════════════════════════════════
+     SEMPAI LOGO — inline SVG snippet
+     używany przez JS jako innerHTML
+══════════════════════════════════ -->
+<svg id="sempai-svg-src" style="display:none" viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0{fill:#EEF0FB}</style>
+  <g><g>
+    <path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1L-0.1,0.1z"/>
+    <path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1v0H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7v0h3.1V0.1L29.3,0.1L29.3,0.1z"/>
+    <path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1h0v9.3h0v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1L72.6,0.1z"/>
+    <path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1L115.5,0.1z"/>
+    <path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1L132.2,0.1z"/>
+    <path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90l0,0h-3.6l1.8,3v0.1h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0L84.8,0z"/>
+  </g></g>
+</svg>
+
+<!-- ══════════════════════════════════ AUTH ══════════════════════════════════ -->
 <div class="screen on" id="screen-auth">
   <div class="auth-card">
     <div class="auth-logo">
-      <div class="auth-logo-mark">S</div>
-      <div class="auth-logo-text">Sempai</div>
+      <svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:26px;width:auto">
+        <g><g>
+          <path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1L-0.1,0.1z"/>
+          <path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1v0H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7v0h3.1V0.1L29.3,0.1L29.3,0.1z"/>
+          <path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1h0v9.3h0v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1L72.6,0.1z"/>
+          <path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1L115.5,0.1z"/>
+          <path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1L132.2,0.1z"/>
+          <path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90l0,0h-3.6l1.8,3v0.1h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0L84.8,0z"/>
+        </g></g>
+      </svg>
     </div>
     <h2 class="auth-h">SEO Estymator</h2>
     <p class="auth-sub">Narzędzie do automatycznej estymacji SEO.<br>Zaloguj się kontem służbowym aby kontynuować.</p>
@@ -164,60 +286,50 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
       Zaloguj się przez Google
     </button>
     <div class="auth-status" id="auth-status"></div>
-    <p class="auth-note">Dostęp wyłącznie dla kont <strong>@sempai.pl</strong><br>Pliki przechowywane na Twoim Google Drive.</p>
+    <p class="auth-note">Dostęp wyłącznie dla kont <strong>@sempai.pl</strong></p>
   </div>
 </div>
 
-<!-- ═══ SCREEN: ONBOARDING ═══ -->
+<!-- ══════════════════════════════════ ONBOARDING ══════════════════════════════════ -->
 <div class="screen" id="screen-ob">
   <div class="ob-wrap">
     <div class="ob-card">
       <div class="ob-icon">📁</div>
       <h2 class="ob-h">Wybierz folder roboczy</h2>
-      <p class="ob-sub">Wskaż folder na Google Drive gdzie będą zapisywane Twoje estymacje i plik konfiguracyjny. Możesz wybrać istniejący folder lub stworzyć nowy.</p>
-
-      <div class="folder-display" id="ob-folder-display">
-        <span class="fd-icon">📂</span>
+      <p class="ob-sub">Wskaż folder na Google Drive gdzie będą zapisywane estymacje i plik konfiguracyjny. Możesz wybrać istniejący lub stworzyć nowy.</p>
+      <div class="folder-display">
+        <span>📂</span>
         <span class="fd-name" id="ob-folder-name" style="color:var(--tx3)">Nie wybrano folderu</span>
       </div>
-
-      <div class="ob-btns">
+      <div style="display:flex;gap:10px;margin-bottom:20px">
         <button class="btn btn-s" style="flex:1" onclick="openFolderPicker('ob')">📂 Wybierz folder</button>
         <button class="btn btn-ghost" onclick="openModal('newfolder')">➕ Nowy folder</button>
       </div>
-
       <div class="info-box">
-        <strong>Co zostanie zapisane na Twoim Drive:</strong><br>
-        Plik konfiguracyjny <code>sempai-seo-estymacje.json</code> oraz podfoldery dla każdego projektu z wygenerowanymi estymacjami .docx. Pliki widoczne tylko dla Ciebie.
+        <strong>Co zostanie zapisane:</strong> Plik konfiguracyjny <code>sempai-seo-estymacje.json</code> oraz podfoldery dla każdego projektu z wygenerowanymi estymacjami .docx.
       </div>
-
-      <div style="display:flex; justify-content:flex-end">
-        <button class="btn btn-p btn-lg" id="ob-confirm" onclick="finishOnboarding()" disabled>
-          Rozpocznij →
-        </button>
+      <div style="display:flex;justify-content:flex-end">
+        <button class="btn btn-p btn-lg" id="ob-confirm" onclick="finishOnboarding()" disabled>Rozpocznij →</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══ SCREEN: HOME (placeholder — Etap 2) ═══ -->
-<div class="screen" id="screen-home">
+<!-- ══════════════════════════════════ DASHBOARD ══════════════════════════════════ -->
+<div class="screen" id="screen-dash">
   <div class="topbar">
     <div class="tb-l">
-      <div class="logo" onclick="showHome()">
-        <div class="logo-mark">S</div>
-        <div class="logo-text">Sempai</div>
-      </div>
+      <div class="logo" onclick="showDash()" id="logo-dash"></div>
       <div class="lsep"></div>
       <span class="app-lbl">SEO Estymator</span>
     </div>
     <div class="tb-r">
       <button class="ico-btn" onclick="toggleTheme()" id="theme-btn">🌙</button>
-      <div class="u-pill" onclick="toggleUDD()">
-        <div class="u-init" id="u-init">?</div>
-        <span class="u-name" id="u-name">—</span>
+      <div class="u-pill" onclick="toggleUDD('dd-dash')">
+        <div class="u-init" id="u-init-dash">?</div>
+        <span class="u-name" id="u-name-dash">—</span>
       </div>
-      <div class="u-dd" id="u-dd">
+      <div class="u-dd" id="dd-dash">
         <div class="udd-profile">
           <div class="udd-init" id="udd-init">?</div>
           <div>
@@ -232,29 +344,121 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
     </div>
   </div>
 
-  <div class="home-placeholder">
-    <div style="font-size:64px; margin-bottom:16px">✅</div>
-    <h2>Logowanie i konfiguracja gotowe!</h2>
-    <p>Etap 1 działa poprawnie. Tutaj pojawi się Dashboard w Etapie 2.</p>
-    <div class="folder-info" id="home-folder-info">📁 —</div>
-    <br>
-    <button class="btn btn-ghost" onclick="openChangeFolderModal()">📁 Zmień folder roboczy</button>
-    &nbsp;
-    <button class="btn btn-danger" onclick="signOut()">Wyloguj</button>
+  <div class="body-wrap">
+    <div class="dash-hero">
+      <h1 id="dash-greet">Cześć!</h1>
+      <p id="dash-folder-lbl">📁 —</p>
+    </div>
+
+    <div class="dash-grid">
+      <div class="dash-card primary" onclick="showScreen('wizard')">
+        <span class="dash-card-icon">📊</span>
+        <h2>Nowa estymacja</h2>
+        <p>Pełna analiza estymacyjna dla nowego klienta z dokumentem Word.</p>
+      </div>
+      <div class="dash-card" onclick="showProjects()">
+        <span class="dash-card-icon">📁</span>
+        <h2>Moje estymacje</h2>
+        <p>Historia i poprzednie estymacje dla Twoich klientów.</p>
+        <span class="card-badge" id="proj-badge">— projektów</span>
+      </div>
+      <div class="dash-card" onclick="showScreen('quick')">
+        <span class="dash-card-icon">⚡</span>
+        <h2>Szybka estymacja</h2>
+        <p>Estymacja bez elementów opisowych — tylko tabele i wykresy.</p>
+      </div>
+    </div>
+
+    <div id="dash-recent-wrap"></div>
   </div>
 </div>
 
-<!-- ═══ MODAL: NOWY FOLDER ═══ -->
+<!-- ══════════════════════════════════ PROJECTS ══════════════════════════════════ -->
+<div class="screen" id="screen-projects">
+  <div class="topbar">
+    <div class="tb-l">
+      <div class="logo" onclick="showDash()" id="logo-proj"></div>
+      <div class="lsep"></div>
+      <span class="app-lbl">Moje estymacje</span>
+    </div>
+    <div class="tb-r">
+      <button class="btn btn-p btn-sm" onclick="showScreen('wizard')">+ Nowa estymacja</button>
+      <button class="ico-btn" onclick="toggleTheme()">🌙</button>
+      <div class="u-pill" onclick="toggleUDD('dd-proj')">
+        <div class="u-init" id="u-init-proj">?</div>
+        <span class="u-name" id="u-name-proj">—</span>
+      </div>
+      <div class="u-dd" id="dd-proj">
+        <div class="udd-profile">
+          <div class="udd-init" id="udd-init-proj">?</div>
+          <div>
+            <div class="udd-name" id="udd-name-proj">—</div>
+            <div class="udd-email" id="udd-email-proj">—</div>
+          </div>
+        </div>
+        <div class="udd-item" onclick="openChangeFolderModal()">📁 Zmień folder</div>
+        <div class="udd-item red" onclick="signOut()">⬆ Wyloguj</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-wrap" style="max-width:900px">
+    <div class="proj-list-header">
+      <div>
+        <h2>Moje estymacje</h2>
+        <p id="proj-total-lbl">—</p>
+      </div>
+      <input type="text" class="search-input" placeholder="🔍 Szukaj projektu..." oninput="renderProjList(this.value)" id="proj-search">
+    </div>
+    <div class="proj-list" id="proj-list-main"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ PLACEHOLDER SCREENS ══════════════════════════════════ -->
+<div class="screen" id="screen-wizard">
+  <div class="topbar">
+    <div class="tb-l">
+      <div class="logo" onclick="showDash()" id="logo-wiz"></div>
+      <div class="lsep"></div><span class="app-lbl">Nowa estymacja</span>
+    </div>
+    <div class="tb-r"><button class="btn btn-ghost btn-sm" onclick="showDash()">← Dashboard</button></div>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center">
+    <div class="empty-state">
+      <div class="ei">🚧</div>
+      <h3>Etap 3 — w budowie</h3>
+      <p>Wizard tworzenia estymacji pojawi się w następnym etapie.</p>
+      <br><button class="btn btn-ghost" onclick="showDash()">← Wróć do dashboardu</button>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="screen-quick">
+  <div class="topbar">
+    <div class="tb-l">
+      <div class="logo" onclick="showDash()" id="logo-quick"></div>
+      <div class="lsep"></div><span class="app-lbl">Szybka estymacja</span>
+    </div>
+    <div class="tb-r"><button class="btn btn-ghost btn-sm" onclick="showDash()">← Dashboard</button></div>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center">
+    <div class="empty-state">
+      <div class="ei">🚧</div>
+      <h3>Etap 5 — w budowie</h3>
+      <p>Szybka estymacja pojawi się w ostatnim etapie.</p>
+      <br><button class="btn btn-ghost" onclick="showDash()">← Wróć do dashboardu</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ MODALS ══════════════════════════════════ -->
 <div class="mbg" id="m-newfolder">
   <div class="modal">
-    <div class="modal-h">
-      <h3>➕ Utwórz nowy folder</h3>
-      <span class="modal-close" onclick="closeModal('newfolder')">✕</span>
-    </div>
+    <div class="modal-h"><h3>➕ Nowy folder</h3><span class="modal-close" onclick="closeModal('newfolder')">✕</span></div>
     <div class="modal-body">
       <div class="field">
         <label>Nazwa folderu</label>
-        <input type="text" id="new-folder-name" value="Sempai — SEO Estymacje" placeholder="Nazwa folderu">
+        <input type="text" id="new-folder-name" value="Sempai — SEO Estymacje">
       </div>
     </div>
     <div class="modal-foot">
@@ -264,24 +468,15 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
   </div>
 </div>
 
-<!-- ═══ MODAL: ZMIEŃ FOLDER ═══ -->
 <div class="mbg" id="m-folder">
   <div class="modal">
-    <div class="modal-h">
-      <h3>📁 Zmień folder roboczy</h3>
-      <span class="modal-close" onclick="closeModal('folder')">✕</span>
-    </div>
+    <div class="modal-h"><h3>📁 Zmień folder roboczy</h3><span class="modal-close" onclick="closeModal('folder')">✕</span></div>
     <div class="modal-body">
-      <p style="font-size:13px; color:var(--tx2); margin-bottom:16px; line-height:1.6">
-        Wybierz nowy folder na Google Drive gdzie będą zapisywane estymacje.
-      </p>
+      <p style="font-size:13px;color:var(--tx2);margin-bottom:16px;line-height:1.6">Wybierz nowy folder na Google Drive.</p>
       <div class="folder-display" style="margin-bottom:12px">
-        <span class="fd-icon">📂</span>
-        <span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span>
+        <span>📂</span><span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span>
       </div>
-      <button class="btn btn-s" style="width:100%; margin-bottom:16px" onclick="openFolderPicker('change')">
-        📂 Wybierz nowy folder
-      </button>
+      <button class="btn btn-s" style="width:100%;margin-bottom:16px" onclick="openFolderPicker('change')">📂 Wybierz nowy folder</button>
       <label class="migrate-check">
         <input type="checkbox" id="migrate-files">
         <span>Przenieś poprzednie estymacje (.docx) do nowego folderu<br>
@@ -291,18 +486,13 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
     </div>
     <div class="modal-foot">
       <button class="btn btn-s" onclick="closeModal('folder')">Anuluj</button>
-      <button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>
-        Potwierdź zmianę
-      </button>
+      <button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>Potwierdź</button>
     </div>
   </div>
 </div>
 
 <div class="tc" id="toasts"></div>
-<div class="loader" id="loader">
-  <div class="spinner"></div>
-  <div class="lmsg" id="lmsg">Ładowanie…</div>
-</div>
+<div class="loader" id="loader"><div class="spinner"></div><div class="lmsg" id="lmsg">Ładowanie…</div></div>
 
 <script>
 // ════════════════════════════════════════
@@ -310,69 +500,85 @@ input,select,textarea { font-family:'DM Sans',sans-serif }
 // ════════════════════════════════════════
 const CLIENT_ID  = '460409748582-9c1dn06biv4ojsfgn71lht4tljm2cke0.apps.googleusercontent.com';
 const PICKER_KEY = 'AIzaSyCvwRNUpQM_dseggHpj5r5DQBkIU8s3gdQ';
-const ALLOWED_DOMAIN = 'sempai.pl';
+const ALLOWED    = 'sempai.pl';
 const CFG_NAME   = 'sempai-seo-estymacje.json';
 const DRIVE      = 'https://www.googleapis.com/drive/v3';
 
-// ════════════════════════════════════════
-// STAN APLIKACJI
-// ════════════════════════════════════════
-let token       = null;
-let user        = null;
-let tokenClient = null;
-let pickerReady = false;
-
-// Folder state
-let folderId    = null;
-let folderName  = null;
-let configFileId = null;
-
-// Tymczasowy folder przy zmianie
-let pendingFolderId   = null;
-let pendingFolderName = null;
+// SVG logo jako string (pobierane z ukrytego elementu)
+const LOGO_SVG = `<svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:14px;width:auto"><g><g>
+  <path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1L-0.1,0.1z"/>
+  <path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1v0H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7v0h3.1V0.1L29.3,0.1L29.3,0.1z"/>
+  <path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1h0v9.3h0v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1L72.6,0.1z"/>
+  <path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1L115.5,0.1z"/>
+  <path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1L132.2,0.1z"/>
+  <path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90l0,0h-3.6l1.8,3v0.1h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0L84.8,0z"/>
+</g></g></svg>`;
 
 // ════════════════════════════════════════
-// UI HELPERS
+// STAN
+// ════════════════════════════════════════
+let token = null, user = null, tokenClient = null, pickerReady = false;
+let folderId = null, folderName = null, configFileId = null;
+let pendingFolderId = null, pendingFolderName = null;
+
+// Przykładowe projekty (zastąpione prawdziwymi danymi w przyszłości)
+const SAMPLE_PROJECTS = [
+  { id:'p1', name:'Wach and Wach', domain:'wachandwach.pl', industry:'prawo', status:'ready', date:'2026-03-28' },
+  { id:'p2', name:'Matfel', domain:'matfel.pl', industry:'ecommerce', status:'sent', date:'2026-04-10' },
+  { id:'p3', name:'Klient Demo', domain:'klientdemo.pl', industry:'b2b', status:'draft', date:'2026-04-12' },
+];
+let projects = [];
+
+const IND_LABELS = {
+  ecommerce:'E-commerce', portal:'Portal ofertowy', blog:'Blog / Medium',
+  b2b:'Usługi B2B', local:'Usługi lokalne', b2c:'Usługi B2C',
+  saas:'SaaS', marketplace:'Marketplace', nieruchomosci:'Nieruchomości',
+  medycyna:'Medycyna', prawo:'Prawo / Finanse', edukacja:'Edukacja', inne:'Inny'
+};
+
+// ════════════════════════════════════════
+// UI
 // ════════════════════════════════════════
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
   document.getElementById('screen-' + id).classList.add('on');
 }
-
-function loading(msg) {
-  document.getElementById('lmsg').textContent = msg || 'Ładowanie…';
-  document.getElementById('loader').classList.add('on');
-}
-
-function stopLoad() {
-  document.getElementById('loader').classList.remove('on');
-}
-
-function toast(msg, type) {
+function showScreen(id) { show(id); }
+function loading(m) { document.getElementById('lmsg').textContent = m || 'Ładowanie…'; document.getElementById('loader').classList.add('on'); }
+function stopLoad() { document.getElementById('loader').classList.remove('on'); }
+function toast(m, t) {
   const el = document.createElement('div');
-  el.className = 'toast ' + (type || 'ok');
-  el.textContent = (type === 'err' ? '❌ ' : type === 'warn' ? '⚠️ ' : '✅ ') + msg;
+  el.className = 'toast ' + (t || 'ok');
+  el.textContent = (t === 'err' ? '❌ ' : t === 'warn' ? '⚠️ ' : '✅ ') + m;
   document.getElementById('toasts').appendChild(el);
   setTimeout(() => el.remove(), 3600);
 }
-
-function openModal(id)  { document.getElementById('m-' + id).classList.add('on'); }
+function openModal(id) { document.getElementById('m-' + id).classList.add('on'); }
 function closeModal(id) { document.getElementById('m-' + id).classList.remove('on'); }
 
 function toggleTheme() {
   const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('smp_theme', t);
-  const btn = document.getElementById('theme-btn');
-  if (btn) btn.textContent = t === 'dark' ? '🌙' : '☀️';
+  document.querySelectorAll('[id^=theme-btn]').forEach(b => b.textContent = t === 'dark' ? '🌙' : '☀️');
 }
 
-function toggleUDD() {
-  document.getElementById('u-dd').classList.toggle('on');
+function toggleUDD(id) {
+  const dd = document.getElementById(id);
+  document.querySelectorAll('.u-dd').forEach(d => { if (d.id !== id) d.classList.remove('on'); });
+  dd.classList.toggle('on');
+}
+
+// Wstaw logo SVG do wszystkich .logo div-ów
+function injectLogos() {
+  ['logo-dash','logo-proj','logo-wiz','logo-quick'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = LOGO_SVG;
+  });
 }
 
 // ════════════════════════════════════════
-// GOOGLE AUTH
+// AUTH
 // ════════════════════════════════════════
 function waitGIS(cb) {
   if (typeof google !== 'undefined' && google.accounts) { cb(); return; }
@@ -380,62 +586,42 @@ function waitGIS(cb) {
 }
 
 function initiateSignIn() {
-  const statusEl = document.getElementById('auth-status');
-  statusEl.textContent = 'Inicjalizacja…';
-  statusEl.className = 'auth-status';
-
+  const st = document.getElementById('auth-status');
+  st.textContent = 'Inicjalizacja…'; st.className = 'auth-status';
   waitGIS(() => {
     tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: 'https://www.googleapis.com/auth/drive openid email profile',
       callback: onToken
     });
-    statusEl.textContent = '';
+    st.textContent = '';
     tokenClient.requestAccessToken({ prompt: 'select_account' });
   });
 }
 
 async function onToken(resp) {
-  const statusEl = document.getElementById('auth-status');
-
-  if (resp.error) {
-    statusEl.className = 'auth-status err';
-    statusEl.textContent = '❌ ' + resp.error;
-    return;
-  }
-
+  const st = document.getElementById('auth-status');
+  if (resp.error) { st.className = 'auth-status err'; st.textContent = '❌ ' + resp.error; return; }
   token = resp.access_token;
-
-  // Pobierz dane użytkownika
   try {
-    const info = await apiFetch('https://www.googleapis.com/oauth2/v3/userinfo');
-    user = { name: info.name, email: info.email, picture: info.picture };
-  } catch(e) {
-    user = { name: 'Użytkownik', email: '', picture: null };
+    const i = await apiFetch('https://www.googleapis.com/oauth2/v3/userinfo');
+    user = { name: i.name, email: i.email, picture: i.picture };
+  } catch(e) { user = { name: 'Użytkownik', email: '', picture: null }; }
+
+  if (user.email && !user.email.endsWith('@' + ALLOWED)) {
+    st.className = 'auth-status err';
+    st.textContent = '❌ Brak dostępu — wymagane konto @' + ALLOWED;
+    token = null; user = null; return;
   }
-
-  // Sprawdź domenę
-  if (user.email && !user.email.endsWith('@' + ALLOWED_DOMAIN)) {
-    statusEl.className = 'auth-status err';
-    statusEl.textContent = '❌ Brak dostępu — wymagane konto @' + ALLOWED_DOMAIN;
-    token = null;
-    user  = null;
-    return;
-  }
-
-  statusEl.className = 'auth-status ok';
-  statusEl.textContent = '✅ Zalogowano jako ' + user.email;
-
+  st.className = 'auth-status ok';
+  st.textContent = '✅ ' + user.email;
   updateUserUI();
   await afterLogin();
 }
 
 function signOut() {
-  if (token && typeof google !== 'undefined') {
-    google.accounts.oauth2.revoke(token, () => {});
-  }
-  token = null; user = null;
-  folderId = null; folderName = null; configFileId = null;
+  if (token && typeof google !== 'undefined') google.accounts.oauth2.revoke(token, () => {});
+  token = null; user = null; folderId = null; folderName = null; configFileId = null; projects = [];
   document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
   document.getElementById('auth-status').textContent = '';
   document.getElementById('auth-status').className = 'auth-status';
@@ -446,112 +632,153 @@ function updateUserUI() {
   if (!user) return;
   const init = user.name ? user.name[0].toUpperCase() : '?';
   const short = user.name ? user.name.split(' ')[0] : user.email;
-
-  const els = {
-    'u-init':    el => el.textContent = init,
-    'u-name':    el => el.textContent = short,
-    'udd-init':  el => el.textContent = init,
-    'udd-name':  el => el.textContent = user.name || '',
-    'udd-email': el => el.textContent = user.email || '',
+  const map = {
+    'u-init-dash': init, 'u-name-dash': short,
+    'u-init-proj': init, 'u-name-proj': short,
+    'udd-init': init, 'udd-name': user.name || '', 'udd-email': user.email || '',
+    'udd-init-proj': init, 'udd-name-proj': user.name || '', 'udd-email-proj': user.email || '',
   };
-  Object.entries(els).forEach(([id, fn]) => {
-    const el = document.getElementById(id);
-    if (el) fn(el);
-  });
+  Object.entries(map).forEach(([id, val]) => { const el = document.getElementById(id); if (el) el.textContent = val; });
 }
 
 // ════════════════════════════════════════
-// DRIVE API HELPERS
+// API
 // ════════════════════════════════════════
 async function apiFetch(url, opts = {}) {
   opts.headers = opts.headers || {};
   opts.headers['Authorization'] = 'Bearer ' + token;
   const r = await fetch(url, opts);
-  if (r.status === 401) { signOut(); throw new Error('Sesja wygasła — zaloguj się ponownie'); }
-  if (!r.ok) {
-    let msg = 'HTTP ' + r.status;
-    try { const e = await r.json(); msg = (e.error && e.error.message) || msg; } catch(x) {}
-    throw new Error(msg);
-  }
+  if (r.status === 401) { signOut(); throw new Error('Sesja wygasła'); }
+  if (!r.ok) { let m = 'HTTP ' + r.status; try { const e = await r.json(); m = (e.error && e.error.message) || m; } catch(x) {} throw new Error(m); }
   if (r.status === 204) return null;
   return r.json();
 }
-
 async function apiPost(url, body) {
-  return apiFetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
+  return apiFetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
 }
-
-async function readDriveJson(fileId) {
-  const r = await fetch(DRIVE + '/files/' + fileId + '?alt=media', {
-    headers: { 'Authorization': 'Bearer ' + token }
-  });
+async function apiPatch(url, body) {
+  return apiFetch(url, { method:'PATCH', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
+}
+async function readJson(id) {
+  const r = await fetch(DRIVE + '/files/' + id + '?alt=media', { headers:{'Authorization':'Bearer '+token} });
   if (!r.ok) throw new Error('HTTP ' + r.status);
   return r.json();
 }
-
-async function writeDriveJson(fileId, content) {
-  await fetch(
-    'https://www.googleapis.com/upload/drive/v3/files/' + fileId + '?uploadType=media',
-    {
-      method: 'PATCH',
-      headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
-      body: JSON.stringify(content)
-    }
-  );
-}
-
-async function createDriveFolder(name, parentId) {
-  return apiPost(DRIVE + '/files', {
-    name,
-    mimeType: 'application/vnd.google-apps.folder',
-    parents: [parentId || 'root']
+async function writeJson(id, data) {
+  await fetch('https://www.googleapis.com/upload/drive/v3/files/' + id + '?uploadType=media', {
+    method:'PATCH', headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'}, body:JSON.stringify(data)
   });
 }
 
 // ════════════════════════════════════════
-// CONFIG (plik JSON na Drive)
+// CONFIG
 // ════════════════════════════════════════
 async function loadConfig() {
   const q = encodeURIComponent(`name='${CFG_NAME}' and trashed=false and 'me' in owners`);
   const r = await apiFetch(`${DRIVE}/files?q=${q}&fields=files(id,name)&pageSize=1`);
-
   if (r.files && r.files.length > 0) {
     configFileId = r.files[0].id;
-    try {
-      const cfg = await readDriveJson(configFileId);
-      folderId   = cfg.folderId   || null;
-      folderName = cfg.folderName || null;
-    } catch(e) {
-      // Plik uszkodzony — zaczynamy od nowa
-      configFileId = null;
-    }
+    try { const cfg = await readJson(configFileId); folderId = cfg.folderId || null; folderName = cfg.folderName || null; }
+    catch(e) { configFileId = null; }
+  }
+}
+async function saveConfig() {
+  const cfg = { version:1, folderId, folderName, updatedAt: new Date().toISOString() };
+  if (configFileId) { await writeJson(configFileId, cfg); }
+  else {
+    const m = await apiPost(DRIVE + '/files', { name:CFG_NAME, mimeType:'application/json', parents:[folderId] });
+    configFileId = m.id;
+    await writeJson(configFileId, cfg);
   }
 }
 
-async function saveConfig() {
-  const cfg = {
-    version:     1,
-    folderId,
-    folderName,
-    updatedAt:   new Date().toISOString()
-  };
+// ════════════════════════════════════════
+// PICKER
+// ════════════════════════════════════════
+function loadPicker(cb) {
+  if (pickerReady) { cb(); return; }
+  gapi.load('picker', () => { pickerReady = true; cb(); });
+}
+function openFolderPicker(ctx) {
+  if (typeof gapi === 'undefined') { toast('Poczekaj chwilę — Google API się ładuje', 'warn'); return; }
+  loadPicker(() => {
+    const view = new google.picker.DocsView(google.picker.ViewId.FOLDERS)
+      .setSelectFolderEnabled(true).setIncludeFolders(true)
+      .setMimeTypes('application/vnd.google-apps.folder');
+    new google.picker.PickerBuilder()
+      .addView(view).setOAuthToken(token).setDeveloperKey(PICKER_KEY)
+      .setTitle('Wybierz folder')
+      .setCallback(data => {
+        if (data.action === google.picker.Action.PICKED) {
+          const f = data.docs[0];
+          if (ctx === 'ob') {
+            folderId = f.id; folderName = f.name;
+            document.getElementById('ob-folder-name').textContent = f.name;
+            document.getElementById('ob-folder-name').style.color = 'var(--tx)';
+            document.getElementById('ob-confirm').disabled = false;
+            toast('Folder wybrany: ' + f.name);
+          } else {
+            pendingFolderId = f.id; pendingFolderName = f.name;
+            document.getElementById('change-folder-name').textContent = f.name;
+            document.getElementById('change-folder-name').style.color = 'var(--tx)';
+            document.getElementById('change-folder-confirm').disabled = false;
+            toast('Nowy folder: ' + f.name);
+          }
+        }
+      }).build().setVisible(true);
+  });
+}
 
-  if (configFileId) {
-    await writeDriveJson(configFileId, cfg);
-  } else {
-    // Utwórz nowy plik config w wybranym folderze
-    const meta = await apiPost(DRIVE + '/files', {
-      name:     CFG_NAME,
-      mimeType: 'application/json',
-      parents:  [folderId]
-    });
-    configFileId = meta.id;
-    await writeDriveJson(configFileId, cfg);
-  }
+// ════════════════════════════════════════
+// ONBOARDING + FOLDER
+// ════════════════════════════════════════
+async function doCreateFolder() {
+  const name = (document.getElementById('new-folder-name').value || '').trim() || 'Sempai — SEO Estymacje';
+  loading('Tworzenie folderu…');
+  try {
+    const f = await apiPost(DRIVE + '/files', { name, mimeType:'application/vnd.google-apps.folder', parents:['root'] });
+    folderId = f.id; folderName = name;
+    document.getElementById('ob-folder-name').textContent = name;
+    document.getElementById('ob-folder-name').style.color = 'var(--tx)';
+    document.getElementById('ob-confirm').disabled = false;
+    stopLoad(); closeModal('newfolder');
+    toast('Folder "' + name + '" utworzony');
+  } catch(e) { stopLoad(); toast('Błąd: ' + e.message, 'err'); }
+}
+
+async function finishOnboarding() {
+  if (!folderId) return;
+  loading('Zapisywanie konfiguracji…');
+  try { await saveConfig(); stopLoad(); projects = [...SAMPLE_PROJECTS]; showDash(); toast('Gotowe!'); }
+  catch(e) { stopLoad(); toast('Błąd: ' + e.message, 'err'); }
+}
+
+function openChangeFolderModal() {
+  document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
+  pendingFolderId = null; pendingFolderName = null;
+  document.getElementById('change-folder-name').textContent = 'Nie wybrano';
+  document.getElementById('change-folder-name').style.color = 'var(--tx3)';
+  document.getElementById('change-folder-confirm').disabled = true;
+  document.getElementById('migrate-files').checked = false;
+  openModal('folder');
+}
+
+async function confirmFolderChange() {
+  if (!pendingFolderId) return;
+  loading('Zmiana folderu…');
+  try {
+    if (configFileId) {
+      const info = await apiFetch(DRIVE + '/files/' + configFileId + '?fields=parents');
+      const old = (info.parents || ['root']).join(',');
+      await apiFetch(DRIVE + '/files/' + configFileId + '?addParents=' + pendingFolderId + '&removeParents=' + old + '&fields=id',
+        { method:'PATCH', headers:{'Content-Type':'application/json'}, body:'{}' });
+    }
+    folderId = pendingFolderId; folderName = pendingFolderName;
+    await saveConfig();
+    stopLoad(); closeModal('folder');
+    document.getElementById('dash-folder-lbl').textContent = '📁 ' + folderName;
+    toast('Folder zmieniony: ' + folderName);
+  } catch(e) { stopLoad(); toast('Błąd: ' + e.message, 'err'); }
 }
 
 // ════════════════════════════════════════
@@ -562,183 +789,86 @@ async function afterLogin() {
   try {
     await loadConfig();
     stopLoad();
-
-    if (!folderId) {
-      // Pierwsze uruchomienie — pokaż onboarding
-      show('ob');
-    } else {
-      showHome();
-    }
-  } catch(e) {
-    stopLoad();
-    toast('Błąd wczytywania konfiguracji: ' + e.message, 'err');
-  }
+    if (!folderId) { show('ob'); }
+    else { projects = [...SAMPLE_PROJECTS]; showDash(); }
+  } catch(e) { stopLoad(); toast('Błąd: ' + e.message, 'err'); }
 }
 
 // ════════════════════════════════════════
-// GOOGLE PICKER
+// DASHBOARD
 // ════════════════════════════════════════
-function loadPickerApi(cb) {
-  if (pickerReady) { cb(); return; }
-  gapi.load('picker', () => { pickerReady = true; cb(); });
+function showDash() {
+  if (!user) { show('auth'); return; }
+  const first = user.name ? user.name.split(' ')[0] : '';
+  document.getElementById('dash-greet').textContent = 'Cześć, ' + first + '! 👋';
+  document.getElementById('dash-folder-lbl').textContent = '📁 ' + (folderName || '—');
+  document.getElementById('proj-badge').textContent = projects.length + ' projektów';
+  renderRecentProjects();
+  show('dash');
 }
 
-function openFolderPicker(context) {
-  if (typeof gapi === 'undefined') {
-    toast('API Google jeszcze się ładuje — spróbuj za chwilę', 'warn');
+function renderRecentProjects() {
+  const wrap = document.getElementById('dash-recent-wrap');
+  if (!projects.length) { wrap.innerHTML = ''; return; }
+  const recent = projects.slice(0, 3);
+  wrap.innerHTML = `
+    <div class="section-h">Ostatnie projekty</div>
+    <div class="proj-list">${recent.map(projCardHTML).join('')}</div>`;
+}
+
+// ════════════════════════════════════════
+// PROJECTS
+// ════════════════════════════════════════
+function showProjects() {
+  document.getElementById('proj-total-lbl').textContent = projects.length + ' projektów łącznie';
+  if (document.getElementById('proj-search')) document.getElementById('proj-search').value = '';
+  renderProjList('');
+  show('projects');
+}
+
+function renderProjList(q = '') {
+  const filtered = projects.filter(p =>
+    !q || (p.name + p.domain).toLowerCase().includes(q.toLowerCase())
+  );
+  const el = document.getElementById('proj-list-main');
+  if (!filtered.length) {
+    el.innerHTML = `<div class="empty-state"><div class="ei">🔍</div><h3>Brak wyników</h3><p>Nie znaleziono projektu pasującego do "<strong>${q}</strong>"</p></div>`;
     return;
   }
-
-  loadPickerApi(() => {
-    const view = new google.picker.DocsView(google.picker.ViewId.FOLDERS)
-      .setSelectFolderEnabled(true)
-      .setIncludeFolders(true)
-      .setMimeTypes('application/vnd.google-apps.folder');
-
-    const picker = new google.picker.PickerBuilder()
-      .addView(view)
-      .setOAuthToken(token)
-      .setDeveloperKey(PICKER_KEY)
-      .setTitle('Wybierz folder')
-      .setCallback(data => {
-        if (data.action === google.picker.Action.PICKED) {
-          const f = data.docs[0];
-          if (context === 'ob') {
-            onFolderSelectedOB(f.id, f.name);
-          } else if (context === 'change') {
-            onFolderSelectedChange(f.id, f.name);
-          }
-        }
-      })
-      .build();
-
-    picker.setVisible(true);
-  });
+  el.innerHTML = filtered.map(projCardHTML).join('');
 }
 
-// Folder wybrany na onboardingu
-function onFolderSelectedOB(id, name) {
-  folderId   = id;
-  folderName = name;
-  document.getElementById('ob-folder-name').textContent = name;
-  document.getElementById('ob-folder-name').style.color = 'var(--tx)';
-  document.getElementById('ob-confirm').disabled = false;
-  toast('Folder wybrany: ' + name);
+function projCardHTML(p) {
+  const statusMap = { draft:'Szkic', ready:'Gotowa', sent:'Wysłana' };
+  const fav = p.domain ? `https://www.google.com/s2/favicons?domain=${encodeURIComponent(p.domain)}&sz=64` : '';
+  const indLabel = IND_LABELS[p.industry] || p.industry || '';
+  return `<div class="proj-card" onclick="openProject('${p.id}')">
+    <div class="proj-fav">${fav ? `<img src="${fav}" alt="" onerror="this.style.display='none'">` : '🌐'}</div>
+    <div class="proj-info">
+      <div class="proj-name">${p.name}${indLabel ? `<span class="ind-tag">${indLabel}</span>` : ''}</div>
+      <div class="proj-domain">${p.domain || ''}</div>
+    </div>
+    <div class="proj-meta">
+      <span class="status-badge ${p.status || 'draft'}">${statusMap[p.status] || p.status}</span>
+      <span class="proj-date">${p.date || ''}</span>
+    </div>
+    <span class="proj-arrow">›</span>
+  </div>`;
 }
 
-// Folder wybrany przy zmianie
-function onFolderSelectedChange(id, name) {
-  pendingFolderId   = id;
-  pendingFolderName = name;
-  document.getElementById('change-folder-name').textContent = name;
-  document.getElementById('change-folder-name').style.color = 'var(--tx)';
-  document.getElementById('change-folder-confirm').disabled = false;
-  toast('Nowy folder wybrany: ' + name);
-}
-
-// ════════════════════════════════════════
-// NOWY FOLDER
-// ════════════════════════════════════════
-async function doCreateFolder() {
-  const name = (document.getElementById('new-folder-name').value || '').trim() || 'Sempai — SEO Estymacje';
-  loading('Tworzenie folderu…');
-  try {
-    const f = await createDriveFolder(name);
-    stopLoad();
-    closeModal('newfolder');
-    onFolderSelectedOB(f.id, name);
-    toast('Folder "' + name + '" utworzony');
-  } catch(e) {
-    stopLoad();
-    toast('Błąd tworzenia folderu: ' + e.message, 'err');
-  }
-}
-
-// ════════════════════════════════════════
-// ONBOARDING — ZAKOŃCZENIE
-// ════════════════════════════════════════
-async function finishOnboarding() {
-  if (!folderId) return;
-  loading('Zapisywanie konfiguracji…');
-  try {
-    await saveConfig();
-    stopLoad();
-    showHome();
-    toast('Konfiguracja zapisana!');
-  } catch(e) {
-    stopLoad();
-    toast('Błąd: ' + e.message, 'err');
-  }
-}
-
-// ════════════════════════════════════════
-// ZMIANA FOLDERU
-// ════════════════════════════════════════
-function openChangeFolderModal() {
-  document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
-  pendingFolderId   = null;
-  pendingFolderName = null;
-  document.getElementById('change-folder-name').textContent = 'Nie wybrano';
-  document.getElementById('change-folder-name').style.color = 'var(--tx3)';
-  document.getElementById('change-folder-confirm').disabled = true;
-  document.getElementById('migrate-files').checked = false;
-  openModal('folder');
-}
-
-async function confirmFolderChange() {
-  if (!pendingFolderId) return;
-
-  loading('Zmiana folderu…');
-  try {
-    // Przenieś config do nowego folderu jeśli istnieje
-    if (configFileId) {
-      const info = await apiFetch(DRIVE + '/files/' + configFileId + '?fields=parents');
-      const oldParents = (info.parents || ['root']).join(',');
-      await apiFetch(
-        DRIVE + '/files/' + configFileId + '?addParents=' + pendingFolderId + '&removeParents=' + oldParents + '&fields=id',
-        { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: '{}' }
-      );
-    }
-
-    folderId   = pendingFolderId;
-    folderName = pendingFolderName;
-
-    // Zapisz zaktualizowaną konfigurację
-    await saveConfig();
-
-    stopLoad();
-    closeModal('folder');
-    updateHomeFolderInfo();
-    toast('Folder zmieniony na: ' + folderName);
-  } catch(e) {
-    stopLoad();
-    toast('Błąd zmiany folderu: ' + e.message, 'err');
-  }
-}
-
-// ════════════════════════════════════════
-// HOME (PLACEHOLDER — Etap 2 = Dashboard)
-// ════════════════════════════════════════
-function showHome() {
-  updateHomeFolderInfo();
-  show('home');
-}
-
-function updateHomeFolderInfo() {
-  const el = document.getElementById('home-folder-info');
-  if (el) el.textContent = '📁 ' + (folderName || '—');
+function openProject(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  toast('Edytor projektu "' + p.name + '" — dostępny w Etapie 4', 'warn');
 }
 
 // ════════════════════════════════════════
 // CLICK OUTSIDE
 // ════════════════════════════════════════
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.u-pill') && !e.target.closest('.u-dd')) {
+document.addEventListener('click', e => {
+  if (!e.target.closest('.u-pill') && !e.target.closest('.u-dd'))
     document.querySelectorAll('.u-dd').forEach(d => d.classList.remove('on'));
-  }
-  document.querySelectorAll('.mbg').forEach(m => {
-    if (e.target === m) m.classList.remove('on');
-  });
+  document.querySelectorAll('.mbg').forEach(m => { if (e.target === m) m.classList.remove('on'); });
 });
 
 // ════════════════════════════════════════
@@ -747,8 +877,8 @@ document.addEventListener('click', function(e) {
 (function init() {
   const theme = localStorage.getItem('smp_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', theme);
-  const btn = document.getElementById('theme-btn');
-  if (btn) btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+  document.querySelectorAll('[id^=theme-btn]').forEach(b => b.textContent = theme === 'dark' ? '🌙' : '☀️');
+  injectLogos();
 })();
 </script>
 </body>
