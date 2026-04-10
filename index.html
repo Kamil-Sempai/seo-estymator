@@ -8,14 +8,7 @@
 <script src="https://accounts.google.com/gsi/client" async></script>
 <script src="https://apis.google.com/js/api.js" async></script>
 <style>
-:root {
-  --bg:#0D1025;--bg2:#131830;--bg3:#1A2040;
-  --sf:#1E2547;--sf2:#252d55;
-  --bd:rgba(65,173,73,.2);--bd2:rgba(255,255,255,.06);
-  --tx:#EEF0FB;--tx2:#8B93C0;--tx3:#5C6490;
-  --ac:#41AD49;--ag:rgba(65,173,73,.13);--ac2:#F7614F;
-  --r:10px;--rlg:16px;--tr:.18s ease;
-}
+:root{--bg:#0D1025;--bg2:#131830;--bg3:#1A2040;--sf:#1E2547;--sf2:#252d55;--bd:rgba(65,173,73,.2);--bd2:rgba(255,255,255,.06);--tx:#EEF0FB;--tx2:#8B93C0;--tx3:#5C6490;--ac:#41AD49;--ag:rgba(65,173,73,.13);--ac2:#F7614F;--r:10px;--rlg:16px;--tr:.18s ease;}
 [data-theme=light]{--bg:#F0F2FF;--bg2:#E8EBFA;--bg3:#DDE1F5;--sf:#fff;--sf2:#F5F7FF;--bd:rgba(65,173,73,.25);--bd2:rgba(21,27,58,.08);--tx:#151B3A;--tx2:#3D4880;--tx3:#8B93C0;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
@@ -27,14 +20,13 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:58px;background:var(--bg2);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100;flex-shrink:0}
 .tb-l{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden}
 .logo{display:flex;align-items:center;padding-right:14px;flex-shrink:0;cursor:pointer}
-.logo svg .st0{fill:#EEF0FB}
-[data-theme=light] .logo svg .st0{fill:#151B3A}
+.logo svg .st0{fill:#EEF0FB}[data-theme=light] .logo svg .st0{fill:#151B3A}
 .lsep{width:1px;height:20px;background:var(--bd);flex-shrink:0}
 .app-lbl{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--tx3);padding-left:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tb-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
 .ico-btn{background:var(--sf);border:1px solid var(--bd2);color:var(--tx2);width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:var(--tr)}
 .ico-btn:hover{border-color:var(--ac);color:var(--ac)}
-@media(max-width:480px){.app-lbl{display:none}.lsep{display:none}}
+@media(max-width:480px){.app-lbl,.lsep{display:none}}
 
 /* USER PILL */
 .u-pill{display:flex;align-items:center;gap:6px;padding:3px 10px 3px 3px;background:var(--sf);border:1px solid var(--bd2);border-radius:20px;cursor:pointer;transition:var(--tr)}
@@ -57,8 +49,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 #screen-auth{align-items:center;justify-content:center}
 .auth-card{background:var(--sf);border:1px solid var(--bd);border-radius:24px;padding:44px 36px;width:100%;max-width:420px;text-align:center;margin:16px}
 .auth-logo{display:flex;align-items:center;justify-content:center;margin-bottom:28px}
-.auth-logo svg .st0{fill:#EEF0FB}
-[data-theme=light] .auth-logo svg .st0{fill:#151B3A}
+.auth-logo svg .st0{fill:#EEF0FB}[data-theme=light] .auth-logo svg .st0{fill:#151B3A}
 .auth-h{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px}
 .auth-sub{font-size:13px;color:var(--tx3);line-height:1.6;margin-bottom:26px}
 .btn-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px 20px;background:#fff;color:#3c4043;border:1px solid #dadce0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:var(--tr);font-family:'DM Sans',sans-serif}
@@ -68,13 +59,11 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .auth-note{margin-top:16px;font-size:11px;color:var(--tx3);line-height:1.6}
 .auth-note strong{color:var(--ac)}
 .auth-status{margin-top:12px;font-size:12px;min-height:18px}
-.auth-status.err{color:var(--ac2)}
-.auth-status.ok{color:var(--ac)}
+.auth-status.err{color:var(--ac2)}.auth-status.ok{color:var(--ac)}
 
 /* ONBOARDING */
 #screen-ob{align-items:center;justify-content:center}
 .ob-card{background:var(--sf);border:1px solid var(--bd);border-radius:20px;padding:32px;width:100%;max-width:500px;margin:24px 16px}
-.ob-icon{font-size:40px;margin-bottom:14px}
 .ob-h{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;margin-bottom:5px}
 .ob-sub{font-size:13px;color:var(--tx3);line-height:1.6;margin-bottom:22px}
 .folder-display{display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--r);font-size:13px;margin-bottom:12px;min-height:44px}
@@ -82,7 +71,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .info-box{background:var(--ag);border:1px solid var(--bd);border-radius:var(--r);padding:11px 13px;font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:18px}
 .info-box strong{color:var(--ac)}
 
-/* BODY + DASHBOARD */
+/* BODY + DASH */
 .body-wrap{flex:1;padding:28px 24px;max-width:1100px;width:100%;margin:0 auto}
 @media(max-width:600px){.body-wrap{padding:20px 14px}}
 .dash-hero{margin-bottom:28px}
@@ -90,7 +79,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .dash-hero p{font-size:13px;color:var(--tx3);font-family:'DM Mono',monospace}
 .dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
 @media(max-width:680px){.dash-grid{grid-template-columns:1fr}}
-.dash-card{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);padding:26px;cursor:pointer;transition:var(--tr);position:relative;overflow:hidden}
+.dash-card{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);padding:26px;cursor:pointer;transition:var(--tr);position:relative}
 .dash-card:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 8px 28px rgba(65,173,73,.12)}
 .dash-card.primary{border-color:rgba(65,173,73,.35)}
 .dash-card-icon{font-size:34px;margin-bottom:14px;display:block}
@@ -126,7 +115,9 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .empty-state h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--tx2)}
 .empty-state p{font-size:13px;line-height:1.6}
 
-/* ═══ WIZARD ═══ */
+/* ═══════════════════════════════
+   WIZARD
+═══════════════════════════════ */
 .wiz-wrap{flex:1;padding:28px 24px;max-width:760px;width:100%;margin:0 auto}
 @media(max-width:600px){.wiz-wrap{padding:20px 14px}}
 .wiz-steps{display:flex;align-items:center;margin-bottom:28px;overflow-x:auto;padding-bottom:4px}
@@ -142,8 +133,6 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .wiz-card-h{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:5px}
 .wiz-card-sub{font-size:13px;color:var(--tx3);margin-bottom:22px;line-height:1.6}
 .wiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--bd2)}
-
-/* FIELDS */
 .field{margin-bottom:16px}
 .field label{display:block;font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
 .field input,.field select,.field textarea{width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--r);color:var(--tx);font-size:13px;transition:var(--tr);outline:none;font-family:'DM Sans',sans-serif}
@@ -155,8 +144,6 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .fav-preview img{width:24px;height:24px;object-fit:contain}
 .field-favicon input{flex:1}
 .sep{height:1px;background:var(--bd2);margin:18px 0}
-
-/* ═══ POPRAWKA 1: SCENARIUSZE — nowy wygląd kafelków ═══ */
 .sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:500px){.sc-grid{grid-template-columns:1fr}}
 .sc-opt{padding:14px 16px;background:var(--bg2);border:2px solid var(--bd2);border-radius:var(--rlg);cursor:pointer;transition:var(--tr);user-select:none}
@@ -168,67 +155,151 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .sc-opt-sub{font-size:11px;color:var(--tx3);line-height:1.5}
 .sc-opt-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;margin-bottom:6px;background:var(--bg3);color:var(--tx3)}
 .sc-opt.on .sc-opt-tag{background:rgba(65,173,73,.15);color:var(--ac)}
-
-/* ═══ POPRAWKA 2: WARIANTY — ukryj nazwy przy 1 wariancie ═══ */
 .variant-names{display:grid;gap:10px}
-#variant-names-section{transition:opacity .2s}
-
-/* ═══ POPRAWKA 3: FORMULARZ DZIAŁAŃ — struktura arkusza Sempai ═══ */
 .vtab-row{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
 .vtab{padding:7px 14px;background:var(--bg2);border:2px solid var(--bd2);border-radius:var(--r);cursor:pointer;font-size:13px;font-weight:600;transition:var(--tr);color:var(--tx2)}
 .vtab:hover,.vtab.on{border-color:var(--ac);background:var(--ag);color:var(--ac)}
-.vtab-content{display:none}
-.vtab-content.on{display:block}
-
-/* Sekcja główna (np. OBSŁUGA SEO, LINK BUILDING itp.) */
+.vtab-content{display:none}.vtab-content.on{display:block}
 .act-group{background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--rlg);margin-bottom:10px;overflow:hidden}
-.act-group-header{padding:14px 18px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.act-group-header{padding:14px 18px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .act-group-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .impact-badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;background:rgba(65,173,73,.15);color:var(--ac);border:1px solid rgba(65,173,73,.2)}
 .no-impact-badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;background:var(--bg3);color:var(--tx3)}
-.act-group-total{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;color:var(--ac)}
-
-/* Podsekcja wewnątrz grupy (np. MONITORING wewnątrz OBSŁUGA SEO) */
-.act-subsection{padding:8px 18px 0;border-top:1px solid var(--bd2)}
-.act-subsection-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--tx3);margin-bottom:6px;padding-top:10px}
-
-/* Wiersz działania */
 .act-row{display:flex;align-items:center;gap:8px;padding:8px 18px;border-bottom:1px solid var(--bd2)}
 .act-row:last-child{border-bottom:none}
-.act-row.subrow{padding-left:30px;background:rgba(0,0,0,.08)}
 .act-chk{display:flex;align-items:center;gap:8px;flex:1;cursor:pointer;min-width:0}
 .act-chk input[type=checkbox]{width:16px;height:16px;accent-color:var(--ac);cursor:pointer;flex-shrink:0}
-.act-chk span{font-size:12px;color:var(--tx2);overflow:hidden;text-overflow:ellipsis}
+.act-chk span{font-size:12px;color:var(--tx2)}
 .act-qty{display:flex;align-items:center;gap:5px;flex-shrink:0}
 .act-qty label{font-size:11px;color:var(--tx3);white-space:nowrap}
 .act-qty input{width:68px;padding:5px 8px;background:var(--bg3);border:1px solid var(--bd2);border-radius:7px;color:var(--tx);font-size:12px;text-align:center;outline:none;transition:var(--tr);font-family:'DM Mono',monospace}
 .act-qty input:focus{border-color:var(--ac)}
-
-/* Kwota na dole grupy */
 .act-group-footer{padding:10px 18px;background:rgba(0,0,0,.12);display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--bd2)}
 .act-group-footer label{font-size:12px;font-weight:600;color:var(--tx2)}
 .kwota-input-wrap{display:flex;align-items:center;gap:6px}
 .kwota-input-wrap input{width:110px;padding:7px 10px;background:var(--bg3);border:1px solid var(--bd2);border-radius:var(--r);color:var(--tx);font-size:13px;font-weight:600;text-align:right;outline:none;transition:var(--tr);font-family:'DM Mono',monospace}
 .kwota-input-wrap input:focus{border-color:var(--ac)}
 .kwota-input-wrap .curr{font-size:11px;color:var(--tx3)}
-
-/* RAZEM */
 .total-bar{background:var(--ag);border:1px solid var(--bd);border-radius:var(--r);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;margin-top:8px}
 .total-bar .tl{font-size:12px;font-weight:700;color:var(--tx2)}
 .total-bar .tv{font-weight:800;color:var(--ac);font-family:'DM Mono',monospace;font-size:15px}
 
+/* UPLOAD */
+.upload-area{border:2px dashed var(--bd2);border-radius:var(--rlg);padding:28px;text-align:center;cursor:pointer;transition:var(--tr);margin-bottom:14px}
+.upload-area:hover,.upload-area.drag{border-color:var(--ac);background:var(--ag)}
+.upload-icon{font-size:32px;margin-bottom:8px}
+.upload-h{font-size:14px;font-weight:600;margin-bottom:3px}
+.upload-sub{font-size:12px;color:var(--tx3)}
+.upload-list{display:grid;gap:8px}
+.upload-file{display:flex;align-items:center;gap:10px;padding:10px 13px;background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--r)}
+.upload-file-info{flex:1;min-width:0}
+.upload-file-name{font-size:13px;font-weight:600;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload-file-src{font-size:11px;color:var(--tx3);display:flex;align-items:center;gap:6px}
+.upload-file-src select{background:transparent;border:none;color:var(--ac);font-size:11px;cursor:pointer;padding:0;font-weight:600;outline:none}
+.upload-del{cursor:pointer;color:var(--tx3);font-size:16px;flex-shrink:0;transition:color var(--tr)}
+.upload-del:hover{color:var(--ac2)}
+
+/* ═══════════════════════════════
+   EDITOR — układ dwupanelowy
+═══════════════════════════════ */
+#screen-editor{overflow:hidden}
+.editor-layout{display:flex;flex:1;height:calc(100vh - 58px);overflow:hidden}
+
+/* Panel lewy — dane */
+.editor-left{width:380px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--bd2);display:flex;flex-direction:column;overflow:hidden}
+@media(max-width:900px){.editor-left{width:320px}}
+.editor-left-top{padding:14px 18px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.editor-left-top-h{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
+.editor-sections{flex:1;overflow-y:auto}
+
+/* Sekcja w edytorze */
+.ed-section{border-bottom:1px solid var(--bd2)}
+.ed-section-h{padding:12px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:12px;font-weight:600;color:var(--tx2);transition:background var(--tr);user-select:none}
+.ed-section-h:hover{background:var(--bg3);color:var(--tx)}
+.ed-chevron{font-size:11px;color:var(--tx3);transition:transform var(--tr)}
+.ed-section-h.open .ed-chevron{transform:rotate(180deg)}
+.ed-section-body{display:none;padding:0 18px 14px}
+.ed-section-body.on{display:block}
+
+/* Pole edytora */
+.ed-field{margin-bottom:10px}
+.ed-field-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.ed-field-label span{font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em}
+.ed-field-meta{display:flex;align-items:center;gap:6px}
+/* Badge pewności AI */
+.conf-badge{font-size:10px;padding:1px 7px;border-radius:8px;font-weight:600}
+.conf-badge.high{background:rgba(65,173,73,.15);color:var(--ac)}
+.conf-badge.med{background:rgba(247,159,79,.15);color:#F79F4F}
+.conf-badge.low{background:rgba(247,97,79,.15);color:var(--ac2)}
+.conf-badge.empty{background:var(--bg3);color:var(--tx3)}
+/* Przycisk blokady */
+.lock-btn{cursor:pointer;font-size:13px;opacity:.4;transition:opacity var(--tr);background:none;border:none;padding:0;line-height:1;flex-shrink:0}
+.lock-btn:hover{opacity:1}
+.lock-btn.locked{opacity:1;filter:none}
+/* Input pola edytora */
+.ed-input{width:100%;padding:7px 10px;background:var(--bg3);border:1px solid var(--bd2);border-radius:8px;color:var(--tx);font-size:12px;outline:none;transition:var(--tr);font-family:'DM Sans',sans-serif;resize:vertical}
+.ed-input:focus{border-color:var(--ac)}
+/* Zablokowane pole */
+.ed-input.locked{border-color:rgba(65,173,73,.4);background:rgba(65,173,73,.04)}
+
+/* Panel prawy — podgląd */
+.editor-right{flex:1;background:var(--bg3);overflow-y:auto;padding:28px 24px}
+@media(max-width:600px){.editor-right{padding:16px 12px}}
+
+/* ═══ DOKUMENT — podgląd HTML ═══ */
+.doc-preview{background:#fff;border-radius:12px;max-width:750px;margin:0 auto;box-shadow:0 4px 32px rgba(0,0,0,.35);overflow:hidden;color:#1E293B;font-family:'DM Sans',sans-serif}
+
+/* Okładka */
+.doc-cover{background:linear-gradient(140deg,#1B3A6B 0%,#2a3849 100%);padding:52px 44px;color:#fff;position:relative;overflow:hidden}
+.doc-cover::after{content:'';position:absolute;bottom:-30px;right:-30px;width:180px;height:180px;background:rgba(65,173,73,.12);border-radius:50%}
+.doc-cover-eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px}
+.doc-cover-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1.2;margin-bottom:6px}
+.doc-cover-domain{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:0}
+.doc-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+.doc-kpi{background:rgba(255,255,255,.09);border-radius:10px;padding:12px;border:1px solid rgba(255,255,255,.1)}
+.doc-kpi-val{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#41AD49;margin-bottom:4px}
+.doc-kpi-lbl{font-size:10px;color:rgba(255,255,255,.45);line-height:1.4}
+
+/* Treść dokumentu */
+.doc-body{padding:36px 44px}
+@media(max-width:500px){.doc-body{padding:24px 20px}}
+.doc-section-h{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#2a3849;border-bottom:3px solid #41AD49;padding-bottom:7px;margin-bottom:16px;margin-top:28px}
+.doc-section-h:first-child{margin-top:0}
+.doc-sub-h{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#2a3849;margin-bottom:9px;margin-top:18px}
+.doc-p{font-size:12px;line-height:1.75;color:#434343;margin-bottom:10px}
+.doc-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:16px}
+.doc-table th{background:#2a3849;color:#fff;padding:7px 9px;text-align:left;font-weight:600}
+.doc-table td{padding:6px 9px;border-bottom:1px solid #e8edf2;color:#434343}
+.doc-table tr:nth-child(even) td{background:#f5f7ff}
+.doc-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+@media(max-width:500px){.doc-kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.doc-kpi-box{background:#e8f5e9;border:1px solid #cfd4db;border-radius:8px;padding:11px;text-align:center}
+.doc-kpi-box .val{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#41AD49;margin-bottom:3px}
+.doc-kpi-box .lbl{font-size:10px;color:#607086;line-height:1.4}
+.doc-obs{background:#e8edf2;border-left:4px solid #41AD49;border-radius:0 6px 6px 0;padding:12px 16px;margin:12px 0;font-size:12px;color:#434343;line-height:1.75}
+.doc-obs strong{color:#2a3849}
+.doc-chart-ph{background:#f0f4ff;border:1px dashed #c7d2fe;border-radius:8px;height:150px;display:flex;align-items:center;justify-content:center;margin:12px 0;flex-direction:column;gap:6px}
+.doc-chart-ph span{font-size:11px;color:#8B93C0}
+.doc-placeholder{display:inline-block;background:#fff3e0;border-radius:4px;padding:1px 6px;font-size:11px;color:#B45309;font-family:'DM Mono',monospace}
+
 /* MODALS */
 .mbg{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;align-items:center;justify-content:center;padding:14px}
 .mbg.on{display:flex}
-.modal{background:var(--bg2);border:1px solid var(--bd);border-radius:20px;width:100%;max-width:450px;overflow:hidden}
+.modal{background:var(--bg2);border:1px solid var(--bd);border-radius:20px;width:100%;max-width:460px;overflow:hidden}
 .modal-h{padding:18px 22px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;justify-content:space-between}
 .modal-h h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:800}
 .modal-close{cursor:pointer;color:var(--tx3);font-size:20px;line-height:1;transition:color var(--tr)}
 .modal-close:hover{color:var(--tx)}
 .modal-body{padding:22px}
 .modal-foot{padding:14px 22px;border-top:1px solid var(--bd2);display:flex;justify-content:flex-end;gap:8px}
+.modal-it-note{background:rgba(247,97,79,.08);border:1px solid rgba(247,97,79,.2);border-radius:var(--r);padding:14px;margin-bottom:14px;font-size:13px;color:var(--tx2);line-height:1.6}
+.modal-it-note strong{color:var(--ac2)}
 .migrate-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:var(--tx2);line-height:1.5}
 .migrate-check input{margin-top:2px;accent-color:var(--ac);width:16px;height:16px;flex-shrink:0}
+.export-toggle{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.export-opt{padding:9px 14px;background:var(--bg3);border:2px solid var(--bd2);border-radius:var(--r);cursor:pointer;font-size:12px;font-weight:600;transition:var(--tr);user-select:none;flex:1;text-align:center}
+.export-opt.on{border-color:var(--ac);background:var(--ag);color:var(--ac)}
+.export-opt input{display:none}
 
 /* BUTTONS */
 .btn{padding:9px 18px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:var(--tr);font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px}
@@ -265,12 +336,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
   <div class="auth-card">
     <div class="auth-logo">
       <svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:24px;width:auto"><g><g>
-        <path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/>
-        <path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/>
-        <path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/>
-        <path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/>
-        <path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/>
-        <path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/>
+        <path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/><path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/><path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/><path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/><path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/><path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/>
       </g></g></svg>
     </div>
     <h2 class="auth-h">SEO Estymator</h2>
@@ -288,7 +354,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 <div class="screen" id="screen-ob">
   <div style="display:flex;align-items:center;justify-content:center;flex:1">
     <div class="ob-card">
-      <div class="ob-icon">📁</div>
+      <div style="font-size:40px;margin-bottom:14px">📁</div>
       <h2 class="ob-h">Wybierz folder roboczy</h2>
       <p class="ob-sub">Wskaż folder na Google Drive gdzie będą zapisywane estymacje i plik konfiguracyjny.</p>
       <div class="folder-display"><span>📂</span><span class="fd-name" id="ob-folder-name" style="color:var(--tx3)">Nie wybrano folderu</span></div>
@@ -356,30 +422,26 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
   </div>
   <div class="wiz-wrap">
     <div class="wiz-steps" id="wiz-steps">
-      <div class="wiz-step act" id="ws0"><div class="wiz-dot">1</div><span class="wiz-lbl">Projekt</span></div>
-      <div class="wiz-line"></div>
-      <div class="wiz-step" id="ws1"><div class="wiz-dot">2</div><span class="wiz-lbl">Warianty</span></div>
-      <div class="wiz-line"></div>
-      <div class="wiz-step" id="ws2"><div class="wiz-dot">3</div><span class="wiz-lbl">Działania</span></div>
-      <div class="wiz-line"></div>
-      <div class="wiz-step" id="ws3"><div class="wiz-dot">4</div><span class="wiz-lbl">Screenshoty</span></div>
-      <div class="wiz-line"></div>
+      <div class="wiz-step act" id="ws0"><div class="wiz-dot">1</div><span class="wiz-lbl">Projekt</span></div><div class="wiz-line"></div>
+      <div class="wiz-step" id="ws1"><div class="wiz-dot">2</div><span class="wiz-lbl">Warianty</span></div><div class="wiz-line"></div>
+      <div class="wiz-step" id="ws2"><div class="wiz-dot">3</div><span class="wiz-lbl">Działania</span></div><div class="wiz-line"></div>
+      <div class="wiz-step" id="ws3"><div class="wiz-dot">4</div><span class="wiz-lbl">Screenshoty</span></div><div class="wiz-line"></div>
       <div class="wiz-step" id="ws4"><div class="wiz-dot">5</div><span class="wiz-lbl">Edytor</span></div>
     </div>
 
-    <!-- KROK 0: Projekt -->
+    <!-- Krok 0 -->
     <div id="wstep-0">
       <div class="wiz-card">
         <h3 class="wiz-card-h">Dane projektu</h3>
-        <p class="wiz-card-sub">Podaj podstawowe informacje o kliencie. Favicon zostanie pobrany automatycznie.</p>
+        <p class="wiz-card-sub">Podaj podstawowe informacje o kliencie.</p>
         <div class="field"><label>Nazwa klienta</label><input type="text" id="w-client" placeholder="np. Klient ABC Sp. z o.o." oninput="wizCheck()"></div>
         <div class="field"><label>Adres domeny</label>
           <div class="field-favicon"><div class="fav-preview" id="w-fav-preview">🌐</div><input type="text" id="w-domain" placeholder="np. https://klient.pl" oninput="fetchFavicon();wizCheck()"></div>
-          <div class="field-hint">Favicon pobierany automatycznie po wpisaniu adresu.</div>
+          <div class="field-hint">Favicon pobierany automatycznie.</div>
         </div>
         <div class="field"><label>Typ działalności</label>
           <select id="w-industry" onchange="wizCheck();toggleOther(this)">
-            <option value="">— Wybierz typ działalności —</option>
+            <option value="">— Wybierz —</option>
             <option value="ecommerce">E-commerce — sklep internetowy</option>
             <option value="portal">Portal ofertowy (bez sklepu)</option>
             <option value="blog">Serwis informacyjny / Blog / Medium</option>
@@ -395,95 +457,97 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
             <option value="inne">Inny</option>
           </select>
         </div>
-        <div class="field" id="w-other-wrap" style="display:none"><label>Opisz typ działalności</label><input type="text" id="w-other" placeholder="np. Producent mebli B2B"></div>
+        <div class="field" id="w-other-wrap" style="display:none"><label>Opisz typ</label><input type="text" id="w-other" placeholder="np. Producent mebli B2B"></div>
         <div class="sep"></div>
-
-        <!-- POPRAWKA 1: Scenariusze z opisami, bez opcji "Pełny" -->
-        <div class="field">
-          <label>Typ scenariuszy wzrostu</label>
+        <div class="field"><label>Typ scenariuszy wzrostu</label>
           <div class="sc-grid">
-
-            <label class="sc-opt on" id="sc-standard">
-              <input type="radio" name="sc" value="standard" checked onchange="pickSc(this)">
-              <div class="sc-opt-tag">Domyślny</div>
-              <div class="sc-opt-title">Standardowy</div>
-              <div class="sc-opt-sub">Estymacja oparta wyłącznie na danych analitycznych (GA4, GSC, Ahrefs). Prognoza w 3 wariantach: ostrożny, bazowy i optymistyczny.</div>
-            </label>
-
-            <label class="sc-opt" id="sc-repair">
-              <input type="radio" name="sc" value="repair" onchange="pickSc(this)">
-              <div class="sc-opt-tag">Z kontekstem technicznym</div>
-              <div class="sc-opt-title">Z naprawą błędu krytycznego</div>
-              <div class="sc-opt-sub">Uwzględnia zidentyfikowany błąd techniczny (np. crawl budget, duplikacja treści), który po naprawie znacząco wpłynie na wzrost. Prognoza pokazuje scenariusz bez naprawy i po naprawie.</div>
-            </label>
-
+            <label class="sc-opt on" id="sc-standard"><input type="radio" name="sc" value="standard" checked onchange="pickSc(this)"><div class="sc-opt-tag">Domyślny</div><div class="sc-opt-title">Standardowy</div><div class="sc-opt-sub">Prognoza oparta wyłącznie na danych analitycznych w 3 wariantach: ostrożny, bazowy i optymistyczny.</div></label>
+            <label class="sc-opt" id="sc-repair"><input type="radio" name="sc" value="repair" onchange="pickSc(this)"><div class="sc-opt-tag">Z kontekstem technicznym</div><div class="sc-opt-title">Z naprawą błędu krytycznego</div><div class="sc-opt-sub">Uwzględnia zidentyfikowany błąd techniczny, który po naprawie znacząco wpłynie na wzrost. Pokazuje scenariusz bez naprawy i po naprawie.</div></label>
           </div>
         </div>
-
         <div id="w-repair-wrap" style="display:none;margin-top:12px">
-          <div class="field"><label>Opis błędu technicznego</label><textarea id="w-repair-desc" rows="2" placeholder="np. Problem z projector.php — pochłania crawl budget i blokuje indeksację stron produktowych" style="resize:vertical"></textarea></div>
-          <div class="field"><label>Szacowany czas efektu po naprawie</label>
-            <select id="w-repair-time"><option value="4w">4 tygodnie</option><option value="8w">6-8 tygodni</option><option value="3m">3 miesiące</option></select>
-          </div>
+          <div class="field"><label>Opis błędu</label><textarea id="w-repair-desc" rows="2" style="resize:vertical" placeholder="np. Problem z projector.php — pochłania crawl budget"></textarea></div>
+          <div class="field"><label>Szacowany czas efektu</label><select id="w-repair-time"><option value="4w">4 tygodnie</option><option value="8w">6-8 tygodni</option><option value="3m">3 miesiące</option></select></div>
         </div>
-
         <div class="wiz-nav"><span></span><button class="btn btn-p" onclick="wizGo(1)" id="wiz-next-0" disabled>Dalej →</button></div>
       </div>
     </div>
 
-    <!-- KROK 1: Warianty -->
+    <!-- Krok 1 -->
     <div id="wstep-1" style="display:none">
       <div class="wiz-card">
         <h3 class="wiz-card-h">Warianty cenowe</h3>
         <p class="wiz-card-sub">Ile wariantów cenowych ma ta estymacja?</p>
         <div class="field"><label>Liczba wariantów</label>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <label class="sc-opt" id="v1" style="flex:1;min-width:120px"><input type="radio" name="vcnt" value="1" onchange="setVariants(1)"><div class="sc-opt-title">1 wariant</div><div class="sc-opt-sub">Jedna propozycja cenowa dla klienta.</div></label>
-            <label class="sc-opt" id="v2" style="flex:1;min-width:120px"><input type="radio" name="vcnt" value="2" onchange="setVariants(2)"><div class="sc-opt-title">2 warianty</div><div class="sc-opt-sub">Dwie opcje do wyboru, np. Basic i Pro.</div></label>
-            <label class="sc-opt on" id="v3" style="flex:1;min-width:120px"><input type="radio" name="vcnt" value="3" checked onchange="setVariants(3)"><div class="sc-opt-title">3 warianty</div><div class="sc-opt-sub">Trzy pakiety, np. Minimum, Optimum i Maximum.</div></label>
+            <label class="sc-opt" id="v1" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="1" onchange="setVariants(1)"><div class="sc-opt-title">1 wariant</div><div class="sc-opt-sub">Jedna propozycja cenowa.</div></label>
+            <label class="sc-opt" id="v2" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="2" onchange="setVariants(2)"><div class="sc-opt-title">2 warianty</div><div class="sc-opt-sub">Dwie opcje do wyboru.</div></label>
+            <label class="sc-opt on" id="v3" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="3" checked onchange="setVariants(3)"><div class="sc-opt-title">3 warianty</div><div class="sc-opt-sub">Min / Opt / Max.</div></label>
           </div>
         </div>
-
-        <!-- POPRAWKA 2: Nazwy wariantów ukryte gdy 1 wariant -->
-        <div id="variant-names-section">
-          <div class="sep"></div>
-          <p style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Nazwy wariantów</p>
-          <div class="variant-names" id="variant-names"></div>
-        </div>
-
+        <div id="variant-names-section"><div class="sep"></div><p style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Nazwy wariantów</p><div class="variant-names" id="variant-names"></div></div>
         <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(0)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(2)">Dalej →</button></div>
       </div>
     </div>
 
-    <!-- KROK 2: Działania -->
+    <!-- Krok 2 -->
     <div id="wstep-2" style="display:none">
       <div class="wiz-card">
         <h3 class="wiz-card-h">Działania i budżet</h3>
-        <p class="wiz-card-sub">Zaznacz realizowane działania i podaj kwoty zgodnie z wycenę. Pola <span class="impact-badge">💡 wpływ na estymację</span> są uwzględniane w obliczeniach.</p>
+        <p class="wiz-card-sub">Zaznacz realizowane działania i podaj kwoty. Pola <span class="impact-badge">💡 wpływ na estymację</span> są uwzględniane w obliczeniach.</p>
         <div class="vtab-row" id="action-tabs"></div>
         <div id="action-panels"></div>
         <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(1)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(3)">Dalej →</button></div>
       </div>
     </div>
 
-    <!-- KROK 3: Screenshoty (placeholder) -->
+    <!-- Krok 3: Upload screenshotów -->
     <div id="wstep-3" style="display:none">
       <div class="wiz-card">
         <h3 class="wiz-card-h">Screenshoty z narzędzi</h3>
-        <p class="wiz-card-sub">Wrzuć screenshoty z GA4, GSC, Ahrefs lub Senuto — AI odczyta z nich dane do estymacji.</p>
-        <div class="info-box"><strong>💡 Integracja AI</strong> — oczekuje na weryfikację działu IT. Ta sekcja zostanie aktywowana w Etapie 4.</div>
-        <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(2)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(4)">Dalej →</button></div>
+        <p class="wiz-card-sub">Wrzuć screenshoty z narzędzi analitycznych. Oznacz źródło każdego pliku — AI odczyta z nich dane do estymacji.</p>
+        <div class="info-box" style="margin-bottom:18px"><strong>💡 Integracja AI</strong> — oczekuje na weryfikację działu IT. Możesz dodać pliki teraz — zostaną przetworzone po aktywacji integracji. Pola danych w edytorze możesz też wypełnić ręcznie.</div>
+        <div class="upload-area" id="upload-area"
+          onclick="document.getElementById('file-input').click()"
+          ondrop="handleDrop(event)"
+          ondragover="event.preventDefault();this.classList.add('drag')"
+          ondragleave="this.classList.remove('drag')">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-h">Przeciągnij screenshoty tutaj</div>
+          <div class="upload-sub">lub kliknij aby wybrać pliki · PNG, JPG, WEBP</div>
+        </div>
+        <input type="file" id="file-input" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+        <div class="upload-list" id="upload-list"></div>
+        <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(2)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(4)">Przejdź do edytora →</button></div>
       </div>
     </div>
 
-    <!-- KROK 4: Podsumowanie -->
-    <div id="wstep-4" style="display:none">
-      <div class="wiz-card">
-        <h3 class="wiz-card-h">✅ Projekt skonfigurowany</h3>
-        <p class="wiz-card-sub">Dane projektu zostały zapisane. Edytor estymacji zostanie uruchomiony w Etapie 4.</p>
-        <div class="info-box" id="wiz-summary"></div>
-        <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(3)">← Wstecz</button><button class="btn btn-p" onclick="saveProjectAndReturn()">💾 Zapisz projekt</button></div>
+    <div id="wstep-4" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ══ EDITOR ══ -->
+<div class="screen" id="screen-editor">
+  <div class="topbar">
+    <div class="tb-l"><div class="logo" onclick="openModal('back-editor')" id="logo-editor"></div><div class="lsep"></div><span class="app-lbl" id="editor-proj-name">Edytor estymacji</span></div>
+    <div class="tb-r">
+      <button class="btn btn-ghost btn-sm" onclick="openModal('it')">⚡ Generuj AI</button>
+      <button class="btn btn-p btn-sm" onclick="openModal('export')">⬇ Eksportuj .docx</button>
+      <button class="ico-btn" onclick="openModal('back-editor')" title="Wróć">✕</button>
+    </div>
+  </div>
+  <div class="editor-layout">
+    <!-- Panel lewy: dane -->
+    <div class="editor-left">
+      <div class="editor-left-top">
+        <span class="editor-left-top-h">Dane estymacji</span>
+        <button class="btn btn-ghost btn-sm" onclick="openModal('it')" style="font-size:11px;padding:4px 10px">⚡ AI</button>
       </div>
+      <div class="editor-sections" id="editor-sections"></div>
+    </div>
+    <!-- Panel prawy: podgląd -->
+    <div class="editor-right">
+      <div class="doc-preview" id="doc-preview"></div>
     </div>
   </div>
 </div>
@@ -491,34 +555,43 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 <!-- ══ QUICK placeholder ══ -->
 <div class="screen" id="screen-quick">
   <div class="topbar"><div class="tb-l"><div class="logo" onclick="showDash()" id="logo-quick"></div><div class="lsep"></div><span class="app-lbl">Szybka estymacja</span></div><div class="tb-r"><button class="btn btn-ghost btn-sm" onclick="showDash()">← Dashboard</button></div></div>
-  <div style="flex:1;display:flex;align-items:center;justify-content:center"><div class="empty-state"><div class="ei">🚧</div><h3>Etap 5 — w budowie</h3><p>Szybka estymacja pojawi się w ostatnim etapie.</p><br><button class="btn btn-ghost" onclick="showDash()">← Wróć do dashboardu</button></div></div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center"><div class="empty-state"><div class="ei">🚧</div><h3>Etap 5 — w budowie</h3><p>Szybka estymacja pojawi się w ostatnim etapie.</p><br><button class="btn btn-ghost" onclick="showDash()">← Wróć</button></div></div>
 </div>
 
 <!-- ══ MODALS ══ -->
-<div class="mbg" id="m-newfolder">
+<div class="mbg" id="m-newfolder"><div class="modal"><div class="modal-h"><h3>➕ Nowy folder</h3><span class="modal-close" onclick="closeModal('newfolder')">✕</span></div><div class="modal-body"><div class="field"><label>Nazwa folderu</label><input type="text" id="new-folder-name" value="Sempai — SEO Estymacje"></div></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('newfolder')">Anuluj</button><button class="btn btn-p" onclick="doCreateFolder()">Utwórz i wybierz</button></div></div></div>
+<div class="mbg" id="m-folder"><div class="modal"><div class="modal-h"><h3>📁 Zmień folder</h3><span class="modal-close" onclick="closeModal('folder')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);margin-bottom:14px;line-height:1.6">Wybierz nowy folder na Google Drive.</p><div class="folder-display" style="margin-bottom:12px"><span>📂</span><span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span></div><button class="btn btn-s" style="width:100%;margin-bottom:14px" onclick="openFolderPicker('change')">📂 Wybierz nowy folder</button><label class="migrate-check"><input type="checkbox" id="migrate-files"><span>Przenieś poprzednie estymacje (.docx)<br><small style="color:var(--tx3)">Plik konfiguracyjny przenosi się zawsze automatycznie.</small></span></label></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('folder')">Anuluj</button><button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>Potwierdź</button></div></div></div>
+<div class="mbg" id="m-back"><div class="modal"><div class="modal-h"><h3>Opuścić kreator?</h3><span class="modal-close" onclick="closeModal('back')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Czy na pewno chcesz wrócić? Niezapisane dane zostaną utracone.</p></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back');showDash()">Wróć do dashboardu</button></div></div></div>
+<div class="mbg" id="m-back-editor"><div class="modal"><div class="modal-h"><h3>Opuścić edytor?</h3><span class="modal-close" onclick="closeModal('back-editor')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Niezapisane zmiany zostaną utracone. Wróć do dashboardu?</p></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back-editor')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back-editor');showDash()">Wróć</button></div></div></div>
+
+<!-- Modal: Generuj AI -->
+<div class="mbg" id="m-it">
   <div class="modal">
-    <div class="modal-h"><h3>➕ Nowy folder</h3><span class="modal-close" onclick="closeModal('newfolder')">✕</span></div>
-    <div class="modal-body"><div class="field"><label>Nazwa folderu</label><input type="text" id="new-folder-name" value="Sempai — SEO Estymacje"></div></div>
-    <div class="modal-foot"><button class="btn btn-s" onclick="closeModal('newfolder')">Anuluj</button><button class="btn btn-p" onclick="doCreateFolder()">Utwórz i wybierz</button></div>
-  </div>
-</div>
-<div class="mbg" id="m-folder">
-  <div class="modal">
-    <div class="modal-h"><h3>📁 Zmień folder roboczy</h3><span class="modal-close" onclick="closeModal('folder')">✕</span></div>
+    <div class="modal-h"><h3>⚡ Generowanie AI</h3><span class="modal-close" onclick="closeModal('it')">✕</span></div>
     <div class="modal-body">
-      <p style="font-size:13px;color:var(--tx2);margin-bottom:14px;line-height:1.6">Wybierz nowy folder na Google Drive.</p>
-      <div class="folder-display" style="margin-bottom:12px"><span>📂</span><span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span></div>
-      <button class="btn btn-s" style="width:100%;margin-bottom:14px" onclick="openFolderPicker('change')">📂 Wybierz nowy folder</button>
-      <label class="migrate-check"><input type="checkbox" id="migrate-files"><span>Przenieś poprzednie estymacje (.docx)<br><small style="color:var(--tx3)">Plik konfiguracyjny przenosi się zawsze automatycznie.</small></span></label>
+      <div style="font-size:42px;text-align:center;margin-bottom:14px">🔒</div>
+      <div class="modal-it-note"><strong>Oczekuje na weryfikację działu IT</strong><br><br>Automatyczne generowanie danych przez AI wymaga podłączenia modelu językowego i zatwierdzenia integracji pod kątem bezpieczeństwa i limitów kosztowych API.<br><br>Po zatwierdzeniu — przycisk zostanie aktywowany bez zmian w interfejsie.</div>
+      <p style="font-size:13px;color:var(--tx2);line-height:1.6">W międzyczasie możesz uzupełniać dane ręcznie w panelu po lewej stronie. Pola z 🔒 nie zostaną nadpisane przez AI nawet po aktywacji integracji.</p>
     </div>
-    <div class="modal-foot"><button class="btn btn-s" onclick="closeModal('folder')">Anuluj</button><button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>Potwierdź</button></div>
+    <div class="modal-foot"><button class="btn btn-p" onclick="closeModal('it')">Rozumiem</button></div>
   </div>
 </div>
-<div class="mbg" id="m-back">
+
+<!-- Modal: Eksport -->
+<div class="mbg" id="m-export">
   <div class="modal">
-    <div class="modal-h"><h3>Opuścić kreator?</h3><span class="modal-close" onclick="closeModal('back')">✕</span></div>
-    <div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Czy na pewno chcesz wrócić? Niezapisane dane zostaną utracone.</p></div>
-    <div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back');showDash()">Wróć do dashboardu</button></div>
+    <div class="modal-h"><h3>⬇ Eksport dokumentu</h3><span class="modal-close" onclick="closeModal('export')">✕</span></div>
+    <div class="modal-body">
+      <div class="field"><label>Nazwa pliku</label><input type="text" id="export-filename" value="Estymacja_Klient_2026.docx"></div>
+      <div class="field"><label>Format eksportu</label>
+        <div class="export-toggle">
+          <label class="export-opt on"><input type="radio" name="efmt" value="single" checked> 📄 Jeden zbiorczy .docx<br><small style="font-weight:400;color:var(--tx3)">wszystkie warianty razem</small></label>
+          <label class="export-opt"><input type="radio" name="efmt" value="split"> 📄📄 Rozbij na warianty<br><small style="font-weight:400;color:var(--tx3)">osobny plik per wariant</small></label>
+        </div>
+      </div>
+      <div class="info-box" style="margin-bottom:0"><strong>⏳ Generowanie .docx</strong> — aktywne po podłączeniu szablonu Sempai i weryfikacji IT. Eksport zostanie uruchomiony automatycznie.</div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-s" onclick="closeModal('export')">Anuluj</button><button class="btn btn-p" onclick="doExport()">⬇ Eksportuj</button></div>
   </div>
 </div>
 
@@ -533,21 +606,56 @@ const CFG_NAME='sempai-seo-estymacje.json';
 const DRIVE='https://www.googleapis.com/drive/v3';
 const IND={ecommerce:'E-commerce',portal:'Portal ofertowy',blog:'Blog / Medium',b2b:'Usługi B2B',local:'Usługi lokalne',b2c:'Usługi B2C',saas:'SaaS',marketplace:'Marketplace',nieruchomosci:'Nieruchomości',medycyna:'Medycyna',prawo:'Prawo / Finanse',edukacja:'Edukacja',inne:'Inny'};
 
-const LOGO_SVG=`<svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:14px;width:auto"><g><g>
-<path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/>
-<path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/>
-<path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/>
-<path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/>
-<path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/>
-<path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/>
-</g></g></svg>`;
+const LOGO_SVG=`<svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:14px;width:auto"><g><g><path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/><path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/><path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/><path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/><path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/><path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/></g></g></svg>`;
 
+// ── STAN ──
 let token=null,user=null,tokenClient=null,pickerReady=false;
 let folderId=null,folderName=null,configFileId=null;
 let pendingFolderId=null,pendingFolderName=null;
 let projects=[];
+let lockedFields=new Set(); // przechowuje ID zablokowanych pól
+let uploadedFiles=[];
 const SAMPLES=[{id:'p1',name:'Wach and Wach',domain:'wachandwach.pl',industry:'prawo',status:'ready',date:'2026-03-28'},{id:'p2',name:'Matfel',domain:'matfel.pl',industry:'ecommerce',status:'sent',date:'2026-04-10'},{id:'p3',name:'Klient Demo',domain:'klientdemo.pl',industry:'b2b',status:'draft',date:'2026-04-12'}];
 let WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};
+
+// Dane edytora (wypełniane przez AI lub ręcznie)
+let ED = {
+  sessions:'~2 000',users:'~1 500',engage:'47,9%',stime:'02:39',
+  top10:'143',top3:'59',rd:'51',aiCit:'25',
+  fStart:'2 000',fEnd:'3 700 – 4 500',fGrow:'+85-125%',fTop10:'265 – 330',
+  obs:'GA4 pokazuje średnio 3 131 sesji/mies. przez 14 miesięcy, ale aktualny trend (koniec 2025 – lut 2026) spadł do ~1 800-2 200 sesji/mies. Ten niższy poziom jest realnym punktem startowym prognozy.',
+  rec1:'Dogłębna analiza przyczyn spadku po lipcu 2025 (Core Update? utrata fraz? problemy techniczne?)',
+  rec2:'Silne CTA we wszystkich artykułach blogowych — połączenie treści informacyjnych z podstronami usługowymi.',
+};
+
+// Definicja sekcji edytora
+const ED_SECTIONS = [
+  {id:'s-ga4',label:'Stan obecny — GA4',fields:[
+    {id:'sessions',label:'Sesje organiczne/mies.',conf:'high'},
+    {id:'users',label:'Aktywni użytkownicy/mies.',conf:'high'},
+    {id:'engage',label:'Engagement rate',conf:'high'},
+    {id:'stime',label:'Śr. czas sesji',conf:'med'},
+  ]},
+  {id:'s-ahrefs',label:'Widoczność — Ahrefs',fields:[
+    {id:'top10',label:'Frazy TOP 10',conf:'high'},
+    {id:'top3',label:'Frazy TOP 3',conf:'high'},
+    {id:'rd',label:'Referring Domains',conf:'high'},
+    {id:'aiCit',label:'Cytowania AI Overview',conf:'med'},
+  ]},
+  {id:'s-prog',label:'Prognoza (scenariusz bazowy)',fields:[
+    {id:'fStart',label:'Punkt startowy (sesje/mies.)',conf:'high'},
+    {id:'fEnd',label:'Cel po 12 miesiącach',conf:'med'},
+    {id:'fGrow',label:'Wzrost vs punkt startowy',conf:'med'},
+    {id:'fTop10',label:'Frazy TOP 10 (cel)',conf:'med'},
+  ]},
+  {id:'s-obs',label:'Kluczowa obserwacja',fields:[
+    {id:'obs',label:'Tekst obserwacji',conf:'med',type:'textarea'},
+  ]},
+  {id:'s-rec',label:'Priorytety i rekomendacje',fields:[
+    {id:'rec1',label:'Priorytet 1',conf:'low',type:'textarea'},
+    {id:'rec2',label:'Priorytet 2',conf:'low',type:'textarea'},
+  ]},
+];
 
 // ── UI ──
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById('screen-'+id).classList.add('on');}
@@ -559,7 +667,7 @@ function openModal(id){document.getElementById('m-'+id).classList.add('on');}
 function closeModal(id){document.getElementById('m-'+id).classList.remove('on');}
 function toggleTheme(){const t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('smp_theme',t);document.querySelectorAll('[id^=theme-btn]').forEach(b=>b.textContent=t==='dark'?'🌙':'☀️');}
 function toggleUDD(id){const dd=document.getElementById(id);document.querySelectorAll('.u-dd').forEach(d=>{if(d.id!==id)d.classList.remove('on');});dd.classList.toggle('on');}
-function injectLogos(){['logo-dash','logo-proj','logo-wiz','logo-quick'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=LOGO_SVG;});}
+function injectLogos(){['logo-dash','logo-proj','logo-wiz','logo-editor','logo-quick'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=LOGO_SVG;});}
 
 // ── AUTH ──
 function waitGIS(cb){if(typeof google!=='undefined'&&google.accounts){cb();return;}setTimeout(()=>waitGIS(cb),300);}
@@ -573,8 +681,6 @@ async function apiFetch(url,opts={}){opts.headers=opts.headers||{};opts.headers[
 async function apiPost(url,body){return apiFetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});}
 async function readJson(id){const r=await fetch(DRIVE+'/files/'+id+'?alt=media',{headers:{'Authorization':'Bearer '+token}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
 async function writeJson(id,data){await fetch('https://www.googleapis.com/upload/drive/v3/files/'+id+'?uploadType=media',{method:'PATCH',headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify(data)});}
-
-// ── CONFIG ──
 async function loadConfig(){const q=encodeURIComponent("name='"+CFG_NAME+"' and trashed=false and 'me' in owners");const r=await apiFetch(DRIVE+'/files?q='+q+'&fields=files(id,name)&pageSize=1');if(r.files&&r.files.length>0){configFileId=r.files[0].id;try{const cfg=await readJson(configFileId);folderId=cfg.folderId||null;folderName=cfg.folderName||null;}catch(e){configFileId=null;}}}
 async function saveConfig(){const cfg={version:1,folderId,folderName,updatedAt:new Date().toISOString()};if(configFileId){await writeJson(configFileId,cfg);}else{const m=await apiPost(DRIVE+'/files',{name:CFG_NAME,mimeType:'application/json',parents:[folderId]});configFileId=m.id;await writeJson(configFileId,cfg);}}
 
@@ -592,138 +698,216 @@ function showDash(){if(!user){show('auth');return;}document.getElementById('dash
 function renderRecent(){const el=document.getElementById('dash-recent');if(!projects.length){el.innerHTML='';return;}el.innerHTML='<div class="section-h">Ostatnie projekty</div><div class="proj-list">'+projects.slice(0,3).map(projHTML).join('')+'</div>';}
 function projHTML(p){const sm={draft:'Szkic',ready:'Gotowa',sent:'Wysłana'};const fav=p.domain?'https://www.google.com/s2/favicons?domain='+encodeURIComponent(p.domain)+'&sz=64':'';const ind=IND[p.industry]||'';return`<div class="proj-card" onclick="openProject('${p.id}')"><div class="proj-fav">${fav?`<img src="${fav}" alt="" onerror="this.style.display='none'">`:''}</div><div class="proj-info"><div class="proj-name">${p.name}${ind?`<span class="ind-tag">${ind}</span>`:''}</div><div class="proj-domain">${p.domain||''}</div></div><div class="proj-meta"><span class="status-badge ${p.status||'draft'}">${sm[p.status]||p.status}</span><span class="proj-date">${p.date||''}</span></div><span class="proj-arrow">›</span></div>`;}
 function showProjects(){document.getElementById('proj-total-lbl').textContent=projects.length+' projektów';renderProjList('');show('projects');}
-function renderProjList(q=''){const f=projects.filter(p=>!q||(p.name+p.domain).toLowerCase().includes(q.toLowerCase()));document.getElementById('proj-list-main').innerHTML=f.length?f.map(projHTML).join(''):'<div class="empty-state"><div class="ei">🔍</div><h3>Brak wyników</h3><p>Nie znaleziono projektu pasującego do "'+q+'"</p></div>';}
-function openProject(id){const p=projects.find(x=>x.id===id);if(p)toast('Edytor projektu "'+p.name+'" — dostępny od Etapu 4','warn');}
+function renderProjList(q=''){const f=projects.filter(p=>!q||(p.name+p.domain).toLowerCase().includes(q.toLowerCase()));document.getElementById('proj-list-main').innerHTML=f.length?f.map(projHTML).join(''):'<div class="empty-state"><div class="ei">🔍</div><h3>Brak wyników</h3><p>Nie znaleziono projektu.</p></div>';}
+function openProject(id){const p=projects.find(x=>x.id===id);if(!p)return;WZ.client=p.name;WZ.domain=p.domain;WZ.favicon=p.favicon||'';WZ.industry=p.industry;openEditor(p.name);}
 
 // ── WIZARD ──
-function startWizard(){WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};['w-client','w-domain','w-repair-desc'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});document.getElementById('w-industry').value='';document.getElementById('w-fav-preview').innerHTML='🌐';document.getElementById('w-repair-wrap').style.display='none';document.getElementById('w-other-wrap').style.display='none';document.querySelectorAll('[name=sc]')[0].checked=true;document.getElementById('sc-standard').classList.add('on');document.getElementById('sc-repair').classList.remove('on');document.querySelectorAll('[name=vcnt]')[2].checked=true;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===2));setVariants(3);wizGo(0,true);show('wizard');}
+function startWizard(){WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};lockedFields=new Set();uploadedFiles=[];['w-client','w-domain','w-repair-desc'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});document.getElementById('w-industry').value='';document.getElementById('w-fav-preview').innerHTML='🌐';document.getElementById('w-repair-wrap').style.display='none';document.getElementById('w-other-wrap').style.display='none';document.querySelectorAll('[name=sc]')[0].checked=true;document.getElementById('sc-standard').classList.add('on');document.getElementById('sc-repair').classList.remove('on');document.querySelectorAll('[name=vcnt]')[2].checked=true;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===2));setVariants(3);wizGo(0,true);show('wizard');}
 function wizCheck(){const ok=document.getElementById('w-client').value.trim()&&document.getElementById('w-domain').value.trim()&&document.getElementById('w-industry').value;document.getElementById('wiz-next-0').disabled=!ok;}
 function wizGo(step,init=false){
   if(!init){WZ.client=document.getElementById('w-client').value.trim();WZ.domain=document.getElementById('w-domain').value.trim();WZ.industry=document.getElementById('w-industry').value;const sc=document.querySelector('[name=sc]:checked');WZ.scenario=sc?sc.value:'standard';WZ.repairDesc=(document.getElementById('w-repair-desc')||{}).value||'';WZ.repairTime=(document.getElementById('w-repair-time')||{}).value||'4w';}
   for(let i=0;i<5;i++){document.getElementById('wstep-'+i).style.display=i===step?'block':'none';const ws=document.getElementById('ws'+i);ws.classList.remove('act','done');if(i<step)ws.classList.add('done');else if(i===step)ws.classList.add('act');ws.querySelector('.wiz-dot').textContent=i<step?'✓':(i+1).toString();}
   if(step===2)buildActionPanels();
-  if(step===4)buildWizSummary();
+  if(step===4){openEditor(WZ.client);return;}
 }
 function pickSc(el){document.getElementById('sc-standard').classList.toggle('on',el.value==='standard');document.getElementById('sc-repair').classList.toggle('on',el.value==='repair');document.getElementById('w-repair-wrap').style.display=el.value==='repair'?'block':'none';}
 function fetchFavicon(){const d=document.getElementById('w-domain').value.trim();if(!d)return;try{const host=d.includes('://')?new URL(d).hostname:d.split('/')[0];const url='https://www.google.com/s2/favicons?domain='+encodeURIComponent(host)+'&sz=64';document.getElementById('w-fav-preview').innerHTML=`<img src="${url}" style="width:24px;height:24px;object-fit:contain" onerror="this.parentElement.innerHTML='🌐'">`;WZ.favicon=url;}catch(e){}}
 function toggleOther(sel){document.getElementById('w-other-wrap').style.display=sel.value==='inne'?'block':'none';}
+function setVariants(n){WZ.variantCount=n;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i+1===n));document.getElementById('variant-names-section').style.display=n===1?'none':'block';const def=['Minimum','Optimum','Maximum'];while(WZ.variantNames.length<n)WZ.variantNames.push(def[WZ.variantNames.length]||'Wariant '+(WZ.variantNames.length+1));const el=document.getElementById('variant-names');el.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div');d.className='field';d.innerHTML=`<label>Wariant ${i+1}</label><input type="text" value="${WZ.variantNames[i]||''}" oninput="WZ.variantNames[${i}]=this.value" placeholder="Nazwa wariantu">`;el.appendChild(d);}}
 
-// POPRAWKA 2: setVariants ukrywa nazwy przy 1 wariancie
-function setVariants(n){
-  WZ.variantCount=n;
-  ['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i+1===n));
-  const ns=document.getElementById('variant-names-section');
-  // Przy 1 wariancie ukrywamy sekcję nazw — nie ma potrzeby nazywać jedynej opcji
-  ns.style.display=n===1?'none':'block';
-  const def=['Minimum','Optimum','Maximum'];
-  while(WZ.variantNames.length<n)WZ.variantNames.push(def[WZ.variantNames.length]||'Wariant '+(WZ.variantNames.length+1));
-  const el=document.getElementById('variant-names');el.innerHTML='';
-  for(let i=0;i<n;i++){const d=document.createElement('div');d.className='field';d.innerHTML=`<label>Wariant ${i+1}</label><input type="text" value="${WZ.variantNames[i]||''}" oninput="WZ.variantNames[${i}]=this.value" placeholder="Nazwa wariantu">`;el.appendChild(d);}
-}
-
-// ══ POPRAWKA 3: FORMULARZ DZIAŁAŃ — struktura z arkusza Sempai ══
-function initVar(){
-  return {
-    // OBSŁUGA SEO
-    cbAnalityka:true,cbOnsite:true,cbZarzadzanie:true,
-    // MONITORING
-    cbMonAI:true,cbMonAnaliza:true,cbMonCytowania:false,cbMonRaport:true,
-    // LINK BUILDING
-    cbCopywriting:true,qCopywriting:10,
-    cbLBGodziny:true,qLBGodziny:3,
-    cbLBNiestandardowe:false,qLBNiestandardowe:0,
-    // CONTENT EFEKTYWNOŚCIOWY
-    cbOpKategorii:false,qOpKategorii:0,
-    cbOpProduktow:false,qOpProduktow:0,
-    cbWpisyBlog:true,qWpisyBlog:2,
-    cbRecykling:false,qRecykling:0,
-    cbGodSpCM:false,qGodSpCM:0,
-    // CONTENT MARKETING ZEWNĘTRZNY
-    cbBudzetMedia:false,qBudzetMedia:0,
-    cbTresci:false,qTresci:0,
-    cbObslugaKampanii:false,
-    // Kwoty
-    kwotaSEO:'',kwotaMonitoring:'',kwotaLB:'',kwotaContent:'',kwotaCMZ:''
-  };
-}
-
-function buildActionPanels(){
-  while(WZ.variants.length<WZ.variantCount)WZ.variants.push(initVar());
-  const tabs=document.getElementById('action-tabs'),panels=document.getElementById('action-panels');
-  tabs.innerHTML='';panels.innerHTML='';
-  for(let i=0;i<WZ.variantCount;i++){
-    const name=WZ.variantCount===1?'Działania i budżet':(WZ.variantNames[i]||('Wariant '+(i+1)));
-    if(WZ.variantCount>1){const tab=document.createElement('div');tab.className='vtab'+(i===0?' on':'');tab.textContent=name;tab.onclick=()=>switchVTab(i);tabs.appendChild(tab);}
-    const panel=document.createElement('div');panel.className='vtab-content'+(i===0?' on':'');panel.id='vp'+i;panel.innerHTML=actionHTML(i);panels.appendChild(panel);
-  }
-}
-
+// ── ACTIONS ──
+function initVar(){return{kwotaSEO:'',kwotaMonitoring:'',kwotaLB:'',kwotaContent:'',kwotaCMZ:'',cbAnalityka:true,cbOnsite:true,cbZarzadzanie:true,cbMonAI:true,cbMonAnaliza:true,cbMonCytowania:false,cbMonRaport:true,cbCopywriting:true,qCopywriting:10,cbLBGodziny:true,qLBGodziny:3,cbLBNiestandardowe:false,qLBNiestandardowe:0,cbOpKategorii:false,qOpKategorii:0,cbOpProduktow:false,qOpProduktow:0,cbWpisyBlog:true,qWpisyBlog:2,cbRecykling:false,qRecykling:0,cbGodSpCM:false,qGodSpCM:0,cbBudzetMedia:false,qBudzetMedia:0,cbTresci:false,qTresci:0,cbObslugaKampanii:false};}
+function buildActionPanels(){while(WZ.variants.length<WZ.variantCount)WZ.variants.push(initVar());const tabs=document.getElementById('action-tabs'),panels=document.getElementById('action-panels');tabs.innerHTML='';panels.innerHTML='';for(let i=0;i<WZ.variantCount;i++){const name=WZ.variantCount===1?'':(WZ.variantNames[i]||('Wariant '+(i+1)));if(WZ.variantCount>1){const tab=document.createElement('div');tab.className='vtab'+(i===0?' on':'');tab.textContent=name;tab.onclick=()=>switchVTab(i);tabs.appendChild(tab);}const panel=document.createElement('div');panel.className='vtab-content'+(i===0?' on':'');panel.id='vp'+i;panel.innerHTML=actionHTML(i);panels.appendChild(panel);}}
 function switchVTab(i){document.querySelectorAll('.vtab').forEach((t,j)=>t.classList.toggle('on',j===i));document.querySelectorAll('.vtab-content').forEach((p,j)=>p.classList.toggle('on',j===i));}
-
-function cb(vi,key,label,indent=false){const v=WZ.variants[vi];return`<div class="act-row${indent?' subrow':''}"><label class="act-chk"><input type="checkbox" ${v[key]?'checked':''} onchange="WZ.variants[${vi}].${key}=this.checked"><span>${label}</span></label></div>`;}
-function cbQty(vi,cbKey,label,qKey,qLabel,indent=false){const v=WZ.variants[vi];return`<div class="act-row${indent?' subrow':''}"><label class="act-chk"><input type="checkbox" ${v[cbKey]?'checked':''} onchange="WZ.variants[${vi}].${cbKey}=this.checked"><span>${label}</span></label><div class="act-qty"><label>${qLabel}:</label><input type="number" value="${v[qKey]}" min="0" oninput="WZ.variants[${vi}].${qKey}=+this.value"></div></div>`;}
-function footer(vi,kwotaKey,label,curr='PLN netto/mies.'){const v=WZ.variants[vi];return`<div class="act-group-footer"><label>${label}</label><div class="kwota-input-wrap"><input type="number" value="${v[kwotaKey]}" oninput="WZ.variants[${vi}].${kwotaKey}=this.value;calcTotal(${vi})" placeholder="0"><span class="curr">${curr}</span></div></div>`;}
-
-function actionHTML(vi){
-  const copyBtn=WZ.variantCount>1&&vi>0?`<div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn btn-ghost btn-sm" onclick="copyVar(${vi})">Kopiuj z ${WZ.variantNames[vi-1]||'poprzedniego'} ↑</button></div>`:'';
-  return copyBtn+`
-<div class="act-group">
-  <div class="act-group-header"><div class="act-group-title">Obsługa SEO <span class="no-impact-badge">bez wpływu na model</span></div></div>
-  ${cb(vi,'cbAnalityka','Analizy i raporty')}
-  ${cb(vi,'cbOnsite','Działania on-site')}
-  ${cb(vi,'cbZarzadzanie','Zarządzanie projektem')}
-  ${footer(vi,'kwotaSEO','Kwota sekcji')}
-</div>
-
-<div class="act-group">
-  <div class="act-group-header"><div class="act-group-title">Monitoring <span class="no-impact-badge">bez wpływu na model</span></div></div>
-  ${cb(vi,'cbMonAI','Monitoring asystentów AI (ChatGPT, Gemini, Copilot, AI Mode, AI Overview)')}
-  ${cb(vi,'cbMonAnaliza','Analiza obecności marki w AI')}
-  ${cb(vi,'cbMonCytowania','Analizowanie cytowań w wynikach AI')}
-  ${cb(vi,'cbMonRaport','Raportowanie widoczności w wynikach AI')}
-  ${footer(vi,'kwotaMonitoring','Kwota sekcji')}
-</div>
-
-<div class="act-group">
-  <div class="act-group-header"><div class="act-group-title">Link Building <span class="impact-badge">💡 wpływ na estymację</span></div></div>
-  ${cbQty(vi,'cbCopywriting','Copywriting SEO','qCopywriting','szt./mies.')}
-  ${cbQty(vi,'cbLBGodziny','Publikacja linków / link building godzinowy','qLBGodziny','godz./mies.')}
-  ${cbQty(vi,'cbLBNiestandardowe','Niestandardowe działania LB / podlink zaplecza','qLBNiestandardowe','godz./mies.')}
-  ${footer(vi,'kwotaLB','Kwota sekcji')}
-</div>
-
-<div class="act-group">
-  <div class="act-group-header"><div class="act-group-title">Content Efektywnościowy <span class="impact-badge">💡 wpływ na estymację</span></div></div>
-  ${cbQty(vi,'cbOpKategorii','Opisy kategorii','qOpKategorii','szt./mies.')}
-  ${cbQty(vi,'cbOpProduktow','Opisy produktów','qOpProduktow','szt./mies.')}
-  ${cbQty(vi,'cbWpisyBlog','Wpisy blogowe','qWpisyBlog','szt./mies.')}
-  ${cbQty(vi,'cbRecykling','Recykling treści','qRecykling','szt./mies.')}
-  ${cbQty(vi,'cbGodSpCM','Godziny specjalisty Content Marketingu','qGodSpCM','godz./mies.')}
-  ${footer(vi,'kwotaContent','Kwota sekcji')}
-</div>
-
-<div class="act-group">
-  <div class="act-group-header"><div class="act-group-title">Content Marketing Zewnętrzny <span class="impact-badge">💡 wpływ na estymację</span></div></div>
-  ${cbQty(vi,'cbBudzetMedia','Budżet na media + (Brand mentions)','qBudzetMedia','PLN/mies.')}
-  ${cbQty(vi,'cbTresci','Treści (artykuły pod publikacje)','qTresci','szt./mies.')}
-  ${cb(vi,'cbObslugaKampanii','Obsługa kampanii')}
-  ${footer(vi,'kwotaCMZ','Kwota sekcji')}
-</div>
-
-<div class="total-bar"><span class="tl">RAZEM MIESIĘCZNIE</span><span class="tv" id="tv${vi}">— PLN netto</span></div>`;
-}
-
+function cb(vi,key,label){const v=WZ.variants[vi];return`<div class="act-row"><label class="act-chk"><input type="checkbox" ${v[key]?'checked':''} onchange="WZ.variants[${vi}].${key}=this.checked"><span>${label}</span></label></div>`;}
+function cbQty(vi,cbKey,label,qKey,qLabel){const v=WZ.variants[vi];return`<div class="act-row"><label class="act-chk"><input type="checkbox" ${v[cbKey]?'checked':''} onchange="WZ.variants[${vi}].${cbKey}=this.checked"><span>${label}</span></label><div class="act-qty"><label>${qLabel}:</label><input type="number" value="${v[qKey]}" min="0" oninput="WZ.variants[${vi}].${qKey}=+this.value"></div></div>`;}
+function footer(vi,kwotaKey,label){const v=WZ.variants[vi];return`<div class="act-group-footer"><label>${label}</label><div class="kwota-input-wrap"><input type="number" value="${v[kwotaKey]}" oninput="WZ.variants[${vi}].${kwotaKey}=this.value;calcTotal(${vi})" placeholder="0"><span class="curr">PLN netto/mies.</span></div></div>`;}
+function actionHTML(vi){const copyBtn=WZ.variantCount>1&&vi>0?`<div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn btn-ghost btn-sm" onclick="copyVar(${vi})">Kopiuj z ${WZ.variantNames[vi-1]||'poprzedniego'} ↑</button></div>`:'';return copyBtn+`
+<div class="act-group"><div class="act-group-header"><div class="act-group-title">Obsługa SEO <span class="no-impact-badge">bez wpływu na model</span></div></div>${cb(vi,'cbAnalityka','Analizy i raporty')}${cb(vi,'cbOnsite','Działania on-site')}${cb(vi,'cbZarzadzanie','Zarządzanie projektem')}${footer(vi,'kwotaSEO','Kwota sekcji')}</div>
+<div class="act-group"><div class="act-group-header"><div class="act-group-title">Monitoring <span class="no-impact-badge">bez wpływu na model</span></div></div>${cb(vi,'cbMonAI','Monitoring asystentów AI (ChatGPT, Gemini, Copilot, AI Mode, AI Overview)')}${cb(vi,'cbMonAnaliza','Analiza obecności marki w AI')}${cb(vi,'cbMonCytowania','Analizowanie cytowań w wynikach AI')}${cb(vi,'cbMonRaport','Raportowanie widoczności w wynikach AI')}${footer(vi,'kwotaMonitoring','Kwota sekcji')}</div>
+<div class="act-group"><div class="act-group-header"><div class="act-group-title">Link Building <span class="impact-badge">💡 wpływ na estymację</span></div></div>${cbQty(vi,'cbCopywriting','Copywriting SEO','qCopywriting','szt./mies.')}${cbQty(vi,'cbLBGodziny','Publikacja linków / link building godzinowy','qLBGodziny','godz./mies.')}${cbQty(vi,'cbLBNiestandardowe','Niestandardowe działania LB / podlink zaplecza','qLBNiestandardowe','godz./mies.')}${footer(vi,'kwotaLB','Kwota sekcji')}</div>
+<div class="act-group"><div class="act-group-header"><div class="act-group-title">Content Efektywnościowy <span class="impact-badge">💡 wpływ na estymację</span></div></div>${cbQty(vi,'cbOpKategorii','Opisy kategorii','qOpKategorii','szt./mies.')}${cbQty(vi,'cbOpProduktow','Opisy produktów','qOpProduktow','szt./mies.')}${cbQty(vi,'cbWpisyBlog','Wpisy blogowe','qWpisyBlog','szt./mies.')}${cbQty(vi,'cbRecykling','Recykling treści','qRecykling','szt./mies.')}${cbQty(vi,'cbGodSpCM','Godziny specjalisty Content Marketingu','qGodSpCM','godz./mies.')}${footer(vi,'kwotaContent','Kwota sekcji')}</div>
+<div class="act-group"><div class="act-group-header"><div class="act-group-title">Content Marketing Zewnętrzny <span class="impact-badge">💡 wpływ na estymację</span></div></div>${cbQty(vi,'cbBudzetMedia','Budżet na media + (Brand mentions)','qBudzetMedia','PLN/mies.')}${cbQty(vi,'cbTresci','Treści (artykuły pod publikacje)','qTresci','szt./mies.')}${cb(vi,'cbObslugaKampanii','Obsługa kampanii')}${footer(vi,'kwotaCMZ','Kwota sekcji')}</div>
+<div class="total-bar"><span class="tl">RAZEM MIESIĘCZNIE</span><span class="tv" id="tv${vi}">— PLN netto</span></div>`;}
 function calcTotal(vi){const v=WZ.variants[vi];const t=[v.kwotaSEO,v.kwotaMonitoring,v.kwotaLB,v.kwotaContent,v.kwotaCMZ].map(x=>parseFloat(x)||0).reduce((a,b)=>a+b,0);const el=document.getElementById('tv'+vi);if(el)el.textContent=t>0?t.toLocaleString('pl-PL')+' PLN netto':'— PLN netto';}
 function copyVar(to){if(to<1)return;WZ.variants[to]=JSON.parse(JSON.stringify(WZ.variants[to-1]));buildActionPanels();switchVTab(to);toast('Skopiowano z "'+( WZ.variantNames[to-1]||'poprzedniego')+'"');}
 
-function buildWizSummary(){
-  const sc={standard:'Standardowy (Ostrożny / Bazowy / Optymistyczny)',repair:'Z naprawą błędu krytycznego'}[WZ.scenario]||WZ.scenario;
-  const vnames=WZ.variantCount===1?'Jeden wariant':WZ.variantNames.slice(0,WZ.variantCount).join(', ');
-  document.getElementById('wiz-summary').innerHTML=`<strong style="color:var(--ac)">Podsumowanie konfiguracji:</strong><br><br>🏢 <strong>Klient:</strong> ${WZ.client}<br>🌐 <strong>Domena:</strong> ${WZ.domain}<br>🏷️ <strong>Branża:</strong> ${IND[WZ.industry]||WZ.industry}<br>📊 <strong>Scenariusze:</strong> ${sc}<br>💰 <strong>Warianty:</strong> ${vnames}`;
-}
-function saveProjectAndReturn(){const p={id:'p'+Date.now(),name:WZ.client,domain:WZ.domain,industry:WZ.industry,favicon:WZ.favicon,status:'draft',date:new Date().toISOString().split('T')[0]};projects.unshift(p);toast('Projekt "'+WZ.client+'" zapisany!');showDash();}
+// ── UPLOAD ──
+const UPLOAD_SRCS=['GA4','GSC','Ahrefs','Senuto','Inne'];
+function handleFiles(files){Array.from(files).forEach(f=>{if(!f.type.startsWith('image/'))return;uploadedFiles.push({name:f.name,source:'GA4',size:f.size});renderUploadList();});}
+function handleDrop(e){e.preventDefault();document.getElementById('upload-area').classList.remove('drag');handleFiles(e.dataTransfer.files);}
+function renderUploadList(){const el=document.getElementById('upload-list');el.innerHTML=uploadedFiles.map((f,i)=>`<div class="upload-file"><span style="font-size:18px;flex-shrink:0">🖼️</span><div class="upload-file-info"><div class="upload-file-name">${f.name}</div><div class="upload-file-src">Źródło: <select onchange="uploadedFiles[${i}].source=this.value">${UPLOAD_SRCS.map(s=>`<option value="${s}" ${f.source===s?'selected':''}>${s}</option>`).join('')}</select> · ${(f.size/1024).toFixed(0)} KB</div></div><span class="upload-del" onclick="uploadedFiles.splice(${i},1);renderUploadList()">✕</span></div>`).join('');}
 
-document.addEventListener('click',e=>{if(!e.target.closest('.u-pill')&&!e.target.closest('.u-dd'))document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));document.querySelectorAll('.mbg').forEach(m=>{if(e.target===m)m.classList.remove('on');});});
+// ── EDITOR ──
+function openEditor(projName){
+  document.getElementById('editor-proj-name').textContent = 'Estymacja — ' + projName;
+  // Aktualizuj nazwę pliku eksportu
+  const fn = document.getElementById('export-filename');
+  if(fn) fn.value = 'Estymacja_' + (WZ.client||projName).replace(/\s+/g,'_') + '_' + new Date().toISOString().split('T')[0] + '.docx';
+  buildEditorSections();
+  buildDocPreview();
+  show('editor');
+}
+
+function buildEditorSections(){
+  const el = document.getElementById('editor-sections');
+  el.innerHTML = ED_SECTIONS.map((sec,si) => `
+    <div class="ed-section">
+      <div class="ed-section-h ${si===0?'open':''}" onclick="toggleEdSec(this)">
+        <span>${sec.label}</span>
+        <span class="ed-chevron ${si===0?'open':''}">▾</span>
+      </div>
+      <div class="ed-section-body ${si===0?'on':''}" id="${sec.id}">
+        ${sec.fields.map(f => buildEdField(f)).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function buildEdField(f){
+  const locked = lockedFields.has(f.id);
+  const confMap = {high:'Wysoka pewność',med:'Średnia pewność',low:'Niska pewność',empty:'Brak danych'};
+  const val = ED[f.id] || '';
+  const inp = f.type === 'textarea'
+    ? `<textarea class="ed-input ${locked?'locked':''}" id="ef-${f.id}" rows="3" oninput="onEdInput('${f.id}',this.value)" ${locked?'style="background:rgba(65,173,73,.04);border-color:rgba(65,173,73,.4)"':''}>${val}</textarea>`
+    : `<input class="ed-input ${locked?'locked':''}" type="text" id="ef-${f.id}" value="${val}" oninput="onEdInput('${f.id}',this.value)" ${locked?'style="background:rgba(65,173,73,.04);border-color:rgba(65,173,73,.4)"':''}>`;
+  return `<div class="ed-field">
+    <div class="ed-field-label">
+      <span>${f.label}</span>
+      <div class="ed-field-meta">
+        <span class="conf-badge ${f.conf}">${confMap[f.conf]||''}</span>
+        <button class="lock-btn ${locked?'locked':''}" onclick="toggleLock('${f.id}','${f.type||'input'}')" title="${locked?'Kliknij aby odblokować — AI może nadpisać':'Kliknij aby zablokować — AI nie nadpisze tego pola'}">${locked?'🔒':'🔓'}</button>
+      </div>
+    </div>
+    ${inp}
+  </div>`;
+}
+
+function toggleEdSec(headerEl){
+  headerEl.classList.toggle('open');
+  const body = headerEl.nextElementSibling;
+  body.classList.toggle('on');
+  headerEl.querySelector('.ed-chevron').classList.toggle('open');
+}
+
+function onEdInput(id, val){
+  ED[id] = val;
+  buildDocPreview(); // live preview
+}
+
+function toggleLock(id, type){
+  if(lockedFields.has(id)){
+    lockedFields.delete(id);
+    toast('🔓 Pole odblokowane — AI może je nadpisać','warn');
+  } else {
+    lockedFields.add(id);
+    toast('🔒 Pole zablokowane — AI nie nadpisze tego pola');
+  }
+  // Odśwież tylko to pole
+  const f = ED_SECTIONS.flatMap(s=>s.fields).find(x=>x.id===id);
+  if(!f)return;
+  const body = document.getElementById(f.id.startsWith('s-')?f.id : ED_SECTIONS.find(s=>s.fields.some(x=>x.id===id))?.id);
+  buildEditorSections();
+  buildDocPreview();
+}
+
+function getED(id){ return ED[id] || '—'; }
+
+// ── PODGLĄD DOKUMENTU ──
+function buildDocPreview(){
+  const client = WZ.client || 'Nazwa klienta';
+  const domain = WZ.domain ? WZ.domain.replace(/^https?:\/\//,'').replace(/^www\./,'') : 'domena.pl';
+  const isEC = WZ.industry === 'ecommerce';
+  const yr = new Date().getFullYear();
+
+  document.getElementById('doc-preview').innerHTML = `
+  <div class="doc-cover">
+    <div class="doc-cover-eyebrow">Estymacja SEO · ${yr}</div>
+    <div class="doc-cover-title">Estymacja<br>SEO</div>
+    <div class="doc-cover-domain">${domain} · Kwiecień ${yr} – Marzec ${yr+1}</div>
+    ${isEC ? `<div class="doc-kpi-row">
+      <div class="doc-kpi"><div class="doc-kpi-val">${getED('sessions')}</div><div class="doc-kpi-lbl">Sesje organic/mies.<br>(baseline)</div></div>
+      <div class="doc-kpi"><div class="doc-kpi-val">5 000 zł</div><div class="doc-kpi-lbl">Inwestycja SEO/mies.<br>netto</div></div>
+      <div class="doc-kpi"><div class="doc-kpi-val">${getED('fGrow')}</div><div class="doc-kpi-lbl">Szacowany wzrost<br>ruchu</div></div>
+      <div class="doc-kpi"><div class="doc-kpi-val">4,7x</div><div class="doc-kpi-lbl">ROI po 12 mies.<br>przy konwersji 1,5%</div></div>
+    </div>` : ''}
+  </div>
+  <div class="doc-body">
+    <div class="doc-section-h">1. Stan obecny — punkt startowy</div>
+    <div class="doc-sub-h">1.1 Google Analytics 4</div>
+    <table class="doc-table"><thead><tr><th>Wskaźnik GA4</th><th>Wartość</th><th>Uwagi</th></tr></thead><tbody>
+      <tr><td>Sesje organiczne/mies.</td><td><strong>${getED('sessions')}</strong></td><td>Trend ↓ pod koniec okresu</td></tr>
+      <tr><td>Aktywni użytkownicy/mies.</td><td>${getED('users')}</td><td>Powiązany z sesjami</td></tr>
+      <tr><td>Engagement rate</td><td>${getED('engage')}</td><td>Dobry wynik B2B</td></tr>
+      <tr><td>Śr. czas trwania sesji</td><td>${getED('stime')}</td><td>Zaangażowanie powyżej normy</td></tr>
+    </tbody></table>
+    <div class="doc-kpi-grid">
+      <div class="doc-kpi-box"><div class="val">${getED('sessions')}</div><div class="lbl">Sesji org./mies.</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('users')}</div><div class="lbl">Aktywnych użytk.</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('engage')}</div><div class="lbl">Engagement rate</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('stime')}</div><div class="lbl">Śr. czas sesji</div></div>
+    </div>
+    <div class="doc-obs"><strong>Kluczowa obserwacja:</strong> ${getED('obs')}</div>
+
+    <div class="doc-sub-h">1.2 Widoczność organiczna — Ahrefs</div>
+    <div class="doc-kpi-grid">
+      <div class="doc-kpi-box"><div class="val">${getED('top10')}</div><div class="lbl">Fraz w TOP 10</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('top3')}</div><div class="lbl">Fraz w TOP 3</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('rd')}</div><div class="lbl">Referring Domains</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('aiCit')}</div><div class="lbl">Cytowania AI Overview</div></div>
+    </div>
+
+    <div class="doc-section-h">3. Prognoza miesięczna — sesje organiczne</div>
+    <div class="doc-chart-ph"><span style="font-size:28px">📈</span><span>Wykres wygenerowany po podłączeniu silnika estymacji</span><span style="font-size:11px;color:var(--tx3)">(Etap 5)</span></div>
+    <table class="doc-table" style="font-size:11px"><thead><tr><th>Miesiąc</th><th>Sesje (bazowy)</th><th>Frazy TOP 10</th><th>Linki/mies.</th></tr></thead><tbody>
+      <tr><td>Kwiecień ${yr}</td><td>1 960–2 100</td><td>143–148</td><td>+teksty+LB</td></tr>
+      <tr><td>Czerwiec ${yr}</td><td>2 200–2 500</td><td>162–182</td><td>+teksty+LB</td></tr>
+      <tr><td>Wrzesień ${yr}</td><td>2 950–3 500</td><td>205–240</td><td>+teksty+LB</td></tr>
+      <tr><td>Marzec ${yr+1}</td><td><strong>${getED('fEnd')}</strong></td><td>${getED('fTop10')}</td><td>+teksty+LB</td></tr>
+    </tbody></table>
+    <div class="doc-kpi-grid">
+      <div class="doc-kpi-box"><div class="val">${getED('fEnd')}</div><div class="lbl">Sesje/mies.<br>(cel marzec ${yr+1})</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('fGrow')}</div><div class="lbl">Wzrost vs trend<br>startowy</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('fTop10')}</div><div class="lbl">Frazy TOP 10<br>(cel)</div></div>
+      <div class="doc-kpi-box"><div class="val">${getED('fStart')}</div><div class="lbl">Punkt startowy<br>(sesje/mies.)</div></div>
+    </div>
+
+    <div class="doc-section-h">7. Priorytety i rekomendacje</div>
+    <div class="doc-sub-h">7.1 Priorytet 1</div>
+    <div class="doc-p">${getED('rec1')}</div>
+    <div class="doc-sub-h">7.2 Priorytet 2</div>
+    <div class="doc-p">${getED('rec2')}</div>
+
+    <div class="doc-section-h">8. Podsumowanie KPI na 12 miesięcy</div>
+    <table class="doc-table"><thead><tr><th>KPI / Wskaźnik</th><th>Stan obecny</th><th>Cel (marzec ${yr+1})</th></tr></thead><tbody>
+      <tr><td>Sesje organiczne/mies. (GA4)</td><td>${getED('sessions')}</td><td><strong>${getED('fEnd')}</strong></td></tr>
+      <tr><td>Wzrost vs trend startowy</td><td>—</td><td><strong>${getED('fGrow')}</strong></td></tr>
+      <tr><td>Frazy w TOP 10 (Ahrefs)</td><td>${getED('top10')}</td><td><strong>${getED('fTop10')}</strong></td></tr>
+      <tr><td>Frazy w TOP 3 (Ahrefs)</td><td>${getED('top3')}</td><td><strong>115–152</strong></td></tr>
+      <tr><td>Referring Domains zewn.</td><td>${getED('rd')}</td><td><strong>~63–66</strong></td></tr>
+    </tbody></table>
+  </div>`;
+}
+
+function doExport(){
+  closeModal('export');
+  loading('Przygotowanie eksportu…');
+  setTimeout(()=>{
+    stopLoad();
+    toast('Eksport .docx dostępny po podłączeniu szablonu Sempai i weryfikacji IT','warn');
+  },1200);
+}
+
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.u-pill')&&!e.target.closest('.u-dd'))document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));
+  document.querySelectorAll('.mbg').forEach(m=>{if(e.target===m)m.classList.remove('on');});
+  // Toggle export options
+  document.querySelectorAll('.export-opt').forEach(o=>{
+    const inp=o.querySelector('input');
+    if(inp&&inp.checked)o.classList.add('on');
+    else if(inp)o.classList.remove('on');
+  });
+});
+
 (function(){const t=localStorage.getItem('smp_theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('[id^=theme-btn]').forEach(b=>b.textContent=t==='dark'?'🌙':'☀️');injectLogos();})();
 </script>
 </body>
