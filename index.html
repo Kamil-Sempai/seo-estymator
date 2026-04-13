@@ -463,8 +463,11 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
         </div>
       </div>
       <div id="w-repair-wrap" style="display:none;margin-top:12px">
-        <div class="field"><label>Opis błędu</label><textarea id="w-repair-desc" rows="2" style="resize:vertical" placeholder="np. Problem z projector.php — pochłania crawl budget"></textarea></div>
-        <div class="field"><label>Szacowany czas efektu</label><select id="w-repair-time"><option value="4w">4 tygodnie</option><option value="8w">6-8 tygodni</option><option value="3m">3 miesiące</option></select></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <label style="font-size:11px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.05em">Błędy krytyczne do naprawy</label>
+          <button class="btn btn-ghost btn-sm" onclick="addRepairItem()" type="button">+ Dodaj kolejny błąd</button>
+        </div>
+        <div id="repair-list"></div>
       </div>
       <div class="wiz-nav"><span></span><button class="btn btn-p" onclick="wizGo(1)" id="wiz-next-0" disabled>Dalej →</button></div>
     </div></div>
@@ -514,7 +517,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
     <div class="tb-l"><div class="logo" onclick="openModal('back-editor')" id="logo-editor"></div><div class="lsep"></div><span class="app-lbl" id="editor-proj-name">Edytor estymacji</span></div>
     <div class="tb-r">
       <button class="btn btn-ghost btn-sm" onclick="openModal('it')">⚡ Generuj AI</button>
-      <button class="btn btn-p btn-sm" onclick="openModal('export')">⬇ Eksportuj .docx</button>
+      <button class="btn btn-p btn-sm" onclick="openExportModal()">⬇ Eksportuj .docx</button>
       <button class="ico-btn" onclick="openModal('back-editor')" title="Wróć">✕</button>
     </div>
   </div>
@@ -549,7 +552,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
       <div class="sep"></div>
       <div class="warn-box"><strong>⚙️ Model AI</strong> — oczekuje na weryfikację IT. Wyniki poniżej są orientacyjne — oparte na uproszczonym modelu bez danych ze screenshotów.</div>
       <button class="btn btn-p" style="width:100%;margin-bottom:8px" onclick="runQuick()">⚡ Generuj szybką estymację</button>
-      <button class="btn btn-ghost" style="width:100%" onclick="openModal('export')">⬇ Eksportuj wyniki .docx</button>
+      <button class="btn btn-ghost" style="width:100%" onclick="openExportModal()">⬇ Eksportuj wyniki .docx</button>
     </div>
     <div class="quick-result" id="quick-result">
       <div class="quick-result-ph"><div class="ph-icon">📊</div><p>Wypełnij dane po lewej<br>i kliknij "Generuj szybką estymację"<br>aby zobaczyć wyniki.</p></div>
@@ -593,7 +596,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
     <div class="modal-h"><h3>⬇ Eksport dokumentu</h3><span class="modal-close" onclick="closeModal('export')">✕</span></div>
     <div class="modal-body">
       <div class="field"><label>Nazwa pliku</label><input type="text" id="export-filename" value="Estymacja_Klient_2026.docx"></div>
-      <div class="field"><label>Format eksportu</label>
+      <div class="field" id="export-fmt-wrap"><label>Format eksportu</label>
         <div class="export-toggle">
           <label class="export-opt on" id="efmt-single"><input type="radio" name="efmt" value="single" checked onclick="this.closest('.export-opt').classList.add('on');document.getElementById('efmt-split').classList.remove('on')"> 📄 Jeden zbiorczy .docx<br><small style="font-weight:400;color:var(--tx3)">wszystkie warianty razem</small></label>
           <label class="export-opt" id="efmt-split"><input type="radio" name="efmt" value="split" onclick="this.closest('.export-opt').classList.add('on');document.getElementById('efmt-single').classList.remove('on')"> 📄📄 Rozbij na warianty<br><small style="font-weight:400;color:var(--tx3)">osobny plik per wariant</small></label>
@@ -626,7 +629,7 @@ let lockedFields=new Set();
 let uploadedFiles=[];
 // Każdy użytkownik zaczyna z pustą listą projektów — brak danych demo
 const SAMPLES=[];
-let WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};
+let WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairItems:[],variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};
 let ED={sessions:'~2 000',users:'~1 500',engage:'47,9%',stime:'02:39',top10:'143',top3:'59',rd:'51',aiCit:'25',fStart:'2 000',fEnd:'3 700 – 4 500',fGrow:'+85-125%',fTop10:'265 – 330',obs:'GA4 pokazuje średnio 3 131 sesji/mies. przez 14 miesięcy, ale aktualny trend (koniec 2025 – lut 2026) spadł do ~1 800-2 200 sesji/mies. Ten niższy poziom jest realnym punktem startowym prognozy.',rec1:'Dogłębna analiza przyczyn spadku po lipcu 2025 (Core Update? utrata fraz? problemy techniczne?)',rec2:'Silne CTA we wszystkich artykułach blogowych — połączenie treści informacyjnych z podstronami usługowymi.'};
 const ED_SECTIONS=[{id:'s-ga4',label:'Stan obecny — GA4',fields:[{id:'sessions',label:'Sesje organiczne/mies.',conf:'high'},{id:'users',label:'Aktywni użytkownicy/mies.',conf:'high'},{id:'engage',label:'Engagement rate',conf:'high'},{id:'stime',label:'Śr. czas sesji',conf:'med'}]},{id:'s-ahrefs',label:'Widoczność — Ahrefs',fields:[{id:'top10',label:'Frazy TOP 10',conf:'high'},{id:'top3',label:'Frazy TOP 3',conf:'high'},{id:'rd',label:'Referring Domains',conf:'high'},{id:'aiCit',label:'Cytowania AI Overview',conf:'med'}]},{id:'s-prog',label:'Prognoza (scenariusz bazowy)',fields:[{id:'fStart',label:'Punkt startowy (sesje/mies.)',conf:'high'},{id:'fEnd',label:'Cel po 12 miesiącach',conf:'med'},{id:'fGrow',label:'Wzrost vs punkt startowy',conf:'med'},{id:'fTop10',label:'Frazy TOP 10 (cel)',conf:'med'}]},{id:'s-obs',label:'Kluczowa obserwacja',fields:[{id:'obs',label:'Tekst obserwacji',conf:'med',type:'textarea'}]},{id:'s-rec',label:'Priorytety i rekomendacje',fields:[{id:'rec1',label:'Priorytet 1',conf:'low',type:'textarea'},{id:'rec2',label:'Priorytet 2',conf:'low',type:'textarea'}]}];
 
@@ -752,10 +755,16 @@ function renderProjList(q=''){const f=projects.filter(p=>!q||(p.name+p.domain).t
 function openProject(id){const p=projects.find(x=>x.id===id);if(!p)return;WZ.client=p.name;WZ.domain=p.domain;WZ.favicon=p.favicon||'';WZ.industry=p.industry;openEditor(p.name);}
 
 // ── WIZARD ──
-function startWizard(){WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};lockedFields=new Set();uploadedFiles=[];['w-client','w-domain','w-repair-desc'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});document.getElementById('w-industry').value='';document.getElementById('w-fav-preview').innerHTML='🌐';document.getElementById('w-repair-wrap').style.display='none';document.getElementById('w-other-wrap').style.display='none';document.querySelectorAll('[name=sc]')[0].checked=true;document.getElementById('sc-standard').classList.add('on');document.getElementById('sc-repair').classList.remove('on');document.querySelectorAll('[name=vcnt]')[2].checked=true;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===2));setVariants(3);wizGo(0,true);show('wizard');}
+function startWizard(){WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairItems:[],variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};lockedFields=new Set();uploadedFiles=[];WZ.repairItems=[];['w-client','w-domain'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});document.getElementById('w-industry').value='';document.getElementById('w-fav-preview').innerHTML='🌐';document.getElementById('w-repair-wrap').style.display='none';document.getElementById('w-other-wrap').style.display='none';document.querySelectorAll('[name=sc]')[0].checked=true;document.getElementById('sc-standard').classList.add('on');document.getElementById('sc-repair').classList.remove('on');document.querySelectorAll('[name=vcnt]')[2].checked=true;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===2));setVariants(3);wizGo(0,true);show('wizard');}
 function wizCheck(){const ok=document.getElementById('w-client').value.trim()&&document.getElementById('w-domain').value.trim()&&document.getElementById('w-industry').value;document.getElementById('wiz-next-0').disabled=!ok;}
-function wizGo(step,init=false){if(!init){WZ.client=document.getElementById('w-client').value.trim();WZ.domain=document.getElementById('w-domain').value.trim();WZ.industry=document.getElementById('w-industry').value;const sc=document.querySelector('[name=sc]:checked');WZ.scenario=sc?sc.value:'standard';WZ.repairDesc=(document.getElementById('w-repair-desc')||{}).value||'';WZ.repairTime=(document.getElementById('w-repair-time')||{}).value||'4w';}for(let i=0;i<5;i++){document.getElementById('wstep-'+i).style.display=i===step?'block':'none';const ws=document.getElementById('ws'+i);ws.classList.remove('act','done');if(i<step)ws.classList.add('done');else if(i===step)ws.classList.add('act');ws.querySelector('.wiz-dot').textContent=i<step?'✓':(i+1).toString();}if(step===2)buildActionPanels();if(step===4){openEditor(WZ.client);return;}}
-function pickSc(el){document.getElementById('sc-standard').classList.toggle('on',el.value==='standard');document.getElementById('sc-repair').classList.toggle('on',el.value==='repair');document.getElementById('w-repair-wrap').style.display=el.value==='repair'?'block':'none';}
+function wizGo(step,init=false){if(!init){WZ.client=document.getElementById('w-client').value.trim();WZ.domain=document.getElementById('w-domain').value.trim();WZ.industry=document.getElementById('w-industry').value;const sc=document.querySelector('[name=sc]:checked');WZ.scenario=sc?sc.value:'standard';WZ.repairItems=collectRepairItems();}for(let i=0;i<5;i++){document.getElementById('wstep-'+i).style.display=i===step?'block':'none';const ws=document.getElementById('ws'+i);ws.classList.remove('act','done');if(i<step)ws.classList.add('done');else if(i===step)ws.classList.add('act');ws.querySelector('.wiz-dot').textContent=i<step?'✓':(i+1).toString();}if(step===2)buildActionPanels();if(step===4){openEditor(WZ.client);return;}}
+function pickSc(el){
+  document.getElementById('sc-standard').classList.toggle('on',el.value==='standard');
+  document.getElementById('sc-repair').classList.toggle('on',el.value==='repair');
+  const show=el.value==='repair';
+  document.getElementById('w-repair-wrap').style.display=show?'block':'none';
+  if(show&&document.getElementById('repair-list').children.length===0)addRepairItem();
+}
 function fetchFavicon(){const d=document.getElementById('w-domain').value.trim();if(!d)return;try{const host=d.includes('://')?new URL(d).hostname:d.split('/')[0];const url='https://www.google.com/s2/favicons?domain='+encodeURIComponent(host)+'&sz=64';document.getElementById('w-fav-preview').innerHTML=`<img src="${url}" style="width:24px;height:24px;object-fit:contain" onerror="this.parentElement.innerHTML='🌐'">`;WZ.favicon=url;}catch(e){}}
 function toggleOther(sel){document.getElementById('w-other-wrap').style.display=sel.value==='inne'?'block':'none';}
 function setVariants(n){WZ.variantCount=n;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i+1===n));document.getElementById('variant-names-section').style.display=n===1?'none':'block';const def=['Minimum','Optimum','Maximum'];while(WZ.variantNames.length<n)WZ.variantNames.push(def[WZ.variantNames.length]||'Wariant '+(WZ.variantNames.length+1));const el=document.getElementById('variant-names');el.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div');d.className='field';d.innerHTML=`<label>Wariant ${i+1}</label><input type="text" value="${WZ.variantNames[i]||''}" oninput="WZ.variantNames[${i}]=this.value" placeholder="Nazwa wariantu">`;el.appendChild(d);}}
@@ -854,6 +863,64 @@ function runQuick(){
     </table></div>`;
 }
 
+// ── REPAIR ITEMS — dynamiczna lista błędów krytycznych ──
+function addRepairItem(){
+  const list=document.getElementById('repair-list');
+  if(!list)return;
+  const idx=list.children.length;
+  const div=document.createElement('div');
+  div.className='repair-item';
+  div.style.cssText='background:var(--bg3);border:1px solid var(--bd2);border-radius:var(--r);padding:14px;margin-bottom:10px;position:relative';
+  div.innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <span style="font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em">Błąd krytyczny #${idx+1}</span>
+      ${idx>0?`<button onclick="this.closest('.repair-item').remove();renumberRepairs()" style="background:none;border:none;color:var(--tx3);cursor:pointer;font-size:16px;line-height:1;padding:0" type="button" title="Usuń">✕</button>`:''}
+    </div>
+    <div class="field" style="margin-bottom:10px">
+      <label>Opis błędu</label>
+      <textarea class="repair-desc" rows="2" style="resize:vertical;width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--r);color:var(--tx);font-size:13px;outline:none;font-family:'DM Sans',sans-serif" placeholder="np. Problem z projector.php — pochłania crawl budget i blokuje indeksację stron produktowych" onfocus="this.style.borderColor='var(--ac)'" onblur="this.style.borderColor='var(--bd2)'"></textarea>
+    </div>
+    <div class="field" style="margin-bottom:0">
+      <label>Szacowany czas widocznych efektów po naprawie</label>
+      <input class="repair-time" type="text" style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--r);color:var(--tx);font-size:13px;outline:none;font-family:'DM Sans',sans-serif" placeholder="np. 3 tygodnie, 2 miesiące, po najbliższym Core Update..." onfocus="this.style.borderColor='var(--ac)'" onblur="this.style.borderColor='var(--bd2)'">
+      <div style="font-size:11px;color:var(--tx3);margin-top:4px;line-height:1.5">Wpisz dowolnie — np. "2-4 tygodnie", "natychmiastowy efekt", "po najbliższym Core Update". Model AI uwzględni ten czas przy wyznaczaniu krzywej wzrostu.</div>
+    </div>`;
+  list.appendChild(div);
+}
+function renumberRepairs(){
+  const items=document.querySelectorAll('.repair-item');
+  items.forEach((item,i)=>{
+    const label=item.querySelector('span');
+    if(label)label.textContent='Błąd krytyczny #'+(i+1);
+    const btn=item.querySelector('button');
+    if(i===0&&btn)btn.remove();
+  });
+}
+function collectRepairItems(){
+  const items=[];
+  document.querySelectorAll('.repair-item').forEach(item=>{
+    const desc=(item.querySelector('.repair-desc')||{}).value||'';
+    const time=(item.querySelector('.repair-time')||{}).value||'';
+    if(desc.trim())items.push({desc:desc.trim(),time:time.trim()});
+  });
+  return items;
+}
+
+function openExportModal(){
+  // Pokaż opcję "Rozbij na warianty" tylko gdy estymacja ma więcej niż 1 wariant
+  const splitEl = document.getElementById('efmt-split');
+  const fmtWrap = document.getElementById('export-fmt-wrap');
+  const multiVariant = WZ.variantCount > 1;
+  if(splitEl) splitEl.style.display = multiVariant ? '' : 'none';
+  // Gdy tylko 1 wariant — upewnij się że "Jeden zbiorczy" jest zaznaczony
+  if(!multiVariant){
+    document.getElementById('efmt-single').classList.add('on');
+    if(splitEl) splitEl.classList.remove('on');
+    const singleInput = document.querySelector('[name=efmt][value=single]');
+    if(singleInput) singleInput.checked = true;
+  }
+  openModal('export');
+}
 function doExport(){closeModal('export');loading('Przygotowanie eksportu…');setTimeout(()=>{stopLoad();toast('Eksport .docx dostępny po podłączeniu szablonu Sempai i weryfikacji IT','warn');},1000);}
 
 document.addEventListener('click',e=>{if(!e.target.closest('.u-pill')&&!e.target.closest('.u-dd'))document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));document.querySelectorAll('.mbg').forEach(m=>{if(e.target===m)m.classList.remove('on');});});
