@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl" data-theme="dark">
 <head>
@@ -71,15 +72,17 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .info-box{background:var(--ag);border:1px solid var(--bd);border-radius:var(--r);padding:11px 13px;font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:18px}
 .info-box strong{color:var(--ac)}
 
-/* BODY + DASH */
+/* BODY WRAP */
 .body-wrap{flex:1;padding:28px 24px;max-width:1100px;width:100%;margin:0 auto}
 @media(max-width:600px){.body-wrap{padding:20px 14px}}
+
+/* DASHBOARD */
 .dash-hero{margin-bottom:28px}
 .dash-hero h1{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:4px}
 .dash-hero p{font-size:13px;color:var(--tx3);font-family:'DM Mono',monospace}
 .dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
 @media(max-width:680px){.dash-grid{grid-template-columns:1fr}}
-.dash-card{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);padding:26px;cursor:pointer;transition:var(--tr);position:relative}
+.dash-card{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);padding:26px;cursor:pointer;transition:var(--tr);position:relative;overflow:hidden}
 .dash-card:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 8px 28px rgba(65,173,73,.12)}
 .dash-card.primary{border-color:rgba(65,173,73,.35)}
 .dash-card-icon{font-size:34px;margin-bottom:14px;display:block}
@@ -101,7 +104,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .status-badge.ready{background:rgba(65,173,73,.15);color:var(--ac)}
 .status-badge.sent{background:rgba(79,110,247,.15);color:#4F6EF7}
 .proj-date{font-size:11px;color:var(--tx3);font-family:'DM Mono',monospace}
-.proj-arrow{color:var(--tx3);font-size:14px;flex-shrink:0;transition:color var(--tr)}
+.proj-arrow{color:var(--tx3);font-size:14px;flex-shrink:0}
 .proj-card:hover .proj-arrow{color:var(--ac)}
 @media(max-width:500px){.proj-date{display:none}}
 .ind-tag{display:inline-flex;padding:2px 7px;border-radius:7px;font-size:10px;font-weight:600;background:var(--bg3);color:var(--tx3);margin-left:7px;text-transform:uppercase;letter-spacing:.03em}
@@ -115,9 +118,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .empty-state h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--tx2)}
 .empty-state p{font-size:13px;line-height:1.6}
 
-/* ═══════════════════════════════
-   WIZARD
-═══════════════════════════════ */
+/* WIZARD */
 .wiz-wrap{flex:1;padding:28px 24px;max-width:760px;width:100%;margin:0 auto}
 @media(max-width:600px){.wiz-wrap{padding:20px 14px}}
 .wiz-steps{display:flex;align-items:center;margin-bottom:28px;overflow-x:auto;padding-bottom:4px}
@@ -150,7 +151,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .sc-opt:hover{border-color:var(--ac)}
 .sc-opt.on{border-color:var(--ac);background:var(--ag)}
 .sc-opt input{display:none}
-.sc-opt-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:var(--tx);margin-bottom:5px;transition:color var(--tr)}
+.sc-opt-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:var(--tx);margin-bottom:5px}
 .sc-opt.on .sc-opt-title{color:var(--ac)}
 .sc-opt-sub{font-size:11px;color:var(--tx3);line-height:1.5}
 .sc-opt-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;margin-bottom:6px;background:var(--bg3);color:var(--tx3)}
@@ -183,8 +184,6 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .total-bar{background:var(--ag);border:1px solid var(--bd);border-radius:var(--r);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;margin-top:8px}
 .total-bar .tl{font-size:12px;font-weight:700;color:var(--tx2)}
 .total-bar .tv{font-weight:800;color:var(--ac);font-family:'DM Mono',monospace;font-size:15px}
-
-/* UPLOAD */
 .upload-area{border:2px dashed var(--bd2);border-radius:var(--rlg);padding:28px;text-align:center;cursor:pointer;transition:var(--tr);margin-bottom:14px}
 .upload-area:hover,.upload-area.drag{border-color:var(--ac);background:var(--ag)}
 .upload-icon{font-size:32px;margin-bottom:8px}
@@ -199,20 +198,14 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .upload-del{cursor:pointer;color:var(--tx3);font-size:16px;flex-shrink:0;transition:color var(--tr)}
 .upload-del:hover{color:var(--ac2)}
 
-/* ═══════════════════════════════
-   EDITOR — układ dwupanelowy
-═══════════════════════════════ */
+/* EDITOR */
 #screen-editor{overflow:hidden}
 .editor-layout{display:flex;flex:1;height:calc(100vh - 58px);overflow:hidden}
-
-/* Panel lewy — dane */
 .editor-left{width:380px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--bd2);display:flex;flex-direction:column;overflow:hidden}
 @media(max-width:900px){.editor-left{width:320px}}
 .editor-left-top{padding:14px 18px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .editor-left-top-h{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
 .editor-sections{flex:1;overflow-y:auto}
-
-/* Sekcja w edytorze */
 .ed-section{border-bottom:1px solid var(--bd2)}
 .ed-section-h{padding:12px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:12px;font-weight:600;color:var(--tx2);transition:background var(--tr);user-select:none}
 .ed-section-h:hover{background:var(--bg3);color:var(--tx)}
@@ -220,47 +213,34 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .ed-section-h.open .ed-chevron{transform:rotate(180deg)}
 .ed-section-body{display:none;padding:0 18px 14px}
 .ed-section-body.on{display:block}
-
-/* Pole edytora */
 .ed-field{margin-bottom:10px}
 .ed-field-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
 .ed-field-label span{font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em}
 .ed-field-meta{display:flex;align-items:center;gap:6px}
-/* Badge pewności AI */
 .conf-badge{font-size:10px;padding:1px 7px;border-radius:8px;font-weight:600}
 .conf-badge.high{background:rgba(65,173,73,.15);color:var(--ac)}
 .conf-badge.med{background:rgba(247,159,79,.15);color:#F79F4F}
 .conf-badge.low{background:rgba(247,97,79,.15);color:var(--ac2)}
-.conf-badge.empty{background:var(--bg3);color:var(--tx3)}
-/* Przycisk blokady */
 .lock-btn{cursor:pointer;font-size:13px;opacity:.4;transition:opacity var(--tr);background:none;border:none;padding:0;line-height:1;flex-shrink:0}
 .lock-btn:hover{opacity:1}
-.lock-btn.locked{opacity:1;filter:none}
-/* Input pola edytora */
+.lock-btn.locked{opacity:1}
 .ed-input{width:100%;padding:7px 10px;background:var(--bg3);border:1px solid var(--bd2);border-radius:8px;color:var(--tx);font-size:12px;outline:none;transition:var(--tr);font-family:'DM Sans',sans-serif;resize:vertical}
 .ed-input:focus{border-color:var(--ac)}
-/* Zablokowane pole */
 .ed-input.locked{border-color:rgba(65,173,73,.4);background:rgba(65,173,73,.04)}
-
-/* Panel prawy — podgląd */
 .editor-right{flex:1;background:var(--bg3);overflow-y:auto;padding:28px 24px}
 @media(max-width:600px){.editor-right{padding:16px 12px}}
 
-/* ═══ DOKUMENT — podgląd HTML ═══ */
+/* DOCUMENT PREVIEW */
 .doc-preview{background:#fff;border-radius:12px;max-width:750px;margin:0 auto;box-shadow:0 4px 32px rgba(0,0,0,.35);overflow:hidden;color:#1E293B;font-family:'DM Sans',sans-serif}
-
-/* Okładka */
 .doc-cover{background:linear-gradient(140deg,#1B3A6B 0%,#2a3849 100%);padding:52px 44px;color:#fff;position:relative;overflow:hidden}
 .doc-cover::after{content:'';position:absolute;bottom:-30px;right:-30px;width:180px;height:180px;background:rgba(65,173,73,.12);border-radius:50%}
 .doc-cover-eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px}
 .doc-cover-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1.2;margin-bottom:6px}
-.doc-cover-domain{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:0}
+.doc-cover-domain{font-size:13px;color:rgba(255,255,255,.5)}
 .doc-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
 .doc-kpi{background:rgba(255,255,255,.09);border-radius:10px;padding:12px;border:1px solid rgba(255,255,255,.1)}
 .doc-kpi-val{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#41AD49;margin-bottom:4px}
 .doc-kpi-lbl{font-size:10px;color:rgba(255,255,255,.45);line-height:1.4}
-
-/* Treść dokumentu */
 .doc-body{padding:36px 44px}
 @media(max-width:500px){.doc-body{padding:24px 20px}}
 .doc-section-h{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#2a3849;border-bottom:3px solid #41AD49;padding-bottom:7px;margin-bottom:16px;margin-top:28px}
@@ -280,7 +260,29 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .doc-obs strong{color:#2a3849}
 .doc-chart-ph{background:#f0f4ff;border:1px dashed #c7d2fe;border-radius:8px;height:150px;display:flex;align-items:center;justify-content:center;margin:12px 0;flex-direction:column;gap:6px}
 .doc-chart-ph span{font-size:11px;color:#8B93C0}
-.doc-placeholder{display:inline-block;background:#fff3e0;border-radius:4px;padding:1px 6px;font-size:11px;color:#B45309;font-family:'DM Mono',monospace}
+
+/* QUICK ESTIMATION */
+.quick-layout{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start;padding:28px 24px;max-width:1100px;width:100%;margin:0 auto}
+@media(max-width:800px){.quick-layout{grid-template-columns:1fr;padding:20px 14px}}
+.quick-panel{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);padding:24px}
+.quick-panel-h{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-bottom:6px}
+.quick-panel-sub{font-size:12px;color:var(--tx3);margin-bottom:20px;line-height:1.6}
+.quick-result{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);padding:24px}
+.quick-result-ph{text-align:center;padding:60px 20px;color:var(--tx3)}
+.quick-result-ph .ph-icon{font-size:48px;margin-bottom:12px}
+.quick-result-ph p{font-size:13px;line-height:1.6}
+.quick-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+@media(max-width:500px){.quick-kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.quick-kpi{background:var(--bg2);border:1px solid var(--bd2);border-radius:var(--r);padding:14px;text-align:center}
+.quick-kpi-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--ac);margin-bottom:4px}
+.quick-kpi-lbl{font-size:11px;color:var(--tx3);line-height:1.4}
+.quick-table{width:100%;border-collapse:collapse;font-size:13px}
+.quick-table th{background:var(--bg3);color:var(--tx2);padding:8px 10px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.quick-table td{padding:8px 10px;border-bottom:1px solid var(--bd2);color:var(--tx2)}
+.quick-table tr:hover td{background:var(--bg2)}
+.quick-highlight{color:var(--ac);font-weight:700;font-family:'DM Mono',monospace}
+.warn-box{background:rgba(247,159,79,.08);border:1px solid rgba(247,159,79,.25);border-radius:var(--r);padding:10px 14px;font-size:12px;color:var(--tx2);margin-bottom:16px;line-height:1.6}
+.warn-box strong{color:#F79F4F}
 
 /* MODALS */
 .mbg{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;align-items:center;justify-content:center;padding:14px}
@@ -294,10 +296,10 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 .modal-foot{padding:14px 22px;border-top:1px solid var(--bd2);display:flex;justify-content:flex-end;gap:8px}
 .modal-it-note{background:rgba(247,97,79,.08);border:1px solid rgba(247,97,79,.2);border-radius:var(--r);padding:14px;margin-bottom:14px;font-size:13px;color:var(--tx2);line-height:1.6}
 .modal-it-note strong{color:var(--ac2)}
-.migrate-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:var(--tx2);line-height:1.5}
+.migrate-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:var(--tx2);line-height:1.5;margin-bottom:10px}
 .migrate-check input{margin-top:2px;accent-color:var(--ac);width:16px;height:16px;flex-shrink:0}
 .export-toggle{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.export-opt{padding:9px 14px;background:var(--bg3);border:2px solid var(--bd2);border-radius:var(--r);cursor:pointer;font-size:12px;font-weight:600;transition:var(--tr);user-select:none;flex:1;text-align:center}
+.export-opt{padding:9px 14px;background:var(--bg3);border:2px solid var(--bd2);border-radius:var(--r);cursor:pointer;font-size:12px;font-weight:600;transition:var(--tr);user-select:none;flex:1;text-align:center;line-height:1.4}
 .export-opt.on{border-color:var(--ac);background:var(--ag);color:var(--ac)}
 .export-opt input{display:none}
 
@@ -318,9 +320,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 /* TOAST + LOADER */
 .tc{position:fixed;bottom:20px;right:16px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:10px 15px;font-size:13px;animation:fadeIn .2s ease;box-shadow:0 4px 20px rgba(0,0,0,.3);max-width:320px}
-.toast.ok{border-left:3px solid var(--ac)}
-.toast.err{border-left:3px solid var(--ac2)}
-.toast.warn{border-left:3px solid #F79F4F}
+.toast.ok{border-left:3px solid var(--ac)}.toast.err{border-left:3px solid var(--ac2)}.toast.warn{border-left:3px solid #F79F4F}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .loader{position:fixed;inset:0;background:rgba(13,16,37,.85);z-index:999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;backdrop-filter:blur(4px)}
 .loader.on{display:flex}
@@ -331,13 +331,11 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 </head>
 <body>
 
-<!-- ══ AUTH ══ -->
+<!-- AUTH -->
 <div class="screen on" id="screen-auth">
   <div class="auth-card">
     <div class="auth-logo">
-      <svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:24px;width:auto"><g><g>
-        <path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/><path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/><path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/><path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/><path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/><path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/>
-      </g></g></svg>
+      <svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:24px;width:auto"><g><g><path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/><path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/><path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/><path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/><path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/><path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/></g></g></svg>
     </div>
     <h2 class="auth-h">SEO Estymator</h2>
     <p class="auth-sub">Narzędzie do automatycznej estymacji SEO.<br>Zaloguj się kontem służbowym aby kontynuować.</p>
@@ -350,7 +348,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
   </div>
 </div>
 
-<!-- ══ ONBOARDING ══ -->
+<!-- ONBOARDING -->
 <div class="screen" id="screen-ob">
   <div style="display:flex;align-items:center;justify-content:center;flex:1">
     <div class="ob-card">
@@ -368,7 +366,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
   </div>
 </div>
 
-<!-- ══ DASHBOARD ══ -->
+<!-- DASHBOARD -->
 <div class="screen" id="screen-dash">
   <div class="topbar">
     <div class="tb-l"><div class="logo" onclick="showDash()" id="logo-dash"></div><div class="lsep"></div><span class="app-lbl">SEO Estymator</span></div>
@@ -388,13 +386,13 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
     <div class="dash-grid">
       <div class="dash-card primary" onclick="startWizard()"><span class="dash-card-icon">📊</span><h2>Nowa estymacja</h2><p>Pełna analiza estymacyjna dla nowego klienta z dokumentem Word.</p></div>
       <div class="dash-card" onclick="showProjects()"><span class="dash-card-icon">📁</span><h2>Moje estymacje</h2><p>Historia i poprzednie estymacje dla Twoich klientów.</p><span class="card-badge" id="proj-badge">0 projektów</span></div>
-      <div class="dash-card" onclick="showScreen('quick')"><span class="dash-card-icon">⚡</span><h2>Szybka estymacja</h2><p>Estymacja bez elementów opisowych — tylko tabele i wykresy.</p></div>
+      <div class="dash-card" onclick="showQuick()"><span class="dash-card-icon">⚡</span><h2>Szybka estymacja</h2><p>Estymacja bez elementów opisowych — tylko tabele i wykresy.</p></div>
     </div>
     <div id="dash-recent"></div>
   </div>
 </div>
 
-<!-- ══ PROJECTS ══ -->
+<!-- PROJECTS -->
 <div class="screen" id="screen-projects">
   <div class="topbar">
     <div class="tb-l"><div class="logo" onclick="showDash()" id="logo-proj"></div><div class="lsep"></div><span class="app-lbl">Moje estymacje</span></div>
@@ -414,7 +412,7 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
   </div>
 </div>
 
-<!-- ══ WIZARD ══ -->
+<!-- WIZARD -->
 <div class="screen" id="screen-wizard">
   <div class="topbar">
     <div class="tb-l"><div class="logo" onclick="openModal('back')" id="logo-wiz"></div><div class="lsep"></div><span class="app-lbl">Nowa estymacja</span></div>
@@ -428,105 +426,88 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
       <div class="wiz-step" id="ws3"><div class="wiz-dot">4</div><span class="wiz-lbl">Screenshoty</span></div><div class="wiz-line"></div>
       <div class="wiz-step" id="ws4"><div class="wiz-dot">5</div><span class="wiz-lbl">Edytor</span></div>
     </div>
-
     <!-- Krok 0 -->
-    <div id="wstep-0">
-      <div class="wiz-card">
-        <h3 class="wiz-card-h">Dane projektu</h3>
-        <p class="wiz-card-sub">Podaj podstawowe informacje o kliencie.</p>
-        <div class="field"><label>Nazwa klienta</label><input type="text" id="w-client" placeholder="np. Klient ABC Sp. z o.o." oninput="wizCheck()"></div>
-        <div class="field"><label>Adres domeny</label>
-          <div class="field-favicon"><div class="fav-preview" id="w-fav-preview">🌐</div><input type="text" id="w-domain" placeholder="np. https://klient.pl" oninput="fetchFavicon();wizCheck()"></div>
-          <div class="field-hint">Favicon pobierany automatycznie.</div>
-        </div>
-        <div class="field"><label>Typ działalności</label>
-          <select id="w-industry" onchange="wizCheck();toggleOther(this)">
-            <option value="">— Wybierz —</option>
-            <option value="ecommerce">E-commerce — sklep internetowy</option>
-            <option value="portal">Portal ofertowy (bez sklepu)</option>
-            <option value="blog">Serwis informacyjny / Blog / Medium</option>
-            <option value="b2b">Usługi B2B</option>
-            <option value="local">Usługi lokalne B2C</option>
-            <option value="b2c">Usługi B2C (ogólnopolskie)</option>
-            <option value="saas">SaaS / Aplikacja webowa</option>
-            <option value="marketplace">Marketplace / Platforma ogłoszeniowa</option>
-            <option value="nieruchomosci">Nieruchomości</option>
-            <option value="medycyna">Medycyna i Zdrowie</option>
-            <option value="prawo">Prawo i Finanse</option>
-            <option value="edukacja">Edukacja i Szkolenia</option>
-            <option value="inne">Inny</option>
-          </select>
-        </div>
-        <div class="field" id="w-other-wrap" style="display:none"><label>Opisz typ</label><input type="text" id="w-other" placeholder="np. Producent mebli B2B"></div>
-        <div class="sep"></div>
-        <div class="field"><label>Typ scenariuszy wzrostu</label>
-          <div class="sc-grid">
-            <label class="sc-opt on" id="sc-standard"><input type="radio" name="sc" value="standard" checked onchange="pickSc(this)"><div class="sc-opt-tag">Domyślny</div><div class="sc-opt-title">Standardowy</div><div class="sc-opt-sub">Prognoza oparta wyłącznie na danych analitycznych w 3 wariantach: ostrożny, bazowy i optymistyczny.</div></label>
-            <label class="sc-opt" id="sc-repair"><input type="radio" name="sc" value="repair" onchange="pickSc(this)"><div class="sc-opt-tag">Z kontekstem technicznym</div><div class="sc-opt-title">Z naprawą błędu krytycznego</div><div class="sc-opt-sub">Uwzględnia zidentyfikowany błąd techniczny, który po naprawie znacząco wpłynie na wzrost. Pokazuje scenariusz bez naprawy i po naprawie.</div></label>
-          </div>
-        </div>
-        <div id="w-repair-wrap" style="display:none;margin-top:12px">
-          <div class="field"><label>Opis błędu</label><textarea id="w-repair-desc" rows="2" style="resize:vertical" placeholder="np. Problem z projector.php — pochłania crawl budget"></textarea></div>
-          <div class="field"><label>Szacowany czas efektu</label><select id="w-repair-time"><option value="4w">4 tygodnie</option><option value="8w">6-8 tygodni</option><option value="3m">3 miesiące</option></select></div>
-        </div>
-        <div class="wiz-nav"><span></span><button class="btn btn-p" onclick="wizGo(1)" id="wiz-next-0" disabled>Dalej →</button></div>
+    <div id="wstep-0"><div class="wiz-card">
+      <h3 class="wiz-card-h">Dane projektu</h3>
+      <p class="wiz-card-sub">Podaj podstawowe informacje o kliencie.</p>
+      <div class="field"><label>Nazwa klienta</label><input type="text" id="w-client" placeholder="np. Klient ABC Sp. z o.o." oninput="wizCheck()"></div>
+      <div class="field"><label>Adres domeny</label>
+        <div class="field-favicon"><div class="fav-preview" id="w-fav-preview">🌐</div><input type="text" id="w-domain" placeholder="np. https://klient.pl" oninput="fetchFavicon();wizCheck()"></div>
+        <div class="field-hint">Favicon pobierany automatycznie.</div>
       </div>
-    </div>
-
+      <div class="field"><label>Typ działalności</label>
+        <select id="w-industry" onchange="wizCheck();toggleOther(this)">
+          <option value="">— Wybierz —</option>
+          <option value="ecommerce">E-commerce — sklep internetowy</option>
+          <option value="portal">Portal ofertowy (bez sklepu)</option>
+          <option value="blog">Serwis informacyjny / Blog / Medium</option>
+          <option value="b2b">Usługi B2B</option>
+          <option value="local">Usługi lokalne B2C</option>
+          <option value="b2c">Usługi B2C (ogólnopolskie)</option>
+          <option value="saas">SaaS / Aplikacja webowa</option>
+          <option value="marketplace">Marketplace / Platforma ogłoszeniowa</option>
+          <option value="nieruchomosci">Nieruchomości</option>
+          <option value="medycyna">Medycyna i Zdrowie</option>
+          <option value="prawo">Prawo i Finanse</option>
+          <option value="edukacja">Edukacja i Szkolenia</option>
+          <option value="inne">Inny</option>
+        </select>
+      </div>
+      <div class="field" id="w-other-wrap" style="display:none"><label>Opisz typ</label><input type="text" id="w-other"></div>
+      <div class="sep"></div>
+      <div class="field"><label>Typ scenariuszy wzrostu</label>
+        <div class="sc-grid">
+          <label class="sc-opt on" id="sc-standard"><input type="radio" name="sc" value="standard" checked onchange="pickSc(this)"><div class="sc-opt-tag">Domyślny</div><div class="sc-opt-title">Standardowy</div><div class="sc-opt-sub">Prognoza oparta wyłącznie na danych analitycznych w 3 wariantach: ostrożny, bazowy i optymistyczny.</div></label>
+          <label class="sc-opt" id="sc-repair"><input type="radio" name="sc" value="repair" onchange="pickSc(this)"><div class="sc-opt-tag">Z kontekstem technicznym</div><div class="sc-opt-title">Z naprawą błędu krytycznego</div><div class="sc-opt-sub">Uwzględnia zidentyfikowany błąd techniczny, który po naprawie znacząco wpłynie na wzrost.</div></label>
+        </div>
+      </div>
+      <div id="w-repair-wrap" style="display:none;margin-top:12px">
+        <div class="field"><label>Opis błędu</label><textarea id="w-repair-desc" rows="2" style="resize:vertical" placeholder="np. Problem z projector.php — pochłania crawl budget"></textarea></div>
+        <div class="field"><label>Szacowany czas efektu</label><select id="w-repair-time"><option value="4w">4 tygodnie</option><option value="8w">6-8 tygodni</option><option value="3m">3 miesiące</option></select></div>
+      </div>
+      <div class="wiz-nav"><span></span><button class="btn btn-p" onclick="wizGo(1)" id="wiz-next-0" disabled>Dalej →</button></div>
+    </div></div>
     <!-- Krok 1 -->
-    <div id="wstep-1" style="display:none">
-      <div class="wiz-card">
-        <h3 class="wiz-card-h">Warianty cenowe</h3>
-        <p class="wiz-card-sub">Ile wariantów cenowych ma ta estymacja?</p>
-        <div class="field"><label>Liczba wariantów</label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <label class="sc-opt" id="v1" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="1" onchange="setVariants(1)"><div class="sc-opt-title">1 wariant</div><div class="sc-opt-sub">Jedna propozycja cenowa.</div></label>
-            <label class="sc-opt" id="v2" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="2" onchange="setVariants(2)"><div class="sc-opt-title">2 warianty</div><div class="sc-opt-sub">Dwie opcje do wyboru.</div></label>
-            <label class="sc-opt on" id="v3" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="3" checked onchange="setVariants(3)"><div class="sc-opt-title">3 warianty</div><div class="sc-opt-sub">Min / Opt / Max.</div></label>
-          </div>
+    <div id="wstep-1" style="display:none"><div class="wiz-card">
+      <h3 class="wiz-card-h">Warianty cenowe</h3>
+      <p class="wiz-card-sub">Ile wariantów cenowych ma ta estymacja?</p>
+      <div class="field"><label>Liczba wariantów</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="sc-opt" id="v1" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="1" onchange="setVariants(1)"><div class="sc-opt-title">1 wariant</div><div class="sc-opt-sub">Jedna propozycja cenowa.</div></label>
+          <label class="sc-opt" id="v2" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="2" onchange="setVariants(2)"><div class="sc-opt-title">2 warianty</div><div class="sc-opt-sub">Dwie opcje do wyboru.</div></label>
+          <label class="sc-opt on" id="v3" style="flex:1;min-width:100px"><input type="radio" name="vcnt" value="3" checked onchange="setVariants(3)"><div class="sc-opt-title">3 warianty</div><div class="sc-opt-sub">Min / Opt / Max.</div></label>
         </div>
-        <div id="variant-names-section"><div class="sep"></div><p style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Nazwy wariantów</p><div class="variant-names" id="variant-names"></div></div>
-        <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(0)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(2)">Dalej →</button></div>
       </div>
-    </div>
-
+      <div id="variant-names-section"><div class="sep"></div><p style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Nazwy wariantów</p><div class="variant-names" id="variant-names"></div></div>
+      <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(0)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(2)">Dalej →</button></div>
+    </div></div>
     <!-- Krok 2 -->
-    <div id="wstep-2" style="display:none">
-      <div class="wiz-card">
-        <h3 class="wiz-card-h">Działania i budżet</h3>
-        <p class="wiz-card-sub">Zaznacz realizowane działania i podaj kwoty. Pola <span class="impact-badge">💡 wpływ na estymację</span> są uwzględniane w obliczeniach.</p>
-        <div class="vtab-row" id="action-tabs"></div>
-        <div id="action-panels"></div>
-        <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(1)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(3)">Dalej →</button></div>
+    <div id="wstep-2" style="display:none"><div class="wiz-card">
+      <h3 class="wiz-card-h">Działania i budżet</h3>
+      <p class="wiz-card-sub">Zaznacz realizowane działania i podaj kwoty. Pola <span class="impact-badge">💡 wpływ na estymację</span> są uwzględniane w obliczeniach.</p>
+      <div class="vtab-row" id="action-tabs"></div>
+      <div id="action-panels"></div>
+      <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(1)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(3)">Dalej →</button></div>
+    </div></div>
+    <!-- Krok 3 -->
+    <div id="wstep-3" style="display:none"><div class="wiz-card">
+      <h3 class="wiz-card-h">Screenshoty z narzędzi</h3>
+      <p class="wiz-card-sub">Wrzuć screenshoty z narzędzi analitycznych. Oznacz źródło każdego pliku.</p>
+      <div class="info-box" style="margin-bottom:18px"><strong>💡 Integracja AI</strong> — oczekuje na weryfikację działu IT. Możesz dodać pliki teraz lub wypełnić dane ręcznie w edytorze.</div>
+      <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()" ondrop="handleDrop(event)" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')">
+        <div class="upload-icon">🖼️</div>
+        <div class="upload-h">Przeciągnij screenshoty tutaj</div>
+        <div class="upload-sub">lub kliknij aby wybrać pliki · PNG, JPG, WEBP</div>
       </div>
-    </div>
-
-    <!-- Krok 3: Upload screenshotów -->
-    <div id="wstep-3" style="display:none">
-      <div class="wiz-card">
-        <h3 class="wiz-card-h">Screenshoty z narzędzi</h3>
-        <p class="wiz-card-sub">Wrzuć screenshoty z narzędzi analitycznych. Oznacz źródło każdego pliku — AI odczyta z nich dane do estymacji.</p>
-        <div class="info-box" style="margin-bottom:18px"><strong>💡 Integracja AI</strong> — oczekuje na weryfikację działu IT. Możesz dodać pliki teraz — zostaną przetworzone po aktywacji integracji. Pola danych w edytorze możesz też wypełnić ręcznie.</div>
-        <div class="upload-area" id="upload-area"
-          onclick="document.getElementById('file-input').click()"
-          ondrop="handleDrop(event)"
-          ondragover="event.preventDefault();this.classList.add('drag')"
-          ondragleave="this.classList.remove('drag')">
-          <div class="upload-icon">🖼️</div>
-          <div class="upload-h">Przeciągnij screenshoty tutaj</div>
-          <div class="upload-sub">lub kliknij aby wybrać pliki · PNG, JPG, WEBP</div>
-        </div>
-        <input type="file" id="file-input" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
-        <div class="upload-list" id="upload-list"></div>
-        <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(2)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(4)">Przejdź do edytora →</button></div>
-      </div>
-    </div>
-
+      <input type="file" id="file-input" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+      <div class="upload-list" id="upload-list"></div>
+      <div class="wiz-nav"><button class="btn btn-s" onclick="wizGo(2)">← Wstecz</button><button class="btn btn-p" onclick="wizGo(4)">Przejdź do edytora →</button></div>
+    </div></div>
     <div id="wstep-4" style="display:none"></div>
   </div>
 </div>
 
-<!-- ══ EDITOR ══ -->
+<!-- EDITOR -->
 <div class="screen" id="screen-editor">
   <div class="topbar">
     <div class="tb-l"><div class="logo" onclick="openModal('back-editor')" id="logo-editor"></div><div class="lsep"></div><span class="app-lbl" id="editor-proj-name">Edytor estymacji</span></div>
@@ -537,47 +518,75 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
     </div>
   </div>
   <div class="editor-layout">
-    <!-- Panel lewy: dane -->
     <div class="editor-left">
-      <div class="editor-left-top">
-        <span class="editor-left-top-h">Dane estymacji</span>
-        <button class="btn btn-ghost btn-sm" onclick="openModal('it')" style="font-size:11px;padding:4px 10px">⚡ AI</button>
-      </div>
+      <div class="editor-left-top"><span class="editor-left-top-h">Dane estymacji</span><button class="btn btn-ghost btn-sm" onclick="openModal('it')" style="font-size:11px;padding:4px 10px">⚡ AI</button></div>
       <div class="editor-sections" id="editor-sections"></div>
     </div>
-    <!-- Panel prawy: podgląd -->
-    <div class="editor-right">
-      <div class="doc-preview" id="doc-preview"></div>
+    <div class="editor-right"><div class="doc-preview" id="doc-preview"></div></div>
+  </div>
+</div>
+
+<!-- QUICK ESTIMATION -->
+<div class="screen" id="screen-quick">
+  <div class="topbar">
+    <div class="tb-l"><div class="logo" onclick="showDash()" id="logo-quick"></div><div class="lsep"></div><span class="app-lbl">Szybka estymacja</span></div>
+    <div class="tb-r"><button class="btn btn-ghost btn-sm" onclick="showDash()">← Dashboard</button></div>
+  </div>
+  <div class="quick-layout">
+    <div class="quick-panel">
+      <div class="quick-panel-h">⚡ Szybka estymacja</div>
+      <div class="quick-panel-sub">Estymacja bez elementów opisowych — tylko tabele i wykresy. Nic nie jest zapisywane na Drive.</div>
+      <div class="field"><label>Sesje organiczne/mies. (baseline)</label><input type="number" id="q-sessions" placeholder="np. 5000"></div>
+      <div class="field"><label>Frazy w TOP 10 (Ahrefs)</label><input type="number" id="q-top10" placeholder="np. 120"></div>
+      <div class="field"><label>Referring Domains</label><input type="number" id="q-rd" placeholder="np. 45"></div>
+      <div class="sep"></div>
+      <p style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Działania miesięczne</p>
+      <div class="field"><label>Teksty LB (copywriting SEO)</label><input type="number" id="q-lb" placeholder="np. 10"></div>
+      <div class="field"><label>Publikacje zewnętrzne</label><input type="number" id="q-ext" placeholder="np. 1"></div>
+      <div class="field"><label>Wpisy blogowe</label><input type="number" id="q-blog" placeholder="np. 2"></div>
+      <div class="field"><label>Horyzont prognozy (miesięcy)</label><input type="number" id="q-horizon" value="12" min="3" max="24"></div>
+      <div class="sep"></div>
+      <div class="warn-box"><strong>⚙️ Model AI</strong> — oczekuje na weryfikację IT. Wyniki poniżej są orientacyjne — oparte na uproszczonym modelu bez danych ze screenshotów.</div>
+      <button class="btn btn-p" style="width:100%;margin-bottom:8px" onclick="runQuick()">⚡ Generuj szybką estymację</button>
+      <button class="btn btn-ghost" style="width:100%" onclick="openModal('export')">⬇ Eksportuj wyniki .docx</button>
+    </div>
+    <div class="quick-result" id="quick-result">
+      <div class="quick-result-ph"><div class="ph-icon">📊</div><p>Wypełnij dane po lewej<br>i kliknij "Generuj szybką estymację"<br>aby zobaczyć wyniki.</p></div>
     </div>
   </div>
 </div>
 
-<!-- ══ QUICK placeholder ══ -->
-<div class="screen" id="screen-quick">
-  <div class="topbar"><div class="tb-l"><div class="logo" onclick="showDash()" id="logo-quick"></div><div class="lsep"></div><span class="app-lbl">Szybka estymacja</span></div><div class="tb-r"><button class="btn btn-ghost btn-sm" onclick="showDash()">← Dashboard</button></div></div>
-  <div style="flex:1;display:flex;align-items:center;justify-content:center"><div class="empty-state"><div class="ei">🚧</div><h3>Etap 5 — w budowie</h3><p>Szybka estymacja pojawi się w ostatnim etapie.</p><br><button class="btn btn-ghost" onclick="showDash()">← Wróć</button></div></div>
+<!-- MODALS -->
+<div class="mbg" id="m-newfolder"><div class="modal"><div class="modal-h"><h3>➕ Nowy folder</h3><span class="modal-close" onclick="closeModal('newfolder')">✕</span></div><div class="modal-body"><div class="field"><label>Nazwa folderu</label><input type="text" id="new-folder-name" value="Sempai — SEO Estymacje"></div></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('newfolder')">Anuluj</button><button class="btn btn-p" onclick="doCreateFolder()">Utwórz i wybierz</button></div></div></div>
+
+<div class="mbg" id="m-folder">
+  <div class="modal">
+    <div class="modal-h"><h3>📁 Zmień folder roboczy</h3><span class="modal-close" onclick="closeModal('folder')">✕</span></div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:var(--tx2);margin-bottom:14px;line-height:1.6">Wybierz nowy folder na Google Drive.</p>
+      <div class="folder-display" style="margin-bottom:12px"><span>📂</span><span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span></div>
+      <button class="btn btn-s" style="width:100%;margin-bottom:14px" onclick="openFolderPicker('change')">📂 Wybierz nowy folder</button>
+      <label class="migrate-check"><input type="checkbox" id="migrate-files"><span>Przenieś wszystkie pliki (.docx + podfoldery projektów) do nowego folderu<br><small style="color:var(--tx3)">Plik konfiguracyjny zostanie przeniesiony zawsze. Po przeniesieniu stary folder zostanie usunięty.</small></span></label>
+    </div>
+    <div class="modal-foot"><button class="btn btn-s" onclick="closeModal('folder')">Anuluj</button><button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>Potwierdź</button></div>
+  </div>
 </div>
 
-<!-- ══ MODALS ══ -->
-<div class="mbg" id="m-newfolder"><div class="modal"><div class="modal-h"><h3>➕ Nowy folder</h3><span class="modal-close" onclick="closeModal('newfolder')">✕</span></div><div class="modal-body"><div class="field"><label>Nazwa folderu</label><input type="text" id="new-folder-name" value="Sempai — SEO Estymacje"></div></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('newfolder')">Anuluj</button><button class="btn btn-p" onclick="doCreateFolder()">Utwórz i wybierz</button></div></div></div>
-<div class="mbg" id="m-folder"><div class="modal"><div class="modal-h"><h3>📁 Zmień folder</h3><span class="modal-close" onclick="closeModal('folder')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);margin-bottom:14px;line-height:1.6">Wybierz nowy folder na Google Drive.</p><div class="folder-display" style="margin-bottom:12px"><span>📂</span><span class="fd-name" id="change-folder-name" style="color:var(--tx3)">Nie wybrano</span></div><button class="btn btn-s" style="width:100%;margin-bottom:14px" onclick="openFolderPicker('change')">📂 Wybierz nowy folder</button><label class="migrate-check"><input type="checkbox" id="migrate-files"><span>Przenieś poprzednie estymacje (.docx)<br><small style="color:var(--tx3)">Plik konfiguracyjny przenosi się zawsze automatycznie.</small></span></label></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('folder')">Anuluj</button><button class="btn btn-p" id="change-folder-confirm" onclick="confirmFolderChange()" disabled>Potwierdź</button></div></div></div>
-<div class="mbg" id="m-back"><div class="modal"><div class="modal-h"><h3>Opuścić kreator?</h3><span class="modal-close" onclick="closeModal('back')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Czy na pewno chcesz wrócić? Niezapisane dane zostaną utracone.</p></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back');showDash()">Wróć do dashboardu</button></div></div></div>
-<div class="mbg" id="m-back-editor"><div class="modal"><div class="modal-h"><h3>Opuścić edytor?</h3><span class="modal-close" onclick="closeModal('back-editor')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Niezapisane zmiany zostaną utracone. Wróć do dashboardu?</p></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back-editor')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back-editor');showDash()">Wróć</button></div></div></div>
+<div class="mbg" id="m-back"><div class="modal"><div class="modal-h"><h3>Opuścić kreator?</h3><span class="modal-close" onclick="closeModal('back')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Czy na pewno chcesz wrócić? Niezapisane dane zostaną utracone.</p></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back');showDash()">Wróć</button></div></div></div>
+<div class="mbg" id="m-back-editor"><div class="modal"><div class="modal-h"><h3>Opuścić edytor?</h3><span class="modal-close" onclick="closeModal('back-editor')">✕</span></div><div class="modal-body"><p style="font-size:13px;color:var(--tx2);line-height:1.6">Niezapisane zmiany zostaną utracone.</p></div><div class="modal-foot"><button class="btn btn-s" onclick="closeModal('back-editor')">Zostań</button><button class="btn btn-danger" onclick="closeModal('back-editor');showDash()">Wróć</button></div></div></div>
 
-<!-- Modal: Generuj AI -->
 <div class="mbg" id="m-it">
   <div class="modal">
     <div class="modal-h"><h3>⚡ Generowanie AI</h3><span class="modal-close" onclick="closeModal('it')">✕</span></div>
     <div class="modal-body">
       <div style="font-size:42px;text-align:center;margin-bottom:14px">🔒</div>
       <div class="modal-it-note"><strong>Oczekuje na weryfikację działu IT</strong><br><br>Automatyczne generowanie danych przez AI wymaga podłączenia modelu językowego i zatwierdzenia integracji pod kątem bezpieczeństwa i limitów kosztowych API.<br><br>Po zatwierdzeniu — przycisk zostanie aktywowany bez zmian w interfejsie.</div>
-      <p style="font-size:13px;color:var(--tx2);line-height:1.6">W międzyczasie możesz uzupełniać dane ręcznie w panelu po lewej stronie. Pola z 🔒 nie zostaną nadpisane przez AI nawet po aktywacji integracji.</p>
+      <p style="font-size:13px;color:var(--tx2);line-height:1.6">W międzyczasie możesz uzupełniać dane ręcznie. Pola z 🔒 nie zostaną nadpisane przez AI nawet po aktywacji integracji.</p>
     </div>
     <div class="modal-foot"><button class="btn btn-p" onclick="closeModal('it')">Rozumiem</button></div>
   </div>
 </div>
 
-<!-- Modal: Eksport -->
 <div class="mbg" id="m-export">
   <div class="modal">
     <div class="modal-h"><h3>⬇ Eksport dokumentu</h3><span class="modal-close" onclick="closeModal('export')">✕</span></div>
@@ -585,11 +594,11 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
       <div class="field"><label>Nazwa pliku</label><input type="text" id="export-filename" value="Estymacja_Klient_2026.docx"></div>
       <div class="field"><label>Format eksportu</label>
         <div class="export-toggle">
-          <label class="export-opt on"><input type="radio" name="efmt" value="single" checked> 📄 Jeden zbiorczy .docx<br><small style="font-weight:400;color:var(--tx3)">wszystkie warianty razem</small></label>
-          <label class="export-opt"><input type="radio" name="efmt" value="split"> 📄📄 Rozbij na warianty<br><small style="font-weight:400;color:var(--tx3)">osobny plik per wariant</small></label>
+          <label class="export-opt on" id="efmt-single"><input type="radio" name="efmt" value="single" checked onclick="this.closest('.export-opt').classList.add('on');document.getElementById('efmt-split').classList.remove('on')"> 📄 Jeden zbiorczy .docx<br><small style="font-weight:400;color:var(--tx3)">wszystkie warianty razem</small></label>
+          <label class="export-opt" id="efmt-split"><input type="radio" name="efmt" value="split" onclick="this.closest('.export-opt').classList.add('on');document.getElementById('efmt-single').classList.remove('on')"> 📄📄 Rozbij na warianty<br><small style="font-weight:400;color:var(--tx3)">osobny plik per wariant</small></label>
         </div>
       </div>
-      <div class="info-box" style="margin-bottom:0"><strong>⏳ Generowanie .docx</strong> — aktywne po podłączeniu szablonu Sempai i weryfikacji IT. Eksport zostanie uruchomiony automatycznie.</div>
+      <div class="info-box" style="margin-bottom:0"><strong>⏳ Generowanie .docx</strong> — aktywne po podłączeniu szablonu Sempai i weryfikacji IT.</div>
     </div>
     <div class="modal-foot"><button class="btn btn-s" onclick="closeModal('export')">Anuluj</button><button class="btn btn-p" onclick="doExport()">⬇ Eksportuj</button></div>
   </div>
@@ -599,67 +608,28 @@ input,select,textarea{font-family:'DM Sans',sans-serif}
 <div class="loader" id="loader"><div class="spinner"></div><div class="lmsg" id="lmsg">Ładowanie…</div></div>
 
 <script>
-const CLIENT_ID='460409748582-9c1dn06biv4ojsfgn71lht4tljm2cke0.apps.googleusercontent.com';
-const PICKER_KEY='AIzaSyCvwRNUpQM_dseggHpj5r5DQBkIU8s3gdQ';
-const ALLOWED='sempai.pl';
-const CFG_NAME='sempai-seo-estymacje.json';
-const DRIVE='https://www.googleapis.com/drive/v3';
+// ══ NOWE KLUCZE — dedykowany projekt Google Cloud dla SEO Estymator ══
+const CLIENT_ID  = '531725915032-uap97g8r2k7irnhc13fh663fc62lbpmn.apps.googleusercontent.com';
+const PICKER_KEY = 'AIzaSyDufRmJqrcRgWqMeNBP5KkEqSbcKBay-QI';
+const ALLOWED    = 'sempai.pl';
+const CFG_NAME   = 'sempai-seo-estymacje.json';
+const DRIVE      = 'https://www.googleapis.com/drive/v3';
 const IND={ecommerce:'E-commerce',portal:'Portal ofertowy',blog:'Blog / Medium',b2b:'Usługi B2B',local:'Usługi lokalne',b2c:'Usługi B2C',saas:'SaaS',marketplace:'Marketplace',nieruchomosci:'Nieruchomości',medycyna:'Medycyna',prawo:'Prawo / Finanse',edukacja:'Edukacja',inne:'Inny'};
-
 const LOGO_SVG=`<svg viewBox="0 0 144.9 15.7" xmlns="http://www.w3.org/2000/svg" style="height:14px;width:auto"><g><g><path class="st0" d="M-0.1,0.1v3.1c0,1.3,0.5,3.9,1.4,4.8c0.9,0.9,2,1.4,3.3,1.4h15.8l-4.2,2.7c-0.3,0.3-0.7,0.4-1.1,0.4H4.7v3.1h10.3c1.3,0,2.4-0.5,3.3-1.4l9.5-8H4.5c-1,0-1.2-2-1.2-3h18.2l0-3.1L-0.1,0.1z"/><path class="st0" d="M29.3,0.1c0,0,0.1,1.6,0.9,2.3c0.7,0.7,0.9,0.9,1.2,1.1l2.8,2.8h-4.9v1.2c0,1.3,0.5,2.4,1.4,3.3l0.2,0.2l3.1,3.1l0.2,0.2c0.9,0.9,2,1.4,3.3,1.4h19.9v-3.2h-3.1H37.5c-0.4,0-0.8-0.1-1.1-0.4l-2.7-2.7h11.2V6.4h-5.6c-0.4,0-0.7-0.1-1-0.3l-2.8-2.8h18.7h3.1V0.1L29.3,0.1z"/><path class="st0" d="M72.6,0.1v1.4c-0.9-0.9-2-1.3-3.2-1.4h-9v3.1v9.3v3.1h3.1V3.2h5.8c0.5,0,1,0.2,1.3,0.7l6.8,11.7H81L73.7,3.2h3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6L80.9,2.6c-0.9-1.6-2.2-2.4-4-2.5L72.6,0.1z"/><path class="st0" d="M115.5,0.1v3.1h2.7l-8.8,8.8c-0.3,0.3-0.7,0.4-1.1,0.4h-1.2v3.1h1.2c0.6,0,1.2-0.1,1.8-0.3c0.6-0.3,1.1-0.6,1.5-1l10.9-10.9h3.3c0.5,0,1,0.2,1.3,0.7l6.8,11.7h3.6l-7.2-12.5l-1.2-1.7c-0.9-0.9-2-1.3-3.2-1.4L115.5,0.1z"/><path class="st0" d="M132.2,0.1l7.2,12.5l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-9-15.6L132.2,0.1z"/><path class="st0" d="M84.8,0v3.1h22l-2.8,2.8c-0.3,0.2-0.6,0.3-1,0.3H90h-3.6l1.8,3h0.1l1.9,3.2l1.3,1.9c0.7,0.9,1.9,1.1,3.1,1.2h1l-3.7-6.4h11.3c1.3,0,2.4-0.5,3.3-1.4l4.5-4.5c0.3-0.2,0.7-0.6,1.3-1.3c0.7-0.8,0.6-2.1,0.6-2.1L84.8,0z"/></g></g></svg>`;
 
-// ── STAN ──
 let token=null,user=null,tokenClient=null,pickerReady=false;
 let folderId=null,folderName=null,configFileId=null;
 let pendingFolderId=null,pendingFolderName=null;
 let projects=[];
-let lockedFields=new Set(); // przechowuje ID zablokowanych pól
+let lockedFields=new Set();
 let uploadedFiles=[];
 const SAMPLES=[{id:'p1',name:'Wach and Wach',domain:'wachandwach.pl',industry:'prawo',status:'ready',date:'2026-03-28'},{id:'p2',name:'Matfel',domain:'matfel.pl',industry:'ecommerce',status:'sent',date:'2026-04-10'},{id:'p3',name:'Klient Demo',domain:'klientdemo.pl',industry:'b2b',status:'draft',date:'2026-04-12'}];
 let WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};
-
-// Dane edytora (wypełniane przez AI lub ręcznie)
-let ED = {
-  sessions:'~2 000',users:'~1 500',engage:'47,9%',stime:'02:39',
-  top10:'143',top3:'59',rd:'51',aiCit:'25',
-  fStart:'2 000',fEnd:'3 700 – 4 500',fGrow:'+85-125%',fTop10:'265 – 330',
-  obs:'GA4 pokazuje średnio 3 131 sesji/mies. przez 14 miesięcy, ale aktualny trend (koniec 2025 – lut 2026) spadł do ~1 800-2 200 sesji/mies. Ten niższy poziom jest realnym punktem startowym prognozy.',
-  rec1:'Dogłębna analiza przyczyn spadku po lipcu 2025 (Core Update? utrata fraz? problemy techniczne?)',
-  rec2:'Silne CTA we wszystkich artykułach blogowych — połączenie treści informacyjnych z podstronami usługowymi.',
-};
-
-// Definicja sekcji edytora
-const ED_SECTIONS = [
-  {id:'s-ga4',label:'Stan obecny — GA4',fields:[
-    {id:'sessions',label:'Sesje organiczne/mies.',conf:'high'},
-    {id:'users',label:'Aktywni użytkownicy/mies.',conf:'high'},
-    {id:'engage',label:'Engagement rate',conf:'high'},
-    {id:'stime',label:'Śr. czas sesji',conf:'med'},
-  ]},
-  {id:'s-ahrefs',label:'Widoczność — Ahrefs',fields:[
-    {id:'top10',label:'Frazy TOP 10',conf:'high'},
-    {id:'top3',label:'Frazy TOP 3',conf:'high'},
-    {id:'rd',label:'Referring Domains',conf:'high'},
-    {id:'aiCit',label:'Cytowania AI Overview',conf:'med'},
-  ]},
-  {id:'s-prog',label:'Prognoza (scenariusz bazowy)',fields:[
-    {id:'fStart',label:'Punkt startowy (sesje/mies.)',conf:'high'},
-    {id:'fEnd',label:'Cel po 12 miesiącach',conf:'med'},
-    {id:'fGrow',label:'Wzrost vs punkt startowy',conf:'med'},
-    {id:'fTop10',label:'Frazy TOP 10 (cel)',conf:'med'},
-  ]},
-  {id:'s-obs',label:'Kluczowa obserwacja',fields:[
-    {id:'obs',label:'Tekst obserwacji',conf:'med',type:'textarea'},
-  ]},
-  {id:'s-rec',label:'Priorytety i rekomendacje',fields:[
-    {id:'rec1',label:'Priorytet 1',conf:'low',type:'textarea'},
-    {id:'rec2',label:'Priorytet 2',conf:'low',type:'textarea'},
-  ]},
-];
+let ED={sessions:'~2 000',users:'~1 500',engage:'47,9%',stime:'02:39',top10:'143',top3:'59',rd:'51',aiCit:'25',fStart:'2 000',fEnd:'3 700 – 4 500',fGrow:'+85-125%',fTop10:'265 – 330',obs:'GA4 pokazuje średnio 3 131 sesji/mies. przez 14 miesięcy, ale aktualny trend (koniec 2025 – lut 2026) spadł do ~1 800-2 200 sesji/mies. Ten niższy poziom jest realnym punktem startowym prognozy.',rec1:'Dogłębna analiza przyczyn spadku po lipcu 2025 (Core Update? utrata fraz? problemy techniczne?)',rec2:'Silne CTA we wszystkich artykułach blogowych — połączenie treści informacyjnych z podstronami usługowymi.'};
+const ED_SECTIONS=[{id:'s-ga4',label:'Stan obecny — GA4',fields:[{id:'sessions',label:'Sesje organiczne/mies.',conf:'high'},{id:'users',label:'Aktywni użytkownicy/mies.',conf:'high'},{id:'engage',label:'Engagement rate',conf:'high'},{id:'stime',label:'Śr. czas sesji',conf:'med'}]},{id:'s-ahrefs',label:'Widoczność — Ahrefs',fields:[{id:'top10',label:'Frazy TOP 10',conf:'high'},{id:'top3',label:'Frazy TOP 3',conf:'high'},{id:'rd',label:'Referring Domains',conf:'high'},{id:'aiCit',label:'Cytowania AI Overview',conf:'med'}]},{id:'s-prog',label:'Prognoza (scenariusz bazowy)',fields:[{id:'fStart',label:'Punkt startowy (sesje/mies.)',conf:'high'},{id:'fEnd',label:'Cel po 12 miesiącach',conf:'med'},{id:'fGrow',label:'Wzrost vs punkt startowy',conf:'med'},{id:'fTop10',label:'Frazy TOP 10 (cel)',conf:'med'}]},{id:'s-obs',label:'Kluczowa obserwacja',fields:[{id:'obs',label:'Tekst obserwacji',conf:'med',type:'textarea'}]},{id:'s-rec',label:'Priorytety i rekomendacje',fields:[{id:'rec1',label:'Priorytet 1',conf:'low',type:'textarea'},{id:'rec2',label:'Priorytet 2',conf:'low',type:'textarea'}]}];
 
 // ── UI ──
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById('screen-'+id).classList.add('on');}
-function showScreen(id){show(id);}
 function loading(m){document.getElementById('lmsg').textContent=m||'Ładowanie…';document.getElementById('loader').classList.add('on');}
 function stopLoad(){document.getElementById('loader').classList.remove('on');}
 function toast(m,t){const el=document.createElement('div');el.className='toast '+(t||'ok');el.textContent=(t==='err'?'❌ ':t==='warn'?'⚠️ ':'✅ ')+m;document.getElementById('toasts').appendChild(el);setTimeout(()=>el.remove(),3600);}
@@ -669,28 +639,103 @@ function toggleTheme(){const t=document.documentElement.getAttribute('data-theme
 function toggleUDD(id){const dd=document.getElementById(id);document.querySelectorAll('.u-dd').forEach(d=>{if(d.id!==id)d.classList.remove('on');});dd.classList.toggle('on');}
 function injectLogos(){['logo-dash','logo-proj','logo-wiz','logo-editor','logo-quick'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=LOGO_SVG;});}
 
-// ── AUTH ──
+// ── AUTH — prompt:'consent' zapobiega błędowi insufficient scopes ──
 function waitGIS(cb){if(typeof google!=='undefined'&&google.accounts){cb();return;}setTimeout(()=>waitGIS(cb),300);}
-function initiateSignIn(){const st=document.getElementById('auth-status');st.textContent='Inicjalizacja…';st.className='auth-status';waitGIS(()=>{tokenClient=google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:'https://www.googleapis.com/auth/drive openid email profile',callback:onToken});st.textContent='';tokenClient.requestAccessToken({prompt:'select_account'});});}
-async function onToken(resp){const st=document.getElementById('auth-status');if(resp.error){st.className='auth-status err';st.textContent='❌ '+resp.error;return;}token=resp.access_token;try{const i=await apiFetch('https://www.googleapis.com/oauth2/v3/userinfo');user={name:i.name,email:i.email};}catch(e){user={name:'Użytkownik',email:''};}if(user.email&&!user.email.endsWith('@'+ALLOWED)){st.className='auth-status err';st.textContent='❌ Brak dostępu — wymagane konto @'+ALLOWED;token=null;user=null;return;}st.className='auth-status ok';st.textContent='✅ '+user.email;updateUserUI();await afterLogin();}
+function initiateSignIn(){
+  const st=document.getElementById('auth-status');st.textContent='Inicjalizacja…';st.className='auth-status';
+  waitGIS(()=>{
+    tokenClient=google.accounts.oauth2.initTokenClient({
+      client_id:CLIENT_ID,
+      scope:'https://www.googleapis.com/auth/drive openid email profile',
+      callback:onToken
+    });
+    st.textContent='';
+    tokenClient.requestAccessToken({prompt:'select_account'});
+  });
+}
+async function onToken(resp){
+  const st=document.getElementById('auth-status');
+  if(resp.error){st.className='auth-status err';st.textContent='❌ '+resp.error;return;}
+  token=resp.access_token;
+  try{const i=await apiFetch('https://www.googleapis.com/oauth2/v3/userinfo');user={name:i.name,email:i.email};}
+  catch(e){user={name:'Użytkownik',email:''};}
+  if(user.email&&!user.email.endsWith('@'+ALLOWED)){st.className='auth-status err';st.textContent='❌ Brak dostępu — wymagane konto @'+ALLOWED;token=null;user=null;return;}
+  st.className='auth-status ok';st.textContent='✅ '+user.email;
+  updateUserUI();await afterLogin();
+}
 function signOut(){if(token&&typeof google!=='undefined')google.accounts.oauth2.revoke(token,()=>{});token=null;user=null;folderId=null;folderName=null;configFileId=null;projects=[];document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));document.getElementById('auth-status').textContent='';document.getElementById('auth-status').className='auth-status';show('auth');}
 function updateUserUI(){if(!user)return;const init=user.name?user.name[0].toUpperCase():'?';const short=user.name?user.name.split(' ')[0]:user.email;[['u-init-d',init],['u-name-d',short],['u-init-p',init],['u-name-p',short],['udd-init',init],['udd-name',user.name||''],['udd-email',user.email||''],['udd-init-p',init],['udd-name-p',user.name||''],['udd-email-p',user.email||'']].forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.textContent=val;});}
 
 // ── API ──
 async function apiFetch(url,opts={}){opts.headers=opts.headers||{};opts.headers['Authorization']='Bearer '+token;const r=await fetch(url,opts);if(r.status===401){signOut();throw new Error('Sesja wygasła');}if(!r.ok){let m='HTTP '+r.status;try{const e=await r.json();m=(e.error&&e.error.message)||m;}catch(x){}throw new Error(m);}if(r.status===204)return null;return r.json();}
 async function apiPost(url,body){return apiFetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});}
+async function apiPatch(url,body){return apiFetch(url,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});}
 async function readJson(id){const r=await fetch(DRIVE+'/files/'+id+'?alt=media',{headers:{'Authorization':'Bearer '+token}});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
 async function writeJson(id,data){await fetch('https://www.googleapis.com/upload/drive/v3/files/'+id+'?uploadType=media',{method:'PATCH',headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify(data)});}
-async function loadConfig(){const q=encodeURIComponent("name='"+CFG_NAME+"' and trashed=false and 'me' in owners");const r=await apiFetch(DRIVE+'/files?q='+q+'&fields=files(id,name)&pageSize=1');if(r.files&&r.files.length>0){configFileId=r.files[0].id;try{const cfg=await readJson(configFileId);folderId=cfg.folderId||null;folderName=cfg.folderName||null;}catch(e){configFileId=null;}}}
+
+// ── CONFIG ──
+async function loadConfig(){const q=encodeURIComponent("name='"+CFG_NAME+"' and trashed=false and 'me' in owners");const r=await apiFetch(DRIVE+'/files?q='+q+'&fields=files(id,name,parents)&pageSize=1');if(r.files&&r.files.length>0){configFileId=r.files[0].id;try{const cfg=await readJson(configFileId);folderId=cfg.folderId||null;folderName=cfg.folderName||null;}catch(e){configFileId=null;}}}
 async function saveConfig(){const cfg={version:1,folderId,folderName,updatedAt:new Date().toISOString()};if(configFileId){await writeJson(configFileId,cfg);}else{const m=await apiPost(DRIVE+'/files',{name:CFG_NAME,mimeType:'application/json',parents:[folderId]});configFileId=m.id;await writeJson(configFileId,cfg);}}
 
 // ── PICKER ──
 function loadPicker(cb){if(pickerReady){cb();return;}gapi.load('picker',()=>{pickerReady=true;cb();});}
-function openFolderPicker(ctx){if(typeof gapi==='undefined'){toast('Poczekaj chwilę — Google API się ładuje','warn');return;}loadPicker(()=>{const view=new google.picker.DocsView(google.picker.ViewId.FOLDERS).setSelectFolderEnabled(true).setIncludeFolders(true).setMimeTypes('application/vnd.google-apps.folder');new google.picker.PickerBuilder().addView(view).setOAuthToken(token).setDeveloperKey(PICKER_KEY).setTitle('Wybierz folder').setCallback(data=>{if(data.action===google.picker.Action.PICKED){const f=data.docs[0];if(ctx==='ob'){folderId=f.id;folderName=f.name;document.getElementById('ob-folder-name').textContent=f.name;document.getElementById('ob-folder-name').style.color='var(--tx)';document.getElementById('ob-confirm').disabled=false;toast('Folder wybrany: '+f.name);}else{pendingFolderId=f.id;pendingFolderName=f.name;document.getElementById('change-folder-name').textContent=f.name;document.getElementById('change-folder-name').style.color='var(--tx)';document.getElementById('change-folder-confirm').disabled=false;toast('Nowy folder: '+f.name);}}}).build().setVisible(true);});}
+function openFolderPicker(ctx){
+  if(typeof gapi==='undefined'){toast('Poczekaj chwilę — Google API się ładuje','warn');return;}
+  loadPicker(()=>{
+    const view=new google.picker.DocsView(google.picker.ViewId.FOLDERS).setSelectFolderEnabled(true).setIncludeFolders(true).setMimeTypes('application/vnd.google-apps.folder');
+    new google.picker.PickerBuilder().addView(view).setOAuthToken(token).setDeveloperKey(PICKER_KEY).setTitle('Wybierz folder').setCallback(data=>{
+      if(data.action===google.picker.Action.PICKED){const f=data.docs[0];
+        if(ctx==='ob'){folderId=f.id;folderName=f.name;document.getElementById('ob-folder-name').textContent=f.name;document.getElementById('ob-folder-name').style.color='var(--tx)';document.getElementById('ob-confirm').disabled=false;toast('Folder wybrany: '+f.name);}
+        else{pendingFolderId=f.id;pendingFolderName=f.name;document.getElementById('change-folder-name').textContent=f.name;document.getElementById('change-folder-name').style.color='var(--tx)';document.getElementById('change-folder-confirm').disabled=false;toast('Nowy folder: '+f.name);}
+      }
+    }).build().setVisible(true);
+  });
+}
+
 async function doCreateFolder(){const name=(document.getElementById('new-folder-name').value||'').trim()||'Sempai — SEO Estymacje';loading('Tworzenie folderu…');try{const f=await apiPost(DRIVE+'/files',{name,mimeType:'application/vnd.google-apps.folder',parents:['root']});folderId=f.id;folderName=name;document.getElementById('ob-folder-name').textContent=name;document.getElementById('ob-folder-name').style.color='var(--tx)';document.getElementById('ob-confirm').disabled=false;stopLoad();closeModal('newfolder');toast('Folder "'+name+'" utworzony');}catch(e){stopLoad();toast('Błąd: '+e.message,'err');}}
 async function finishOnboarding(){if(!folderId)return;loading('Zapisywanie…');try{await saveConfig();stopLoad();projects=[...SAMPLES];showDash();toast('Konfiguracja zapisana!');}catch(e){stopLoad();toast('Błąd: '+e.message,'err');}}
+
+// ── ZMIANA FOLDERU — z poprawną migracją i usunięciem starego ──
 function openChangeFolderModal(){document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));pendingFolderId=null;pendingFolderName=null;document.getElementById('change-folder-name').textContent='Nie wybrano';document.getElementById('change-folder-name').style.color='var(--tx3)';document.getElementById('change-folder-confirm').disabled=true;document.getElementById('migrate-files').checked=false;openModal('folder');}
-async function confirmFolderChange(){if(!pendingFolderId)return;loading('Zmiana folderu…');try{if(configFileId){const info=await apiFetch(DRIVE+'/files/'+configFileId+'?fields=parents');const old=(info.parents||['root']).join(',');await apiFetch(DRIVE+'/files/'+configFileId+'?addParents='+pendingFolderId+'&removeParents='+old+'&fields=id',{method:'PATCH',headers:{'Content-Type':'application/json'},body:'{}'});}folderId=pendingFolderId;folderName=pendingFolderName;await saveConfig();stopLoad();closeModal('folder');document.getElementById('dash-folder-lbl').textContent='📁 '+folderName;toast('Folder zmieniony: '+folderName);}catch(e){stopLoad();toast('Błąd: '+e.message,'err');}}
+
+async function confirmFolderChange(){
+  if(!pendingFolderId)return;
+  const migrateFiles=document.getElementById('migrate-files').checked;
+  const oldFolderId=folderId;
+  loading('Zmiana folderu…');
+  try{
+    // 1. Przenieś config.json do nowego folderu (zawsze)
+    if(configFileId){
+      const info=await apiFetch(DRIVE+'/files/'+configFileId+'?fields=parents');
+      const oldParents=(info.parents||[oldFolderId]).join(',');
+      await apiFetch(DRIVE+'/files/'+configFileId+'?addParents='+pendingFolderId+'&removeParents='+oldParents+'&fields=id',{method:'PATCH',headers:{'Content-Type':'application/json'},body:'{}'});
+    }
+
+    // 2. Jeśli checkbox zaznaczony — przenieś wszystkie pliki z folderu
+    if(migrateFiles&&oldFolderId){
+      loading('Przenoszenie plików…');
+      const q=encodeURIComponent("'"+oldFolderId+"' in parents and trashed=false");
+      const items=await apiFetch(DRIVE+'/files?q='+q+'&fields=files(id,name,mimeType)&pageSize=100');
+      if(items.files&&items.files.length>0){
+        for(const file of items.files){
+          await apiFetch(DRIVE+'/files/'+file.id+'?addParents='+pendingFolderId+'&removeParents='+oldFolderId+'&fields=id',{method:'PATCH',headers:{'Content-Type':'application/json'},body:'{}'});
+        }
+      }
+      // 3. Usuń stary folder (teraz już pusty)
+      loading('Usuwanie starego folderu…');
+      try{await apiFetch(DRIVE+'/files/'+oldFolderId,{method:'DELETE'});}
+      catch(e){/* Jeśli folder nie jest pusty lub brak uprawnień — ignorujemy */}
+    }
+
+    // 4. Zaktualizuj stan i config
+    folderId=pendingFolderId;folderName=pendingFolderName;
+    await saveConfig();
+    stopLoad();closeModal('folder');
+    document.getElementById('dash-folder-lbl').textContent='📁 '+folderName;
+    toast(migrateFiles?'Folder zmieniony, pliki przeniesione, stary folder usunięty':'Folder zmieniony: '+folderName);
+  }catch(e){stopLoad();toast('Błąd: '+e.message,'err');}
+}
+
 async function afterLogin(){loading('Wczytywanie konfiguracji…');try{await loadConfig();stopLoad();if(!folderId){show('ob');}else{projects=[...SAMPLES];showDash();}}catch(e){stopLoad();toast('Błąd: '+e.message,'err');}}
 
 // ── DASHBOARD ──
@@ -704,12 +749,7 @@ function openProject(id){const p=projects.find(x=>x.id===id);if(!p)return;WZ.cli
 // ── WIZARD ──
 function startWizard(){WZ={client:'',domain:'',favicon:'',industry:'',scenario:'standard',repairDesc:'',repairTime:'4w',variantCount:3,variantNames:['Minimum','Optimum','Maximum'],variants:[]};lockedFields=new Set();uploadedFiles=[];['w-client','w-domain','w-repair-desc'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});document.getElementById('w-industry').value='';document.getElementById('w-fav-preview').innerHTML='🌐';document.getElementById('w-repair-wrap').style.display='none';document.getElementById('w-other-wrap').style.display='none';document.querySelectorAll('[name=sc]')[0].checked=true;document.getElementById('sc-standard').classList.add('on');document.getElementById('sc-repair').classList.remove('on');document.querySelectorAll('[name=vcnt]')[2].checked=true;['v1','v2','v3'].forEach((id,i)=>document.getElementById(id).classList.toggle('on',i===2));setVariants(3);wizGo(0,true);show('wizard');}
 function wizCheck(){const ok=document.getElementById('w-client').value.trim()&&document.getElementById('w-domain').value.trim()&&document.getElementById('w-industry').value;document.getElementById('wiz-next-0').disabled=!ok;}
-function wizGo(step,init=false){
-  if(!init){WZ.client=document.getElementById('w-client').value.trim();WZ.domain=document.getElementById('w-domain').value.trim();WZ.industry=document.getElementById('w-industry').value;const sc=document.querySelector('[name=sc]:checked');WZ.scenario=sc?sc.value:'standard';WZ.repairDesc=(document.getElementById('w-repair-desc')||{}).value||'';WZ.repairTime=(document.getElementById('w-repair-time')||{}).value||'4w';}
-  for(let i=0;i<5;i++){document.getElementById('wstep-'+i).style.display=i===step?'block':'none';const ws=document.getElementById('ws'+i);ws.classList.remove('act','done');if(i<step)ws.classList.add('done');else if(i===step)ws.classList.add('act');ws.querySelector('.wiz-dot').textContent=i<step?'✓':(i+1).toString();}
-  if(step===2)buildActionPanels();
-  if(step===4){openEditor(WZ.client);return;}
-}
+function wizGo(step,init=false){if(!init){WZ.client=document.getElementById('w-client').value.trim();WZ.domain=document.getElementById('w-domain').value.trim();WZ.industry=document.getElementById('w-industry').value;const sc=document.querySelector('[name=sc]:checked');WZ.scenario=sc?sc.value:'standard';WZ.repairDesc=(document.getElementById('w-repair-desc')||{}).value||'';WZ.repairTime=(document.getElementById('w-repair-time')||{}).value||'4w';}for(let i=0;i<5;i++){document.getElementById('wstep-'+i).style.display=i===step?'block':'none';const ws=document.getElementById('ws'+i);ws.classList.remove('act','done');if(i<step)ws.classList.add('done');else if(i===step)ws.classList.add('act');ws.querySelector('.wiz-dot').textContent=i<step?'✓':(i+1).toString();}if(step===2)buildActionPanels();if(step===4){openEditor(WZ.client);return;}}
 function pickSc(el){document.getElementById('sc-standard').classList.toggle('on',el.value==='standard');document.getElementById('sc-repair').classList.toggle('on',el.value==='repair');document.getElementById('w-repair-wrap').style.display=el.value==='repair'?'block':'none';}
 function fetchFavicon(){const d=document.getElementById('w-domain').value.trim();if(!d)return;try{const host=d.includes('://')?new URL(d).hostname:d.split('/')[0];const url='https://www.google.com/s2/favicons?domain='+encodeURIComponent(host)+'&sz=64';document.getElementById('w-fav-preview').innerHTML=`<img src="${url}" style="width:24px;height:24px;object-fit:contain" onerror="this.parentElement.innerHTML='🌐'">`;WZ.favicon=url;}catch(e){}}
 function toggleOther(sel){document.getElementById('w-other-wrap').style.display=sel.value==='inne'?'block':'none';}
@@ -717,7 +757,7 @@ function setVariants(n){WZ.variantCount=n;['v1','v2','v3'].forEach((id,i)=>docum
 
 // ── ACTIONS ──
 function initVar(){return{kwotaSEO:'',kwotaMonitoring:'',kwotaLB:'',kwotaContent:'',kwotaCMZ:'',cbAnalityka:true,cbOnsite:true,cbZarzadzanie:true,cbMonAI:true,cbMonAnaliza:true,cbMonCytowania:false,cbMonRaport:true,cbCopywriting:true,qCopywriting:10,cbLBGodziny:true,qLBGodziny:3,cbLBNiestandardowe:false,qLBNiestandardowe:0,cbOpKategorii:false,qOpKategorii:0,cbOpProduktow:false,qOpProduktow:0,cbWpisyBlog:true,qWpisyBlog:2,cbRecykling:false,qRecykling:0,cbGodSpCM:false,qGodSpCM:0,cbBudzetMedia:false,qBudzetMedia:0,cbTresci:false,qTresci:0,cbObslugaKampanii:false};}
-function buildActionPanels(){while(WZ.variants.length<WZ.variantCount)WZ.variants.push(initVar());const tabs=document.getElementById('action-tabs'),panels=document.getElementById('action-panels');tabs.innerHTML='';panels.innerHTML='';for(let i=0;i<WZ.variantCount;i++){const name=WZ.variantCount===1?'':(WZ.variantNames[i]||('Wariant '+(i+1)));if(WZ.variantCount>1){const tab=document.createElement('div');tab.className='vtab'+(i===0?' on':'');tab.textContent=name;tab.onclick=()=>switchVTab(i);tabs.appendChild(tab);}const panel=document.createElement('div');panel.className='vtab-content'+(i===0?' on':'');panel.id='vp'+i;panel.innerHTML=actionHTML(i);panels.appendChild(panel);}}
+function buildActionPanels(){while(WZ.variants.length<WZ.variantCount)WZ.variants.push(initVar());const tabs=document.getElementById('action-tabs'),panels=document.getElementById('action-panels');tabs.innerHTML='';panels.innerHTML='';for(let i=0;i<WZ.variantCount;i++){if(WZ.variantCount>1){const tab=document.createElement('div');tab.className='vtab'+(i===0?' on':'');tab.textContent=WZ.variantNames[i]||('Wariant '+(i+1));tab.onclick=()=>switchVTab(i);tabs.appendChild(tab);}const panel=document.createElement('div');panel.className='vtab-content'+(i===0?' on':'');panel.id='vp'+i;panel.innerHTML=actionHTML(i);panels.appendChild(panel);}}
 function switchVTab(i){document.querySelectorAll('.vtab').forEach((t,j)=>t.classList.toggle('on',j===i));document.querySelectorAll('.vtab-content').forEach((p,j)=>p.classList.toggle('on',j===i));}
 function cb(vi,key,label){const v=WZ.variants[vi];return`<div class="act-row"><label class="act-chk"><input type="checkbox" ${v[key]?'checked':''} onchange="WZ.variants[${vi}].${key}=this.checked"><span>${label}</span></label></div>`;}
 function cbQty(vi,cbKey,label,qKey,qLabel){const v=WZ.variants[vi];return`<div class="act-row"><label class="act-chk"><input type="checkbox" ${v[cbKey]?'checked':''} onchange="WZ.variants[${vi}].${cbKey}=this.checked"><span>${label}</span></label><div class="act-qty"><label>${qLabel}:</label><input type="number" value="${v[qKey]}" min="0" oninput="WZ.variants[${vi}].${qKey}=+this.value"></div></div>`;}
@@ -733,181 +773,64 @@ function calcTotal(vi){const v=WZ.variants[vi];const t=[v.kwotaSEO,v.kwotaMonito
 function copyVar(to){if(to<1)return;WZ.variants[to]=JSON.parse(JSON.stringify(WZ.variants[to-1]));buildActionPanels();switchVTab(to);toast('Skopiowano z "'+( WZ.variantNames[to-1]||'poprzedniego')+'"');}
 
 // ── UPLOAD ──
-const UPLOAD_SRCS=['GA4','GSC','Ahrefs','Senuto','Inne'];
+const SRCS=['GA4','GSC','Ahrefs','Senuto','Inne'];
 function handleFiles(files){Array.from(files).forEach(f=>{if(!f.type.startsWith('image/'))return;uploadedFiles.push({name:f.name,source:'GA4',size:f.size});renderUploadList();});}
 function handleDrop(e){e.preventDefault();document.getElementById('upload-area').classList.remove('drag');handleFiles(e.dataTransfer.files);}
-function renderUploadList(){const el=document.getElementById('upload-list');el.innerHTML=uploadedFiles.map((f,i)=>`<div class="upload-file"><span style="font-size:18px;flex-shrink:0">🖼️</span><div class="upload-file-info"><div class="upload-file-name">${f.name}</div><div class="upload-file-src">Źródło: <select onchange="uploadedFiles[${i}].source=this.value">${UPLOAD_SRCS.map(s=>`<option value="${s}" ${f.source===s?'selected':''}>${s}</option>`).join('')}</select> · ${(f.size/1024).toFixed(0)} KB</div></div><span class="upload-del" onclick="uploadedFiles.splice(${i},1);renderUploadList()">✕</span></div>`).join('');}
+function renderUploadList(){document.getElementById('upload-list').innerHTML=uploadedFiles.map((f,i)=>`<div class="upload-file"><span style="font-size:18px;flex-shrink:0">🖼️</span><div class="upload-file-info"><div class="upload-file-name">${f.name}</div><div class="upload-file-src">Źródło: <select onchange="uploadedFiles[${i}].source=this.value">${SRCS.map(s=>`<option value="${s}" ${f.source===s?'selected':''}>${s}</option>`).join('')}</select> · ${(f.size/1024).toFixed(0)} KB</div></div><span class="upload-del" onclick="uploadedFiles.splice(${i},1);renderUploadList()">✕</span></div>`).join('');}
 
 // ── EDITOR ──
-function openEditor(projName){
-  document.getElementById('editor-proj-name').textContent = 'Estymacja — ' + projName;
-  // Aktualizuj nazwę pliku eksportu
-  const fn = document.getElementById('export-filename');
-  if(fn) fn.value = 'Estymacja_' + (WZ.client||projName).replace(/\s+/g,'_') + '_' + new Date().toISOString().split('T')[0] + '.docx';
-  buildEditorSections();
-  buildDocPreview();
-  show('editor');
-}
-
-function buildEditorSections(){
-  const el = document.getElementById('editor-sections');
-  el.innerHTML = ED_SECTIONS.map((sec,si) => `
-    <div class="ed-section">
-      <div class="ed-section-h ${si===0?'open':''}" onclick="toggleEdSec(this)">
-        <span>${sec.label}</span>
-        <span class="ed-chevron ${si===0?'open':''}">▾</span>
-      </div>
-      <div class="ed-section-body ${si===0?'on':''}" id="${sec.id}">
-        ${sec.fields.map(f => buildEdField(f)).join('')}
-      </div>
-    </div>`).join('');
-}
-
-function buildEdField(f){
-  const locked = lockedFields.has(f.id);
-  const confMap = {high:'Wysoka pewność',med:'Średnia pewność',low:'Niska pewność',empty:'Brak danych'};
-  const val = ED[f.id] || '';
-  const inp = f.type === 'textarea'
-    ? `<textarea class="ed-input ${locked?'locked':''}" id="ef-${f.id}" rows="3" oninput="onEdInput('${f.id}',this.value)" ${locked?'style="background:rgba(65,173,73,.04);border-color:rgba(65,173,73,.4)"':''}>${val}</textarea>`
-    : `<input class="ed-input ${locked?'locked':''}" type="text" id="ef-${f.id}" value="${val}" oninput="onEdInput('${f.id}',this.value)" ${locked?'style="background:rgba(65,173,73,.04);border-color:rgba(65,173,73,.4)"':''}>`;
-  return `<div class="ed-field">
-    <div class="ed-field-label">
-      <span>${f.label}</span>
-      <div class="ed-field-meta">
-        <span class="conf-badge ${f.conf}">${confMap[f.conf]||''}</span>
-        <button class="lock-btn ${locked?'locked':''}" onclick="toggleLock('${f.id}','${f.type||'input'}')" title="${locked?'Kliknij aby odblokować — AI może nadpisać':'Kliknij aby zablokować — AI nie nadpisze tego pola'}">${locked?'🔒':'🔓'}</button>
-      </div>
-    </div>
-    ${inp}
-  </div>`;
-}
-
-function toggleEdSec(headerEl){
-  headerEl.classList.toggle('open');
-  const body = headerEl.nextElementSibling;
-  body.classList.toggle('on');
-  headerEl.querySelector('.ed-chevron').classList.toggle('open');
-}
-
-function onEdInput(id, val){
-  ED[id] = val;
-  buildDocPreview(); // live preview
-}
-
-function toggleLock(id, type){
-  if(lockedFields.has(id)){
-    lockedFields.delete(id);
-    toast('🔓 Pole odblokowane — AI może je nadpisać','warn');
-  } else {
-    lockedFields.add(id);
-    toast('🔒 Pole zablokowane — AI nie nadpisze tego pola');
-  }
-  // Odśwież tylko to pole
-  const f = ED_SECTIONS.flatMap(s=>s.fields).find(x=>x.id===id);
-  if(!f)return;
-  const body = document.getElementById(f.id.startsWith('s-')?f.id : ED_SECTIONS.find(s=>s.fields.some(x=>x.id===id))?.id);
-  buildEditorSections();
-  buildDocPreview();
-}
-
-function getED(id){ return ED[id] || '—'; }
+function openEditor(name){document.getElementById('editor-proj-name').textContent='Estymacja — '+name;const fn=document.getElementById('export-filename');if(fn)fn.value='Estymacja_'+(WZ.client||name).replace(/\s+/g,'_')+'_'+new Date().toISOString().split('T')[0]+'.docx';buildEditorSections();buildDocPreview();show('editor');}
+function buildEditorSections(){document.getElementById('editor-sections').innerHTML=ED_SECTIONS.map((sec,si)=>`<div class="ed-section"><div class="ed-section-h ${si===0?'open':''}" onclick="toggleEdSec(this)"><span>${sec.label}</span><span class="ed-chevron ${si===0?'open':''}">▾</span></div><div class="ed-section-body ${si===0?'on':''}" id="${sec.id}">${sec.fields.map(f=>buildEdField(f)).join('')}</div></div>`).join('');}
+function buildEdField(f){const locked=lockedFields.has(f.id);const confMap={high:'Wysoka pewność',med:'Średnia pewność',low:'Niska pewność'};const val=ED[f.id]||'';const inp=f.type==='textarea'?`<textarea class="ed-input ${locked?'locked':''}" id="ef-${f.id}" rows="3" oninput="onEdInput('${f.id}',this.value)">${val}</textarea>`:`<input class="ed-input ${locked?'locked':''}" type="text" id="ef-${f.id}" value="${val}" oninput="onEdInput('${f.id}',this.value)">`;return`<div class="ed-field"><div class="ed-field-label"><span>${f.label}</span><div class="ed-field-meta"><span class="conf-badge ${f.conf}">${confMap[f.conf]||''}</span><button class="lock-btn ${locked?'locked':''}" onclick="toggleLock('${f.id}')" title="${locked?'Odblokuj — AI może nadpisać':'Zablokuj — AI nie nadpisze'}">${locked?'🔒':'🔓'}</button></div></div>${inp}</div>`;}
+function toggleEdSec(h){h.classList.toggle('open');const b=h.nextElementSibling;b.classList.toggle('on');h.querySelector('.ed-chevron').classList.toggle('open');}
+function onEdInput(id,val){ED[id]=val;buildDocPreview();}
+function toggleLock(id){if(lockedFields.has(id)){lockedFields.delete(id);toast('🔓 Pole odblokowane','warn');}else{lockedFields.add(id);toast('🔒 Pole zablokowane — AI nie nadpisze');}buildEditorSections();buildDocPreview();}
+function getED(id){return ED[id]||'—';}
 
 // ── PODGLĄD DOKUMENTU ──
-function buildDocPreview(){
-  const client = WZ.client || 'Nazwa klienta';
-  const domain = WZ.domain ? WZ.domain.replace(/^https?:\/\//,'').replace(/^www\./,'') : 'domena.pl';
-  const isEC = WZ.industry === 'ecommerce';
-  const yr = new Date().getFullYear();
+function buildDocPreview(){const isEC=WZ.industry==='ecommerce';const domain=WZ.domain?WZ.domain.replace(/^https?:\/\//,'').replace(/^www\./,''):'domena.pl';const yr=new Date().getFullYear();document.getElementById('doc-preview').innerHTML=`<div class="doc-cover"><div class="doc-cover-eyebrow">Estymacja SEO · ${yr}</div><div class="doc-cover-title">Estymacja<br>SEO</div><div class="doc-cover-domain">${domain} · Kwiecień ${yr} – Marzec ${yr+1}</div>${isEC?`<div class="doc-kpi-row"><div class="doc-kpi"><div class="doc-kpi-val">${getED('sessions')}</div><div class="doc-kpi-lbl">Sesje organic/mies.<br>(baseline)</div></div><div class="doc-kpi"><div class="doc-kpi-val">5 000 zł</div><div class="doc-kpi-lbl">Inwestycja SEO/mies.<br>netto</div></div><div class="doc-kpi"><div class="doc-kpi-val">${getED('fGrow')}</div><div class="doc-kpi-lbl">Szacowany wzrost<br>ruchu</div></div><div class="doc-kpi"><div class="doc-kpi-val">4,7x</div><div class="doc-kpi-lbl">ROI po 12 mies.</div></div></div>`:''}</div><div class="doc-body"><div class="doc-section-h">1. Stan obecny — punkt startowy</div><div class="doc-sub-h">1.1 Google Analytics 4</div><table class="doc-table"><thead><tr><th>Wskaźnik GA4</th><th>Wartość</th></tr></thead><tbody><tr><td>Sesje organiczne/mies.</td><td><strong>${getED('sessions')}</strong></td></tr><tr><td>Aktywni użytkownicy/mies.</td><td>${getED('users')}</td></tr><tr><td>Engagement rate</td><td>${getED('engage')}</td></tr><tr><td>Śr. czas trwania sesji</td><td>${getED('stime')}</td></tr></tbody></table><div class="doc-kpi-grid"><div class="doc-kpi-box"><div class="val">${getED('sessions')}</div><div class="lbl">Sesji org./mies.</div></div><div class="doc-kpi-box"><div class="val">${getED('users')}</div><div class="lbl">Aktywnych użytk.</div></div><div class="doc-kpi-box"><div class="val">${getED('engage')}</div><div class="lbl">Engagement rate</div></div><div class="doc-kpi-box"><div class="val">${getED('stime')}</div><div class="lbl">Śr. czas sesji</div></div></div><div class="doc-obs"><strong>Kluczowa obserwacja:</strong> ${getED('obs')}</div><div class="doc-sub-h">1.2 Widoczność organiczna — Ahrefs</div><div class="doc-kpi-grid"><div class="doc-kpi-box"><div class="val">${getED('top10')}</div><div class="lbl">Fraz w TOP 10</div></div><div class="doc-kpi-box"><div class="val">${getED('top3')}</div><div class="lbl">Fraz w TOP 3</div></div><div class="doc-kpi-box"><div class="val">${getED('rd')}</div><div class="lbl">Referring Domains</div></div><div class="doc-kpi-box"><div class="val">${getED('aiCit')}</div><div class="lbl">Cytowania AI</div></div></div><div class="doc-section-h">3. Prognoza miesięczna</div><div class="doc-chart-ph"><span style="font-size:28px">📈</span><span>Wykres generowany po podłączeniu silnika estymacji</span></div><table class="doc-table" style="font-size:11px"><thead><tr><th>Miesiąc</th><th>Sesje (bazowy)</th><th>Frazy TOP 10</th></tr></thead><tbody><tr><td>Kwiecień ${yr}</td><td>1 960–2 100</td><td>143–148</td></tr><tr><td>Wrzesień ${yr}</td><td>2 950–3 500</td><td>205–240</td></tr><tr><td>Marzec ${yr+1}</td><td><strong>${getED('fEnd')}</strong></td><td>${getED('fTop10')}</td></tr></tbody></table><div class="doc-kpi-grid"><div class="doc-kpi-box"><div class="val">${getED('fEnd')}</div><div class="lbl">Sesje/mies. (cel)</div></div><div class="doc-kpi-box"><div class="val">${getED('fGrow')}</div><div class="lbl">Wzrost vs baseline</div></div><div class="doc-kpi-box"><div class="val">${getED('fTop10')}</div><div class="lbl">Frazy TOP 10 (cel)</div></div><div class="doc-kpi-box"><div class="val">${getED('fStart')}</div><div class="lbl">Punkt startowy</div></div></div><div class="doc-section-h">7. Priorytety i rekomendacje</div><div class="doc-sub-h">7.1 Priorytet 1</div><div class="doc-p">${getED('rec1')}</div><div class="doc-sub-h">7.2 Priorytet 2</div><div class="doc-p">${getED('rec2')}</div><div class="doc-section-h">8. Podsumowanie KPI</div><table class="doc-table"><thead><tr><th>KPI</th><th>Stan obecny</th><th>Cel (marzec ${yr+1})</th></tr></thead><tbody><tr><td>Sesje organiczne/mies.</td><td>${getED('sessions')}</td><td><strong>${getED('fEnd')}</strong></td></tr><tr><td>Wzrost vs baseline</td><td>—</td><td><strong>${getED('fGrow')}</strong></td></tr><tr><td>Frazy TOP 10</td><td>${getED('top10')}</td><td><strong>${getED('fTop10')}</strong></td></tr><tr><td>Frazy TOP 3</td><td>${getED('top3')}</td><td><strong>115–152</strong></td></tr><tr><td>Referring Domains</td><td>${getED('rd')}</td><td><strong>~63–66</strong></td></tr></tbody></table></div>`;}
 
-  document.getElementById('doc-preview').innerHTML = `
-  <div class="doc-cover">
-    <div class="doc-cover-eyebrow">Estymacja SEO · ${yr}</div>
-    <div class="doc-cover-title">Estymacja<br>SEO</div>
-    <div class="doc-cover-domain">${domain} · Kwiecień ${yr} – Marzec ${yr+1}</div>
-    ${isEC ? `<div class="doc-kpi-row">
-      <div class="doc-kpi"><div class="doc-kpi-val">${getED('sessions')}</div><div class="doc-kpi-lbl">Sesje organic/mies.<br>(baseline)</div></div>
-      <div class="doc-kpi"><div class="doc-kpi-val">5 000 zł</div><div class="doc-kpi-lbl">Inwestycja SEO/mies.<br>netto</div></div>
-      <div class="doc-kpi"><div class="doc-kpi-val">${getED('fGrow')}</div><div class="doc-kpi-lbl">Szacowany wzrost<br>ruchu</div></div>
-      <div class="doc-kpi"><div class="doc-kpi-val">4,7x</div><div class="doc-kpi-lbl">ROI po 12 mies.<br>przy konwersji 1,5%</div></div>
-    </div>` : ''}
-  </div>
-  <div class="doc-body">
-    <div class="doc-section-h">1. Stan obecny — punkt startowy</div>
-    <div class="doc-sub-h">1.1 Google Analytics 4</div>
-    <table class="doc-table"><thead><tr><th>Wskaźnik GA4</th><th>Wartość</th><th>Uwagi</th></tr></thead><tbody>
-      <tr><td>Sesje organiczne/mies.</td><td><strong>${getED('sessions')}</strong></td><td>Trend ↓ pod koniec okresu</td></tr>
-      <tr><td>Aktywni użytkownicy/mies.</td><td>${getED('users')}</td><td>Powiązany z sesjami</td></tr>
-      <tr><td>Engagement rate</td><td>${getED('engage')}</td><td>Dobry wynik B2B</td></tr>
-      <tr><td>Śr. czas trwania sesji</td><td>${getED('stime')}</td><td>Zaangażowanie powyżej normy</td></tr>
-    </tbody></table>
-    <div class="doc-kpi-grid">
-      <div class="doc-kpi-box"><div class="val">${getED('sessions')}</div><div class="lbl">Sesji org./mies.</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('users')}</div><div class="lbl">Aktywnych użytk.</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('engage')}</div><div class="lbl">Engagement rate</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('stime')}</div><div class="lbl">Śr. czas sesji</div></div>
+// ── SZYBKA ESTYMACJA ──
+function showQuick(){show('quick');document.getElementById('quick-result').innerHTML='<div class="quick-result-ph"><div class="ph-icon">📊</div><p>Wypełnij dane po lewej<br>i kliknij "Generuj szybką estymację"<br>aby zobaczyć wyniki.</p></div>';}
+
+function runQuick(){
+  const sessions=parseInt(document.getElementById('q-sessions').value)||0;
+  const top10=parseInt(document.getElementById('q-top10').value)||0;
+  const lb=parseInt(document.getElementById('q-lb').value)||0;
+  const ext=parseInt(document.getElementById('q-ext').value)||0;
+  const blog=parseInt(document.getElementById('q-blog').value)||0;
+  const horizon=Math.min(parseInt(document.getElementById('q-horizon').value)||12,24);
+  if(!sessions){toast('Podaj przynajmniej liczbę sesji organicznych','warn');return;}
+  const months=['Kwi','Maj','Cze','Lip','Sie','Wrz','Paź','Lis','Gru','Sty','Lut','Mar','Kwi','Maj','Cze','Lip','Sie','Wrz','Paź','Lis','Gru','Sty','Lut','Mar'];
+  const yr=new Date().getFullYear();
+  const rows=[];
+  for(let i=0;i<horizon;i++){
+    const growth=1+((lb*0.008+ext*0.025+blog*0.012)*(i+1)/horizon);
+    const base=Math.round(sessions*growth);
+    rows.push({month:months[i]+' '+(yr+(i>8?1:0)),pess:Math.round(base*.8),base,opt:Math.round(base*1.2),top:Math.round(top10*(1+(lb*0.006+ext*0.015)*(i+1)/horizon))});
+  }
+  const last=rows[rows.length-1];
+  const growthPct=sessions>0?Math.round((last.base-sessions)/sessions*100):0;
+  document.getElementById('quick-result').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800">Wyniki szybkiej estymacji</div>
     </div>
-    <div class="doc-obs"><strong>Kluczowa obserwacja:</strong> ${getED('obs')}</div>
-
-    <div class="doc-sub-h">1.2 Widoczność organiczna — Ahrefs</div>
-    <div class="doc-kpi-grid">
-      <div class="doc-kpi-box"><div class="val">${getED('top10')}</div><div class="lbl">Fraz w TOP 10</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('top3')}</div><div class="lbl">Fraz w TOP 3</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('rd')}</div><div class="lbl">Referring Domains</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('aiCit')}</div><div class="lbl">Cytowania AI Overview</div></div>
+    <div class="warn-box"><strong>⚠️ Wartości orientacyjne</strong> — model uproszczony, bez danych ze screenshotów i bez integracji AI. Po podłączeniu AI estymacja będzie znacznie dokładniejsza.</div>
+    <div class="quick-kpi-grid">
+      <div class="quick-kpi"><div class="quick-kpi-val">${last.base.toLocaleString('pl-PL')}</div><div class="quick-kpi-lbl">Sesje/mies.<br>(scenariusz bazowy)</div></div>
+      <div class="quick-kpi"><div class="quick-kpi-val">+${growthPct}%</div><div class="quick-kpi-lbl">Wzrost vs<br>punkt startowy</div></div>
+      <div class="quick-kpi"><div class="quick-kpi-val">${last.top}</div><div class="quick-kpi-lbl">Szac. frazy<br>w TOP 10</div></div>
     </div>
-
-    <div class="doc-section-h">3. Prognoza miesięczna — sesje organiczne</div>
-    <div class="doc-chart-ph"><span style="font-size:28px">📈</span><span>Wykres wygenerowany po podłączeniu silnika estymacji</span><span style="font-size:11px;color:var(--tx3)">(Etap 5)</span></div>
-    <table class="doc-table" style="font-size:11px"><thead><tr><th>Miesiąc</th><th>Sesje (bazowy)</th><th>Frazy TOP 10</th><th>Linki/mies.</th></tr></thead><tbody>
-      <tr><td>Kwiecień ${yr}</td><td>1 960–2 100</td><td>143–148</td><td>+teksty+LB</td></tr>
-      <tr><td>Czerwiec ${yr}</td><td>2 200–2 500</td><td>162–182</td><td>+teksty+LB</td></tr>
-      <tr><td>Wrzesień ${yr}</td><td>2 950–3 500</td><td>205–240</td><td>+teksty+LB</td></tr>
-      <tr><td>Marzec ${yr+1}</td><td><strong>${getED('fEnd')}</strong></td><td>${getED('fTop10')}</td><td>+teksty+LB</td></tr>
-    </tbody></table>
-    <div class="doc-kpi-grid">
-      <div class="doc-kpi-box"><div class="val">${getED('fEnd')}</div><div class="lbl">Sesje/mies.<br>(cel marzec ${yr+1})</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('fGrow')}</div><div class="lbl">Wzrost vs trend<br>startowy</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('fTop10')}</div><div class="lbl">Frazy TOP 10<br>(cel)</div></div>
-      <div class="doc-kpi-box"><div class="val">${getED('fStart')}</div><div class="lbl">Punkt startowy<br>(sesje/mies.)</div></div>
-    </div>
-
-    <div class="doc-section-h">7. Priorytety i rekomendacje</div>
-    <div class="doc-sub-h">7.1 Priorytet 1</div>
-    <div class="doc-p">${getED('rec1')}</div>
-    <div class="doc-sub-h">7.2 Priorytet 2</div>
-    <div class="doc-p">${getED('rec2')}</div>
-
-    <div class="doc-section-h">8. Podsumowanie KPI na 12 miesięcy</div>
-    <table class="doc-table"><thead><tr><th>KPI / Wskaźnik</th><th>Stan obecny</th><th>Cel (marzec ${yr+1})</th></tr></thead><tbody>
-      <tr><td>Sesje organiczne/mies. (GA4)</td><td>${getED('sessions')}</td><td><strong>${getED('fEnd')}</strong></td></tr>
-      <tr><td>Wzrost vs trend startowy</td><td>—</td><td><strong>${getED('fGrow')}</strong></td></tr>
-      <tr><td>Frazy w TOP 10 (Ahrefs)</td><td>${getED('top10')}</td><td><strong>${getED('fTop10')}</strong></td></tr>
-      <tr><td>Frazy w TOP 3 (Ahrefs)</td><td>${getED('top3')}</td><td><strong>115–152</strong></td></tr>
-      <tr><td>Referring Domains zewn.</td><td>${getED('rd')}</td><td><strong>~63–66</strong></td></tr>
-    </tbody></table>
-  </div>`;
+    <div style="overflow-x:auto">
+    <table class="quick-table">
+      <thead><tr><th>Miesiąc</th><th>Ostrożny</th><th>Bazowy</th><th>Optymistyczny</th><th>TOP 10</th></tr></thead>
+      <tbody>${rows.map(r=>`<tr><td>${r.month}</td><td>${r.pess.toLocaleString('pl-PL')}</td><td class="quick-highlight">${r.base.toLocaleString('pl-PL')}</td><td>${r.opt.toLocaleString('pl-PL')}</td><td>${r.top}</td></tr>`).join('')}</tbody>
+    </table></div>`;
 }
 
-function doExport(){
-  closeModal('export');
-  loading('Przygotowanie eksportu…');
-  setTimeout(()=>{
-    stopLoad();
-    toast('Eksport .docx dostępny po podłączeniu szablonu Sempai i weryfikacji IT','warn');
-  },1200);
-}
+function doExport(){closeModal('export');loading('Przygotowanie eksportu…');setTimeout(()=>{stopLoad();toast('Eksport .docx dostępny po podłączeniu szablonu Sempai i weryfikacji IT','warn');},1000);}
 
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.u-pill')&&!e.target.closest('.u-dd'))document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));
-  document.querySelectorAll('.mbg').forEach(m=>{if(e.target===m)m.classList.remove('on');});
-  // Toggle export options
-  document.querySelectorAll('.export-opt').forEach(o=>{
-    const inp=o.querySelector('input');
-    if(inp&&inp.checked)o.classList.add('on');
-    else if(inp)o.classList.remove('on');
-  });
-});
-
+document.addEventListener('click',e=>{if(!e.target.closest('.u-pill')&&!e.target.closest('.u-dd'))document.querySelectorAll('.u-dd').forEach(d=>d.classList.remove('on'));document.querySelectorAll('.mbg').forEach(m=>{if(e.target===m)m.classList.remove('on');});});
 (function(){const t=localStorage.getItem('smp_theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('[id^=theme-btn]').forEach(b=>b.textContent=t==='dark'?'🌙':'☀️');injectLogos();})();
 </script>
 </body>
